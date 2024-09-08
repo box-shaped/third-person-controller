@@ -1,0 +1,113 @@
+[gd_scene load_steps=3 format=3 uid="uid://dlcingyoys2kd"]
+
+[ext_resource type="Script" path="res://addons/gridmap-plus/dock/Dock.gd" id="1_bn7c7"]
+[ext_resource type="Texture2D" uid="uid://c7o451hql58hh" path="res://addons/gridmap-plus/assets/icons/Build.svg" id="2_ldijc"]
+
+[node name="Dock" type="VBoxContainer"]
+custom_minimum_size = Vector2(0, 180)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bn7c7")
+
+[node name="Toolbar" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="BuildButton" type="Button" parent="Toolbar"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Enter Build Mode"
+icon = ExtResource("2_ldijc")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PanelContents" type="HBoxContainer" parent="Panel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/PanelContents"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBox" type="VBoxContainer" parent="Panel/PanelContents/MarginContainer"]
+layout_mode = 2
+
+[node name="ItemImage" type="TextureRect" parent="Panel/PanelContents/MarginContainer/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="ItemName" type="Label" parent="Panel/PanelContents/MarginContainer/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "ItemName"
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="Panel/PanelContents"]
+layout_mode = 2
+columns = 2
+
+[node name="Label" type="Label" parent="Panel/PanelContents/GridContainer"]
+layout_mode = 2
+text = "Placement mode"
+
+[node name="AlignmentMode" type="OptionButton" parent="Panel/PanelContents/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+item_count = 5
+popup/item_0/text = "Upwards"
+popup/item_1/text = "Outwards"
+popup/item_1/id = 1
+popup/item_2/text = "Upwards random"
+popup/item_2/id = 2
+popup/item_3/text = "Outwards random"
+popup/item_3/id = 3
+popup/item_4/text = "Fully random"
+popup/item_4/id = 4
+
+[node name="Label2" type="Label" parent="Panel/PanelContents/GridContainer"]
+layout_mode = 2
+text = "Hotbar shortcut"
+
+[node name="HotbarMode" type="OptionButton" parent="Panel/PanelContents/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+selected = 0
+item_count = 11
+popup/item_0/text = "None"
+popup/item_1/text = "1"
+popup/item_1/id = 1
+popup/item_2/text = "2"
+popup/item_2/id = 2
+popup/item_3/text = "3"
+popup/item_3/id = 3
+popup/item_4/text = "4"
+popup/item_4/id = 4
+popup/item_5/text = "5"
+popup/item_5/id = 5
+popup/item_6/text = "6"
+popup/item_6/id = 6
+popup/item_7/text = "7"
+popup/item_7/id = 7
+popup/item_8/text = "8"
+popup/item_8/id = 8
+popup/item_9/text = "9"
+popup/item_9/id = 9
+popup/item_10/text = "0"
+popup/item_10/id = 10
+
+[connection signal="pressed" from="Toolbar/BuildButton" to="." method="_on_build_button_pressed"]
+[connection signal="item_selected" from="Panel/PanelContents/GridContainer/AlignmentMode" to="." method="_on_alignment_mode_item_selected"]
+[connection signal="item_selected" from="Panel/PanelContents/GridContainer/HotbarMode" to="." method="_on_hotbar_mode_item_selected"]

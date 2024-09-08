@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bywy81xxty6mu"
+path="res://.godot/imported/sack.obj-5405f0e6568ab1867ec8d91cbd6c7c09.mesh"
+
+[deps]
+
+files=["res://.godot/imported/sack.obj-5405f0e6568ab1867ec8d91cbd6c7c09.mesh"]
+
+source_file="res://Assets/Models/KayKit_Medieval_Hexagon_Pack_1.0_FREE/Assets/obj/decoration/props/sack.obj"
+dest_files=["res://.godot/imported/sack.obj-5405f0e6568ab1867ec8d91cbd6c7c09.mesh", "res://.godot/imported/sack.obj-5405f0e6568ab1867ec8d91cbd6c7c09.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

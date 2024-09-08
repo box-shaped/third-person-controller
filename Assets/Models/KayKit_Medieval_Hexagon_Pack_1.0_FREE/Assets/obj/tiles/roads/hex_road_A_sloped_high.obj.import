@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://d34sym8df0vq3"
+path="res://.godot/imported/hex_road_A_sloped_high.obj-5795b2d43e930f96c8e3e48ea7cfa00c.mesh"
+
+[deps]
+
+files=["res://.godot/imported/hex_road_A_sloped_high.obj-5795b2d43e930f96c8e3e48ea7cfa00c.mesh"]
+
+source_file="res://Assets/Models/KayKit_Medieval_Hexagon_Pack_1.0_FREE/Assets/obj/tiles/roads/hex_road_A_sloped_high.obj"
+dest_files=["res://.godot/imported/hex_road_A_sloped_high.obj-5795b2d43e930f96c8e3e48ea7cfa00c.mesh", "res://.godot/imported/hex_road_A_sloped_high.obj-5795b2d43e930f96c8e3e48ea7cfa00c.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

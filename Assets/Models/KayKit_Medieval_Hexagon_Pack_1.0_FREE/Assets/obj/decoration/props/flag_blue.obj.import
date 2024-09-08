@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dmj4kqy6q387n"
+path="res://.godot/imported/flag_blue.obj-3f5beaf9ae722d9b1d6daf6d6696a6f1.mesh"
+
+[deps]
+
+files=["res://.godot/imported/flag_blue.obj-3f5beaf9ae722d9b1d6daf6d6696a6f1.mesh"]
+
+source_file="res://Assets/Models/KayKit_Medieval_Hexagon_Pack_1.0_FREE/Assets/obj/decoration/props/flag_blue.obj"
+dest_files=["res://.godot/imported/flag_blue.obj-3f5beaf9ae722d9b1d6daf6d6696a6f1.mesh", "res://.godot/imported/flag_blue.obj-3f5beaf9ae722d9b1d6daf6d6696a6f1.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

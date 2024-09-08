@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://3mrnmxg1sfwr"
+path="res://.godot/imported/building_watermill_green.obj-b4b71801173a21cd08d2424068064698.mesh"
+
+[deps]
+
+files=["res://.godot/imported/building_watermill_green.obj-b4b71801173a21cd08d2424068064698.mesh"]
+
+source_file="res://Assets/Models/KayKit_Medieval_Hexagon_Pack_1.0_FREE/Assets/obj/buildings/green/building_watermill_green.obj"
+dest_files=["res://.godot/imported/building_watermill_green.obj-b4b71801173a21cd08d2424068064698.mesh", "res://.godot/imported/building_watermill_green.obj-b4b71801173a21cd08d2424068064698.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

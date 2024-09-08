@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://da2bdi47qrfar"
+path="res://.godot/imported/building_tower_A_green.obj-855fb6b34034a477495a1cd0aa714b40.mesh"
+
+[deps]
+
+files=["res://.godot/imported/building_tower_A_green.obj-855fb6b34034a477495a1cd0aa714b40.mesh"]
+
+source_file="res://Assets/Models/KayKit_Medieval_Hexagon_Pack_1.0_FREE/Assets/obj/buildings/green/building_tower_A_green.obj"
+dest_files=["res://.godot/imported/building_tower_A_green.obj-855fb6b34034a477495a1cd0aa714b40.mesh", "res://.godot/imported/building_tower_A_green.obj-855fb6b34034a477495a1cd0aa714b40.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

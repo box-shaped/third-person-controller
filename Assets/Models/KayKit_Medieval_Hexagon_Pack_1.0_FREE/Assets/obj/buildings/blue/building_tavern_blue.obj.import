@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bg451vlacxm6"
+path="res://.godot/imported/building_tavern_blue.obj-d0b3e25fc1cc0b776c72513eeb714a4c.mesh"
+
+[deps]
+
+files=["res://.godot/imported/building_tavern_blue.obj-d0b3e25fc1cc0b776c72513eeb714a4c.mesh"]
+
+source_file="res://Assets/Models/KayKit_Medieval_Hexagon_Pack_1.0_FREE/Assets/obj/buildings/blue/building_tavern_blue.obj"
+dest_files=["res://.godot/imported/building_tavern_blue.obj-d0b3e25fc1cc0b776c72513eeb714a4c.mesh", "res://.godot/imported/building_tavern_blue.obj-d0b3e25fc1cc0b776c72513eeb714a4c.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
