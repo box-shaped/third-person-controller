@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://daiwe018q64hr"]
+
+[ext_resource type="ArrayMesh" uid="uid://f4jir7l23ekn" path="res://Assets/Models/KayKit_Medieval_Hexagon_Pack_1.0_FREE/Assets/obj/tiles/base/hex_grass.obj" id="1_uuk4q"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="defaultGrass2" type="StaticBody3D" parent="."]
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="defaultGrass2"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.361636, -0.501374, 1.31313)
+polygon = PackedVector2Array(0.356646, -2.46765, 1.36242, -1.88982, 1.36131, -0.735693, 0.361923, -0.158331, -0.638389, -0.735688, -0.637588, -1.89193)
+margin = 0.001
+
+[node name="HexGrass" type="MeshInstance3D" parent="defaultGrass2"]
+mesh = ExtResource("1_uuk4q")
+skeleton = NodePath("../..")

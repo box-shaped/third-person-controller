@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://daiwe018q64hr"]
+[gd_scene load_steps=2 format=3 uid="uid://c42gko7o5vvar"]
 
 [ext_resource type="ArrayMesh" uid="uid://f4jir7l23ekn" path="res://Assets/Models/KayKit_Medieval_Hexagon_Pack_1.0_FREE/Assets/obj/tiles/base/hex_grass.obj" id="1_uuk4q"]
 
-[node name="Node3D" type="Node3D"]
+[node name="LibNode" type="Node3D"]
 
 [node name="defaultGrass2" type="StaticBody3D" parent="."]
 

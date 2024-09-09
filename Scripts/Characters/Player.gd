@@ -61,6 +61,3 @@ func animate(delta):
 			animator.set("parameters/iwr_blend/blend_amount", lerp(animator.get("parameters/iwr_blend/blend_amount"), -1.0, delta * ANIMATION_BLEND))
 	else:
 		animator.set("parameters/ground_air_transition/transition_request", "air")
-func _input(event):
-	if event.is_action_pressed("closeGame"):
-		get_tree().quit()
