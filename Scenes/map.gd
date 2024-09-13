@@ -1,10 +1,11 @@
 extends Node3D
 
 #For 2D games this will be the hight/width of your hexagon sprite
-@export var _cellSize : Vector2 = Vector2(1,1)
+@export var _cellSize : Vector2 = Vector2(1.15,1.15)
 @export var _mapSize : Vector2 = Vector2(5,10)
 @export var mapDiameter:int=101
-@export var BUMP:float=0.1
+@export var BUMP:float=0.03
+@export var mapHeight = 10
 var worldmap:Dictionary = {}
 var noisegen = FastNoiseLite.new()
 
@@ -18,15 +19,17 @@ func _ready():
 	worldmap = initmap(mapDiameter)
 	translate(Vector3(-center[0].x, 0 ,-center[0].y))
 	var player = get_node("../Player")
-	player.translate(Vector3(0, 1+center[1] ,0))
+	
+	player.position = Vector3(0, clamp(1*center[1],0,INF) ,0)
 	generateMap()
 	var endTime = Time.get_unix_time_from_system()
 	print(endTime-startTime)
-
+	done.emit()
+signal done
 func _cellToPixel(cell : Vector2) -> Array:
 	var x = (sqrt(3.0) * cell.x + sqrt(3.0) / 2.0 * cell.y) * _cellSize.x
 	var y = (0.0 * cell.x + 3.0 / 2.0 * cell.y) * _cellSize.y
-	return [Vector2(x, y),noisegen.get_noise_2dv(cell)]
+	return [Vector2(x, y),noisegen.get_noise_2dv(cell)*mapHeight]
 #I am so proud of how elegant this is
 func initmap(diameter):
 	var radius:int = (diameter-1)/2
@@ -40,18 +43,22 @@ func initmap(diameter):
 	return(world_map)
 
 func generateMap():
-	
+	var TileLibrary = preload("res://Library.tscn")
 	for x in range(mapDiameter):
 		for y in range(mapDiameter):
 			var cell = Vector2i(x,y)
 			if worldmap[str(cell)]:
-				var TileLibrary = preload("res://Library.tscn")
-				var hexTile = TileLibrary.instantiate().get_child(0)
-				var tilePosition =  _cellToPixel(cell)
-				#For 2D games use hexTile.position = tilePosition
+				var tilePosition = _cellToPixel(cell)
 				var offset: float = tilePosition[1]
 				var coord:Vector2 = tilePosition[0]
-				hexTile.position = Vector3(coord.x,offset, coord.y)
+				#print(offset)
+				var hexTile
+				if offset>50:
+					hexTile = TileLibrary.instantiate().find_child("defaultGrass")
+				else:
+					hexTile = TileLibrary.instantiate().find_child("defaultGrass")
+				var tileCoords = Vector3(coord.x,offset, coord.y)
+				hexTile.position = tileCoords
 				hexTile.scale = (Vector3(1,1+offset,1))
 				hexTile.get_parent().remove_child(hexTile)
 				hexTile.set_owner(null)

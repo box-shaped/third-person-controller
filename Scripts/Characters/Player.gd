@@ -16,8 +16,15 @@ const ANIMATION_BLEND : float = 7.0
 @onready var player_mesh : Node3D = $Mesh
 @onready var spring_arm_pivot : Node3D = $SpringArmPivot
 @onready var animator : AnimationTree = $AnimationTree
-
+@onready var marker = $"../Buildmarker"
+@onready var ray = find_child("Ray")
+func _ready():
+	ray.add_exception($".")
+#input_event(find_node("Camera3D"), event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int)
 func _physics_process(delta):
+	if ray.is_colliding():
+		marker.position = ray.get_collision_point()
+	
 	var move_direction : Vector3 = Vector3.ZERO
 	move_direction.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 	move_direction.z = Input.get_action_strength("move_backwards") - Input.get_action_strength("move_forwards")
@@ -61,3 +68,8 @@ func animate(delta):
 			animator.set("parameters/iwr_blend/blend_amount", lerp(animator.get("parameters/iwr_blend/blend_amount"), -1.0, delta * ANIMATION_BLEND))
 	else:
 		animator.set("parameters/ground_air_transition/transition_request", "air")
+
+
+func _on_map_done() -> void:
+	pass
+	

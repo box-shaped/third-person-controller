@@ -17,7 +17,7 @@ func _unhandled_input(event):
 	if event is InputEventMouseMotion:
 		rotate_y(-event.relative.x * 0.005)
 		spring_arm.rotate_x(-event.relative.y * 0.005)
-		spring_arm.rotation.x = clamp(spring_arm.rotation.x, -PI/4, PI/4)
+		spring_arm.rotation.x = clamp(spring_arm.rotation.x, -PI/2, PI/2)
 
 func _physics_process(_delta):
 	if change_fov_on_run:
