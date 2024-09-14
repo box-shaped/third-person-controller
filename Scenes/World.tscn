@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://coue2qehpn4fr"]
+[gd_scene load_steps=14 format=3 uid="uid://coue2qehpn4fr"]
 
 [ext_resource type="Script" path="res://Scenes/handleInput.gd" id="1_fcw4y"]
 [ext_resource type="Texture2D" uid="uid://doyodkg1ds7td" path="res://Assets/Textures/Sky.png" id="1_rrvcb"]
@@ -20,6 +20,14 @@ tonemap_mode = 3
 glow_enabled = true
 
 [sub_resource type="SphereMesh" id="SphereMesh_xjcjk"]
+
+[sub_resource type="PlaceholderMaterial" id="PlaceholderMaterial_qijwl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x4koj"]
+next_pass = SubResource("PlaceholderMaterial_qijwl")
+
+[sub_resource type="BoxMesh" id="BoxMesh_76oim"]
+material = SubResource("StandardMaterial3D_x4koj")
 
 [node name="World" type="Node3D"]
 script = ExtResource("1_fcw4y")
@@ -51,5 +59,11 @@ script = ExtResource("7_fw6md")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Buildmarker"]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 mesh = SubResource("SphereMesh_xjcjk")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 1, 0, 41.9009, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_76oim")
 
 [connection signal="done" from="Map" to="Player" method="_on_map_done"]
