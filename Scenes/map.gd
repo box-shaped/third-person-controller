@@ -92,7 +92,9 @@ func _input(event):
 		if ray.is_colliding():
 			print(ray.get_collision_normal())
 			if ray.get_collision_normal().y==1:
-				placeBlock("House1",ray.get_collision_point())
+				var blocktype= $"../CanvasLayer/Control".getActive()
+				print(blocktype)
+				placeBlock(blocktype,ray.get_collision_point())
 				print("raycollision",ray.get_collision_point())
 				print("playerpos: ",$"../Player".position)
 

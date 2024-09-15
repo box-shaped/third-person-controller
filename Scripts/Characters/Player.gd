@@ -70,6 +70,4 @@ func animate(delta):
 		animator.set("parameters/ground_air_transition/transition_request", "air")
 
 
-func _on_map_done() -> void:
-	pass
 	

@@ -34,6 +34,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.001, 0)
 shape = SubResource("ConcavePolygonShape3D_qj3ix")
 
 [node name="defaultGrass" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="defaultGrass"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.361636, -0.501374, 1.31313)

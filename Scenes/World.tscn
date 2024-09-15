@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://coue2qehpn4fr"]
+[gd_scene load_steps=15 format=3 uid="uid://coue2qehpn4fr"]
 
 [ext_resource type="Script" path="res://Scenes/handleInput.gd" id="1_fcw4y"]
 [ext_resource type="Texture2D" uid="uid://doyodkg1ds7td" path="res://Assets/Textures/Sky.png" id="1_rrvcb"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dui7uwlsjjhva" path="res://Scenes/PauseMenu.tscn" id="7_ek5ne"]
 [ext_resource type="Script" path="res://Scenes/buildmarker.gd" id="7_fw6md"]
 [ext_resource type="Script" path="res://Scenes/map.gd" id="7_lnf4s"]
+[ext_resource type="PackedScene" uid="uid://70jkdnbljbt3" path="res://HUD.tscn" id="7_o4hjv"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6c4vd"]
 panorama = ExtResource("1_rrvcb")
@@ -65,5 +66,12 @@ transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 1, 0, 41.9009, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
 mesh = SubResource("BoxMesh_76oim")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+follow_viewport_enabled = true
+
+[node name="Control" parent="CanvasLayer" instance=ExtResource("7_o4hjv")]
+mouse_filter = 2
 
 [connection signal="done" from="Map" to="Player" method="_on_map_done"]
