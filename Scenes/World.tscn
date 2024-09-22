@@ -50,6 +50,7 @@ floor_stop_on_slope = true
 
 [node name="Map" type="Node3D" parent="."]
 script = ExtResource("7_lnf4s")
+_cellSize = Vector2(1.14, 1.14)
 
 [node name="Control" parent="." instance=ExtResource("7_ek5ne")]
 process_mode = 3

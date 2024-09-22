@@ -2,6 +2,9 @@ extends Control
 @onready var GRID = $GridContainer
 var hotbarlength = 3
 var active = 1
+var slotSize = Vector2(64,64)
+var margin = 10
+var seperator = 10
 var hotbarItems={
 	1:"House1",
 	2:"House2",
@@ -11,7 +14,9 @@ func getActive():
 	return hotbarItems[active]
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	GRID.get_child(0).button_pressed = true
+	#$GridContainer.size = Vector2(slotSize.y+margin,(slotSize.x+seperator)*hotbarlength+2*margin)
+	for i in hotbarlength:
+		$GridContainer.get_child(i).size = slotSize
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
