@@ -8,7 +8,7 @@ var seperator = 10
 var hotbarItems={
 	1:"House1",
 	2:"House2",
-	3:"defaultGrass"
+	3:"Gun"
 }
 func getActive():
 	return hotbarItems[active]
@@ -41,3 +41,7 @@ func _on_button_2_pressed() -> void:
 func _on_button_3_pressed() -> void:
 	active = 3
 	print(3)
+
+
+func _on_player_crosshair(visibility: bool) -> void:
+	$Container.visible = visibility

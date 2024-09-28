@@ -4,20 +4,21 @@ extends Node3D
 @export var change_fov_on_run : bool
 @export var normal_fov : float = 75.0
 @export var run_fov : float = 90.0
-
+@export var defaultsensitivity:float = 0.003
+var sensitivity:float = defaultsensitivity
 const CAMERA_BLEND : float = 0.05
 
-@onready var spring_arm : SpringArm3D = $SpringArm3D
-@onready var camera : Camera3D = $SpringArm3D/Camera3D
+@onready var pivot : Node3D = $"."
+@onready var camera : Camera3D = $Camera3D
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
-		rotate_y(-event.relative.x * 0.005)
-		spring_arm.rotate_x(-event.relative.y * 0.005)
-		spring_arm.rotation.x = clamp(spring_arm.rotation.x, -PI/2.3, PI/2.3)
+		$"..".rotate_y(-event.relative.x * sensitivity)
+		pivot.rotate_x(-event.relative.y * sensitivity)
+		pivot.rotation.x = clamp(pivot.rotation.x, -PI/2.3, PI/2.3)
 
 func _physics_process(_delta):
 	if change_fov_on_run:
