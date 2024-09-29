@@ -4,15 +4,16 @@
 [ext_resource type="PackedScene" uid="uid://bf0l1jvbxrei4" path="res://Scenes/Characters/skeleton_warrior.tscn" id="2_n520h"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_n2kyu"]
-height = 2.34559
+height = 2.38243
 
 [node name="Enemy" type="CharacterBody3D" groups=["Enemy"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.15, 0)
 axis_lock_angular_x = true
 axis_lock_angular_z = true
 script = ExtResource("1_j1xpa")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.20423, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.20073, 0)
 shape = SubResource("CapsuleShape3D_n2kyu")
 
 [node name="Skeleton_Warrior" parent="." instance=ExtResource("2_n520h")]
@@ -22,4 +23,4 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 
 avoidance_enabled = true
 
 [node name="HeightGetterRay" type="RayCast3D" parent="."]
-target_position = Vector3(0, -20, 0)
+target_position = Vector3(0, -40, 0)

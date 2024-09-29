@@ -18,6 +18,8 @@ var threshold: float = 0.1 # Distance threshold to next position
 const PATH_UPDATE_INTERVAL: float = 0.1 # How often to update the path in seconds
 var veelocity: Vector3 = Vector3() # Store velocity for movement
 
+
+
 func _physics_process(delta: float) -> void:
 	cooldown-=delta
 	var current_location = global_transform.origin
@@ -29,7 +31,6 @@ func _physics_process(delta: float) -> void:
 		next_path_update_time = PATH_UPDATE_INTERVAL
 		update_animation()
 		
-
 	# Calculate velocity if there's a valid path to follow
 	var direction = next_location - current_location
 	if direction.length() > threshold:  # Only move if there's meaningful distance
@@ -44,11 +45,12 @@ signal selfDie
 func die():
 	self.queue_free()
 	selfDie.emit()
-	
+signal attackSignal
 func attack():
 	cooldown = attackcooldown
 	$Skeleton_Warrior/AnimationPlayer.play("Unarmed_Melee_Attack_Punch_A")
 	print("he atacceth")
+	attackSignal.emit(damage)
 func update_animation():
 	if !$Skeleton_Warrior/AnimationPlayer.is_playing():
 		if cooldown>0:
@@ -59,7 +61,9 @@ func update_animation():
 func _ready():
 	#nav_agent.target_location = $"..".centre
 	#selfDie.connect($".."._on_enemy_death())
-	pass
+	var pos = $HeightGetterRay.get_collision_point().y
+	print(pos)
+	if pos>0: position.y = pos
 	
 func update_target_location(target_location):
 	nav_agent.target_location = target_location

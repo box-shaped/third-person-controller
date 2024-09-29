@@ -1,5 +1,9 @@
 extends StaticBody3D
-@export var Health = 100
+@export var health = 50:
+	set(value):
+		health = value
+		if value<=0:
+			startdie()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -10,11 +14,17 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
+func startdie():
+	castleGone.emit()
 
+func die():
+	self.queue_free()
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	print("castle collided")
 	if body.is_in_group("Enemy"): 
 		if body.cooldown<=0: 
 			body.attack()
 			print("attempting attack")
-			Health -= body.damage
+			health -= body.damage
+			print(health)
+			

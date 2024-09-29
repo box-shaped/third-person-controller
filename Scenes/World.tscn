@@ -22,6 +22,8 @@ tonemap_mode = 3
 glow_enabled = true
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_vt7v6"]
+cell_size = 0.1
+cell_height = 0.1
 agent_max_climb = 0.75
 
 [sub_resource type="SphereMesh" id="SphereMesh_xjcjk"]
@@ -64,6 +66,7 @@ navigation_mesh = SubResource("NavigationMesh_vt7v6")
 
 [node name="Map" type="Node3D" parent="NavigationRegion3D"]
 script = ExtResource("7_lnf4s")
+_cellSize = Vector2(1.13, 1.13)
 
 [node name="Control" parent="." instance=ExtResource("7_ek5ne")]
 process_mode = 3

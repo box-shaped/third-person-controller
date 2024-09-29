@@ -103,3 +103,4 @@ func shoot():
 			shot_at.health -= 25
 	$Pivot/Camera3D/Gun/muzzleFlash.muzzleFlash()
 	$AnimationPlayer.play("assaultFire")
+	$"Single-gunshot-52-80191".play()
