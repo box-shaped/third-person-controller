@@ -1,0 +1,63 @@
+[gd_scene load_steps=4 format=3 uid="uid://70jkdnbljbt3"]
+
+[ext_resource type="Script" path="res://HUD/hud.gd" id="1_3gqfi"]
+[ext_resource type="Texture2D" uid="uid://25jay3hyrab6" path="res://Assets/House.png" id="2_u6m4s"]
+[ext_resource type="Texture2D" uid="uid://cqhu4sm5ijtrr" path="res://Assets/crosshair-removebg-preview.png" id="4_p1f4r"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3gqfi")
+
+[node name="GridContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -72.0
+offset_right = 100.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Button" type="Button" parent="GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+icon = ExtResource("2_u6m4s")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Button2" type="Button" parent="GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+expand_icon = true
+
+[node name="Button3" type="Button" parent="GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+icon = ExtResource("2_u6m4s")
+expand_icon = true
+
+[node name="Container" type="Container" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Crosshair-removebg-preview" type="Sprite2D" parent="Container"]
+texture = ExtResource("4_p1f4r")
+
+[connection signal="pressed" from="GridContainer/Button" to="." method="_on_button_1_pressed"]
+[connection signal="pressed" from="GridContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="GridContainer/Button3" to="." method="_on_button_3_pressed"]
