@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://coue2qehpn4fr"]
+[gd_scene load_steps=17 format=3 uid="uid://coue2qehpn4fr"]
 
 [ext_resource type="Script" path="res://main/handleInput.gd" id="1_fcw4y"]
 [ext_resource type="PackedScene" uid="uid://cr2ersq7g6q6f" path="res://Scene/Player/player.tscn" id="2_1g73n"]
+[ext_resource type="Script" path="res://Scene/Map/navmesh.gd" id="3_sinil"]
 [ext_resource type="PackedScene" uid="uid://dui7uwlsjjhva" path="res://HUD/PauseMenu.tscn" id="7_ek5ne"]
 [ext_resource type="Script" path="res://Scene/Map/map.gd" id="7_lnf4s"]
 [ext_resource type="PackedScene" uid="uid://70jkdnbljbt3" path="res://HUD/HUD.tscn" id="7_o4hjv"]
@@ -19,9 +20,8 @@ tonemap_mode = 3
 glow_enabled = true
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_vt7v6"]
-cell_size = 0.1
-cell_height = 0.1
 agent_max_climb = 0.75
+vertices_per_polygon = 3.0
 
 [sub_resource type="SphereMesh" id="SphereMesh_xjcjk"]
 
@@ -41,6 +41,7 @@ _data = {
 point_count = 19
 
 [node name="World" type="Node3D"]
+process_mode = 1
 script = ExtResource("1_fcw4y")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -58,6 +59,7 @@ directional_shadow_blend_splits = true
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_vt7v6")
+script = ExtResource("3_sinil")
 
 [node name="Map" type="Node3D" parent="NavigationRegion3D"]
 script = ExtResource("7_lnf4s")
@@ -92,3 +94,6 @@ curve = SubResource("Curve3D_ylc5q")
 transform = Transform3D(-0.98172, 0, 0.190334, 0, 1, 0, -0.190334, 0, -0.98172, 113.899, 0, 0.0163039)
 
 [node name="PauseMenu" parent="." instance=ExtResource("7_ek5ne")]
+
+[connection signal="enemy" from="NavigationRegion3D/Map" to="MonsterSpawner" method="_on_map_enemy"]
+[connection signal="rebake" from="NavigationRegion3D/Map" to="NavigationRegion3D" method="_on_map_rebake"]

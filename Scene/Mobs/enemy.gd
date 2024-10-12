@@ -67,5 +67,5 @@ func _ready():
 	
 func update_target_location(target_location):
 	nav_agent.target_location = target_location
-	look_at(nav_agent.target_location)
+	look_at(Vector3(nav_agent.target_location.x,position.y,nav_agent.target_location.z))
 	pass

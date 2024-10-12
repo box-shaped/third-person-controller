@@ -7,7 +7,7 @@ var margin = 10
 var seperator = 10
 var hotbarItems={
 	1:"House1",
-	2:"House2",
+	2:"Tower",
 	3:"Gun"
 }
 func getActive():

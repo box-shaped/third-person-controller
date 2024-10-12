@@ -14,12 +14,12 @@ const CAMERA_BLEND : float = 0.05
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
-func _unhandled_input(event):
+func _input(event):
 	if event is InputEventMouseMotion:
 		$"..".rotate_y(-event.relative.x * sensitivity)
 		pivot.rotate_x(-event.relative.y * sensitivity)
 		pivot.rotation.x = clamp(pivot.rotation.x, -PI/2.3, PI/2.3)
-		print("work i pray")
+		#print("work i pray")
 
 func _physics_process(_delta):
 	if change_fov_on_run:
@@ -30,8 +30,3 @@ func _physics_process(_delta):
 				camera.fov = lerp(camera.fov, normal_fov, CAMERA_BLEND)
 		else:
 			camera.fov = lerp(camera.fov, normal_fov, CAMERA_BLEND)
-	var event = Input
-	if event is InputEventMouseMotion:
-		$"..".rotate_y(-event.relative.x * sensitivity)
-		pivot.rotate_x(-event.relative.y * sensitivity)
-		pivot.rotation.x = clamp(pivot.rotation.x, -PI/2.3, PI/2.3)

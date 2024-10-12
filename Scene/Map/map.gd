@@ -144,7 +144,7 @@ func pixel_to_pointy_hex(point: Vector2) -> Vector2i:
 	return Vector2i(round(x), round(y))
 
 @onready var ray = $"../../Player/Pivot/Camera3D/Ray"
-
+signal rebake
 func placeBlock(blockID: String, coordinates: Vector3, debug: bool = true, scalee: bool = false,centergrass:bool=false):
 	# Convert world coordinates (ray collision) to grid coordinates
 	
@@ -171,7 +171,7 @@ func placeBlock(blockID: String, coordinates: Vector3, debug: bool = true, scale
 	var hexTile = TileLibrary.instantiate().find_child(blockID)
 	hexTile.position = tileCoords
 	
-	# Optionally scale the tile if `scalee` is true
+	# Optionally scale the tile if scalee is true
 	if scalee:
 		hexTile.scale = Vector3(1, 1 + tile_height, 1)
 		
@@ -179,6 +179,7 @@ func placeBlock(blockID: String, coordinates: Vector3, debug: bool = true, scale
 	hexTile.get_parent().remove_child(hexTile)
 	hexTile.set_owner(null)
 	add_child(hexTile)
+	if not scalee: rebake.emit()
 	return hexTile
 
 func get_neighbors(cell: Vector2i) -> Array:
