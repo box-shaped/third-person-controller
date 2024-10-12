@@ -8,8 +8,8 @@ var speed : float
 @export_group("Movement variables")
 @export var walk_speed : float = 3.0
 @export var run_speed : float = 6.0
-@export var jump_strength : float = 15.0
-@export var gravity : float = 30.0
+@export var jump_strength : float = 10.0
+@export var gravity : float = 32.0
 @export var hipfire_pos:Vector3 = Vector3(0.97,-0.66,-0.66)
 @export var ADS_pos:Vector3 = Vector3(0.,-0.265,-0.5)
 @export var ADS_LERP = 20
@@ -103,4 +103,4 @@ func shoot():
 			shot_at.health -= 25
 	$Pivot/Camera3D/Gun/muzzleFlash.muzzleFlash()
 	$AnimationPlayer.play("assaultFire")
-	$"Single-gunshot-52-80191".play()
+	$"../Single-gunshot-52-80191".play()

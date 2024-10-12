@@ -14,7 +14,7 @@ const CAMERA_BLEND : float = 0.05
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
-func _unhandled_input(event):
+func _input(event):
 	if event is InputEventMouseMotion:
 		$"..".rotate_y(-event.relative.x * sensitivity)
 		pivot.rotate_x(-event.relative.y * sensitivity)
