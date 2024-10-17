@@ -14,4 +14,3 @@ func muzzleFlash():
 	$GPUParticles3D.emitting = true
 	await get_tree().create_timer(0.05).timeout
 	$DirectionalLight3D.visible = false
-	
