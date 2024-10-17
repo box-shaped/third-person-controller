@@ -16,7 +16,8 @@ var speed : float
 @export var fovs = {"Hipfire":70,"ADS":40}
 @export var MAX_STEP_UP = 5
 @export var MAX_STEP_DOWN = 5
-var senseratio = 0.5
+@export var CAMERA_SMOOTHING = 0.00001
+var senseratio = 0.4
 #fovs["ADS"]/fovs["Hipfire"]
 
 const ANIMATION_BLEND : float = 7.0
@@ -28,6 +29,9 @@ const ANIMATION_BLEND : float = 7.0
 @onready var ray = find_child("Ray")
 @onready var gun = $Pivot/Camera3D/Gun
 @onready var camera = $Pivot/Camera3D
+@onready var CAMERA_HEAD = $Pivot/Camera3D
+@onready var CAMERA_NECK = $Pivot
+
 
 var is_grounded := true					# If player is grounded this frame
 var was_grounded := true		
@@ -69,8 +73,9 @@ func _physics_process(delta):
 		snap_vector = Vector3.DOWN
 	
 	apply_floor_snap()
-	stair_step_up()#
-	stair_step_down()
+	stair_step_up()#w
+	#stair_step_down()
+	smooth_camera_jitter(delta)
 	move_and_slide()
 	#animate(delta)
 signal crosshair(visible:bool)
@@ -222,12 +227,12 @@ func stair_step_up():
 	global_position = global_pos
 
 # Function: Smooth camera jitter
-#func smooth_camera_jitter(delta):
-	#CAMERA_HEAD.global_position.x = CAMERA_NECK.global_position.x
-	#CAMERA_HEAD.global_position.y = lerpf(CAMERA_HEAD.global_position.y, CAMERA_NECK.global_position.y, CAMERA_SMOOTHING * delta)
-	#CAMERA_HEAD.global_position.z = CAMERA_NECK.global_position.z
+func smooth_camera_jitter(delta):
+	CAMERA_HEAD.global_position.x = CAMERA_NECK.global_position.x
+	CAMERA_HEAD.global_position.y = lerpf(CAMERA_HEAD.global_position.y, CAMERA_NECK.global_position.y, CAMERA_SMOOTHING * delta)
+	CAMERA_HEAD.global_position.z = CAMERA_NECK.global_position.z
 #
 	## Limit how far camera can lag behind its desired position
-	#CAMERA_HEAD.global_position.y = clampf(CAMERA_HEAD.global_position.y,
-										#-CAMERA_NECK.global_position.y - 1,
-										#CAMERA_NECK.global_position.y + 1)
+	CAMERA_HEAD.global_position.y = clampf(CAMERA_HEAD.global_position.y,
+										-CAMERA_NECK.global_position.y - 1,
+										CAMERA_NECK.global_position.y + 1)

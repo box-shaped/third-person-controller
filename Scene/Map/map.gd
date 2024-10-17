@@ -145,6 +145,7 @@ func pixel_to_pointy_hex(point: Vector2) -> Vector2i:
 
 @onready var ray = $"../../Player/Pivot/Camera3D/Ray"
 signal rebake
+signal add_to_geometry(Tile, coordinates)
 func placeBlock(blockID: String, coordinates: Vector3, debug: bool = true, scalee: bool = false,centergrass:bool=false):
 	# Convert world coordinates (ray collision) to grid coordinates
 	
@@ -165,12 +166,12 @@ func placeBlock(blockID: String, coordinates: Vector3, debug: bool = true, scale
 		tile_height = coordinates.y
 	# Adjust the final position by taking the center offset into account
 	var tileCoords = Vector3(pixel_position.x , tile_height, pixel_position.y )
-
+	
 	# Instantiate and position the tile
 	var TileLibrary = preload("res://Scene/Map/Library.tscn")
 	var hexTile = TileLibrary.instantiate().find_child(blockID)
 	hexTile.position = tileCoords
-	
+	add_to_geometry.emit(hexTile, tileCoords)
 	# Optionally scale the tile if scalee is true
 	if scalee:
 		hexTile.scale = Vector3(1, 1 + tile_height, 1)
@@ -182,6 +183,8 @@ func placeBlock(blockID: String, coordinates: Vector3, debug: bool = true, scale
 	if not scalee: rebake.emit()
 	return hexTile
 
+
+	
 func get_neighbors(cell: Vector2i) -> Array:
 	# These are the six neighbors for a pointy-topped hexagonal grid
 	var directions = [

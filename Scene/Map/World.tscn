@@ -20,7 +20,7 @@ tonemap_mode = 3
 glow_enabled = true
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_vt7v6"]
-agent_max_climb = 0.3
+agent_max_slope = 22.68
 vertices_per_polygon = 3.0
 
 [sub_resource type="SphereMesh" id="SphereMesh_xjcjk"]
@@ -99,5 +99,6 @@ transform = Transform3D(-0.98172, 0, 0.190334, 0, 1, 0, -0.190334, 0, -0.98172, 
 
 [node name="PauseMenu" parent="." instance=ExtResource("7_ek5ne")]
 
+[connection signal="add_to_geometry" from="NavigationRegion3D/Map" to="NavigationRegion3D" method="_on_map_add_to_geometry"]
 [connection signal="enemy" from="NavigationRegion3D/Map" to="MonsterSpawner" method="_on_map_enemy"]
 [connection signal="rebake" from="NavigationRegion3D/Map" to="NavigationRegion3D" method="_on_map_rebake"]
