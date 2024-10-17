@@ -170,6 +170,7 @@ skeleton = NodePath("../..")
 shape = SubResource("ConcavePolygonShape3D_h1bbd")
 
 [node name="Castle" type="StaticBody3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 script = ExtResource("2_g7w4o")
 
 [node name="building_castle_blue3" type="MeshInstance3D" parent="Castle"]
