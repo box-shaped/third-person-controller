@@ -101,3 +101,4 @@ transform = Transform3D(-0.98172, 0, 0.190334, 0, 1, 0, -0.190334, 0, -0.98172, 
 [connection signal="add_to_geometry" from="NavigationRegion3D/Map" to="NavigationRegion3D" method="_on_map_add_to_geometry"]
 [connection signal="enemy" from="NavigationRegion3D/Map" to="MonsterSpawner" method="_on_map_enemy"]
 [connection signal="rebake" from="NavigationRegion3D/Map" to="NavigationRegion3D" method="_on_map_rebake"]
+[connection signal="removalqueue" from="NavigationRegion3D/Map" to="." method="_on_map_removalqueue"]

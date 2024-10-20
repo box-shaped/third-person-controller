@@ -12,7 +12,9 @@ var centerPixel
 var centerTile
 var worldmap: Dictionary = {}
 var noisegen
-
+func toggle(input:bool):
+	if input:return false
+	else: return true
 func _ready():
 	await get_tree().create_timer(0.4).timeout
 	
@@ -206,6 +208,16 @@ func build():
 			collision_point.z +=centerPixel.y
 			# Place the block at the raycast hit location
 			placeBlock(blocktype, collision_point)
+signal removalqueue(action:bool,object:Variant)
 func remove_building():
-	ray.get_collider().addhighlight()
-	print("attempting to add highlight to building")
+	var building = ray.get_collider()
+	if !building.player_destructible:
+		return
+	if building.highlight:
+		building.highlight = false
+		removalqueue.emit(false,building)
+
+	else:
+		building.highlight = true
+		removalqueue.emit(true,building)
+		print("attempting to add highlight to building")

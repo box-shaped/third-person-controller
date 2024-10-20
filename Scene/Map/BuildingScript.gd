@@ -4,7 +4,7 @@ extends StaticBody3D
 @export var player_destructible:bool = true
 
 @export var enemy_destructible:bool = true
-@export var highlight = true:
+@export var highlight = false:
 	set(newvalue):
 		if newvalue==true:
 			addhighlight()
