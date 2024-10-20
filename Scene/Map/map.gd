@@ -48,6 +48,7 @@ func placeCentralCastle():
 	var castle = placeBlock("Castle", coord)
 	castlePlaced.emit(castle.global_transform.origin)
 	print(castle.position, "centre", coord)
+	
 
 	# Now adjust the neighbors
 	var neighbors = get_neighbors(centerTile)
@@ -55,11 +56,13 @@ func placeCentralCastle():
 		# Make sure the neighbor is valid in the world map
 		if worldmap.has(str(neighbor)):
 			# Set the neighbor's height to match the castle's height
+			
 			var neighbor_pixel = _cellToPixel(neighbor)[0]
 			var tileCoords = Vector3(neighbor_pixel.x, get_tile_height(centerTile), neighbor_pixel.y)
 			var grass = placeBlock("defaultGrass", tileCoords,true,true,true)
 			grass.scale *= Vector3(1.001,1,1.001)
-
+			worldmap[str("built",Vector2i(neighbor.x,neighbor.y))]=true
+	worldmap[str("built",Vector2i(centerTile.x,centerTile.y))]=true
 	pass
 
 func _cellToPixel(cell: Vector2) -> Array:
@@ -102,6 +105,7 @@ func initmap(diameter):
 				world_map[str(Vector2i(x, y))] = null
 			else:
 				world_map[str(Vector2i(x, y))] = true
+				world_map[str("built",Vector2i(x,y))] = false
 	return world_map
 
 func falloff(distance: float, radius: float) -> float:
@@ -123,19 +127,6 @@ func generateMap():
 				var tileCoords = Vector3(coord.x, offset, coord.y)
 				placeBlock("defaultGrass",tileCoords, 0,1)
 
-func generateAltMap():
-	var TileLibrary = preload("res://Scene/Map/Library.tscn")
-	for x in range(mapDiameter):
-		for y in range(mapDiameter):
-			var cell = Vector2i(x, y)
-			if worldmap[str(cell)]:
-				var tilePosition = _cellToPixel(cell)
-				var coord: Vector2 = tilePosition[0]
-				# Set the height of the tile using the new get_tile_height function
-				var offset: float = get_tile_height(cell)
-				var tileCoords = Vector3(coord.x, offset, coord.y)
-				placeBlock("House1",tileCoords,0,1)
-
 
 func pixel_to_pointy_hex(point: Vector2) -> Vector2i:
 	# Reverse the calculation done in _cellToPixel
@@ -146,11 +137,12 @@ func pixel_to_pointy_hex(point: Vector2) -> Vector2i:
 @onready var ray = $"../../Player/Pivot/Camera3D/Ray"
 signal rebake
 signal add_to_geometry(Tile, coordinates)
-func placeBlock(blockID: String, coordinates: Vector3, debug: bool = true, scalee: bool = false,centergrass:bool=false):
+func placeBlock(blockID: String, coordinates: Vector3, debug: bool = true, basemap: bool = false,centergrass:bool=false):
 	# Convert world coordinates (ray collision) to grid coordinates
 	
 	var cellCoords = pixel_to_pointy_hex(Vector2(coordinates.x, coordinates.z))
-	
+	if worldmap[str("built",Vector2i(cellCoords.x,cellCoords.y))]==true:
+		return
 	# Get the tile's correct height based on grid coordinates
 	var tile_height = get_tile_height(cellCoords)
 	
@@ -173,14 +165,16 @@ func placeBlock(blockID: String, coordinates: Vector3, debug: bool = true, scale
 	hexTile.position = tileCoords
 	add_to_geometry.emit(hexTile, tileCoords)
 	# Optionally scale the tile if scalee is true
-	if scalee:
+	if basemap:
 		hexTile.scale = Vector3(1, 1 + tile_height, 1)
 		
 	# Clean up and add the tile to the scene
 	hexTile.get_parent().remove_child(hexTile)
 	hexTile.set_owner(null)
 	add_child(hexTile)
-	if not scalee: rebake.emit()
+	if not basemap: 
+		worldmap[str("built",Vector2i(cellCoords.x,cellCoords.y))]=true
+		rebake.emit()
 	return hexTile
 
 

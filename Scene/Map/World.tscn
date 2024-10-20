@@ -20,8 +20,7 @@ tonemap_mode = 3
 glow_enabled = true
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_vt7v6"]
-agent_max_slope = 22.68
-vertices_per_polygon = 3.0
+agent_max_slope = 35.0
 
 [sub_resource type="SphereMesh" id="SphereMesh_xjcjk"]
 
