@@ -206,3 +206,6 @@ func build():
 			collision_point.z +=centerPixel.y
 			# Place the block at the raycast hit location
 			placeBlock(blocktype, collision_point)
+func remove_building():
+	ray.get_collider().addhighlight()
+	print("attempting to add highlight to building")

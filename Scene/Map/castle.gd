@@ -1,4 +1,5 @@
-extends StaticBody3D
+
+extends Building
 @export var health = 50:
 	set(value):
 		health = value

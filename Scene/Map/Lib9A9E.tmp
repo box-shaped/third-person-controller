@@ -164,7 +164,7 @@ shadow_mesh = SubResource("ArrayMesh_5w4yq")
 [node name="House2" type="StaticBody3D" parent="."]
 script = ExtResource("5_cmmoj")
 
-[node name="Mesh" type="MeshInstance3D" parent="House2"]
+[node name="BuildingHomeBBlue" type="MeshInstance3D" parent="House2"]
 mesh = ExtResource("1_ti2ib")
 skeleton = NodePath("../..")
 
@@ -174,8 +174,9 @@ shape = SubResource("ConcavePolygonShape3D_h1bbd")
 [node name="Castle" type="StaticBody3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 script = ExtResource("2_g7w4o")
+health = null
 
-[node name="Mesh" type="MeshInstance3D" parent="Castle"]
+[node name="building_castle_blue3" type="MeshInstance3D" parent="Castle"]
 mesh = SubResource("ArrayMesh_fbqwm")
 skeleton = NodePath("")
 
@@ -191,7 +192,7 @@ shape = SubResource("CylinderShape3D_tlphr")
 [node name="House1" type="StaticBody3D" parent="."]
 script = ExtResource("5_cmmoj")
 
-[node name="Mesh" type="MeshInstance3D" parent="House1"]
+[node name="BuildingArcheryrangeBlue" type="MeshInstance3D" parent="House1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.001, 0)
 mesh = ExtResource("2_loxu0")
 skeleton = NodePath("../..")
@@ -204,7 +205,7 @@ shape = SubResource("ConcavePolygonShape3D_qj3ix")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 script = ExtResource("5_cmmoj")
 
-[node name="Mesh" type="MeshInstance3D" parent="defaultGrass"]
+[node name="HexGrass" type="MeshInstance3D" parent="defaultGrass"]
 mesh = ExtResource("1_uuk4q")
 skeleton = NodePath("../..")
 
@@ -230,11 +231,11 @@ shape = SubResource("ConvexPolygonShape3D_tl8x0")
 transform = Transform3D(0.769231, 0, 0, 0, 0.769231, 0, 0, 0, 0.769231, 0, 0.928717, 0)
 shape = SubResource("ConvexPolygonShape3D_vs8ap")
 
-[node name="Mesh" type="MeshInstance3D" parent="Tower"]
+[node name="building_tower_B_blue" type="MeshInstance3D" parent="Tower"]
 mesh = SubResource("ArrayMesh_8o0at")
 skeleton = NodePath("")
 
-[node name="Mesh2" type="MeshInstance3D" parent="Tower"]
+[node name="building_tower_B_top_blue" type="MeshInstance3D" parent="Tower"]
 transform = Transform3D(0.769231, 0, 0, 0, 0.769231, 0, 0, 0, 0.769231, 0, 0.928717, 0)
 mesh = SubResource("ArrayMesh_gna41")
 skeleton = NodePath("")

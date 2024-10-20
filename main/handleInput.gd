@@ -13,10 +13,13 @@ func _physics_process(delta: float) -> void:
 			$Player.Hip(delta)
 
 func _input(event):
-	if event.is_action_pressed("Build"):
-		if $CanvasLayer/HUD.getActive()=="Gun":
+	if $CanvasLayer/HUD.getActive()=="Gun":
 			return
+	if event.is_action_pressed("Build"):
 		$NavigationRegion3D/Map.build()
+	elif event.is_action_pressed("fire2"):
+		$NavigationRegion3D/Map.remove_building()
+		print("testett")
 
 
 func _on_map_castle_placed(centre) -> void:
