@@ -17,7 +17,7 @@ var next_path_update_time: float = 0.0 # Timer to control path updates
 var threshold: float = 0.1 # Distance threshold to next position
 const PATH_UPDATE_INTERVAL: float = 0.1 # How often to update the path in seconds
 var veelocity: Vector3 = Vector3() # Store velocity for movement
-
+var player_destructible = false
 
 
 func _physics_process(delta: float) -> void:

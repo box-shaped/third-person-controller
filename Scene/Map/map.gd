@@ -169,7 +169,7 @@ func placeBlock(blockID: String, coordinates: Vector3, debug: bool = true, basem
 	# Optionally scale the tile if scalee is true
 	if basemap:
 		hexTile.scale = Vector3(1, 1 + tile_height, 1)
-		
+
 	# Clean up and add the tile to the scene
 	hexTile.get_parent().remove_child(hexTile)
 	hexTile.set_owner(null)
@@ -216,6 +216,7 @@ func remove_building():
 	if building.highlight:
 		building.highlight = false
 		removalqueue.emit(false,building)
+		print("attempting to remove highlight to building")
 
 	else:
 		building.highlight = true

@@ -7,8 +7,10 @@ extends StaticBody3D
 @export var highlight = false:
 	set(newvalue):
 		if newvalue==true:
+			highlight = newvalue
 			addhighlight()
 		else:
+			highlight = newvalue
 			removehighlight()
 
 func addhighlight():
