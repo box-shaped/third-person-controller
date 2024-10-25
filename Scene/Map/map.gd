@@ -65,7 +65,8 @@ func placeCentralCastle():
 			grass.scale *= Vector3(1.001,1,1.001)
 			worldmap[str("built",Vector2i(neighbor.x,neighbor.y))]=true
 	worldmap[str("built",Vector2i(centerTile.x,centerTile.y))]=true
-	pass
+	castle.updateHealth.connect($"../../CanvasLayer/HUD"._on_castle_health)
+
 
 func _cellToPixel(cell: Vector2) -> Array:
 	# Hex grid to pixel conversion

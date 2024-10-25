@@ -24,7 +24,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_r53i5"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_y1tbp"]
 resource_local_to_scene = true
 resource_name = "building_home_B_blue_building_home_B_blue"
 _surfaces = [{
@@ -65,7 +65,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_fbqwm"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_3yrdo"]
 resource_local_to_scene = true
 resource_name = "building_castle_blue_building_castle_blue"
 _surfaces = [{
@@ -112,7 +112,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_3lkna"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_ineix"]
 resource_local_to_scene = true
 resource_name = "building_archeryrange_blue_building_archeryrange_blue"
 _surfaces = [{
@@ -283,7 +283,7 @@ shadow_mesh = SubResource("ArrayMesh_5w4yq")
 script = ExtResource("5_cmmoj")
 
 [node name="building_home_B_blue" type="MeshInstance3D" parent="House2"]
-mesh = SubResource("ArrayMesh_r53i5")
+mesh = SubResource("ArrayMesh_y1tbp")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="House2"]
@@ -295,7 +295,7 @@ script = ExtResource("2_g7w4o")
 player_destructible = false
 
 [node name="Mesh" type="MeshInstance3D" parent="Castle"]
-mesh = SubResource("ArrayMesh_fbqwm")
+mesh = SubResource("ArrayMesh_3yrdo")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Castle"]
@@ -311,7 +311,7 @@ shape = SubResource("CylinderShape3D_tlphr")
 script = ExtResource("5_cmmoj")
 
 [node name="building_archeryrange_blue" type="MeshInstance3D" parent="House1"]
-mesh = SubResource("ArrayMesh_3lkna")
+mesh = SubResource("ArrayMesh_ineix")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="House1"]

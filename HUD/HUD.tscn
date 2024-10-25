@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://70jkdnbljbt3"]
+[gd_scene load_steps=5 format=3 uid="uid://70jkdnbljbt3"]
 
 [ext_resource type="Script" path="res://HUD/hud.gd" id="1_3gqfi"]
 [ext_resource type="Texture2D" uid="uid://25jay3hyrab6" path="res://Assets/House.png" id="2_u6m4s"]
 [ext_resource type="Texture2D" uid="uid://cqhu4sm5ijtrr" path="res://Assets/crosshair-removebg-preview.png" id="4_p1f4r"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_yfc2q"]
+size = Vector2(400, 50)
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -57,6 +60,20 @@ grow_vertical = 2
 
 [node name="Crosshair-removebg-preview" type="Sprite2D" parent="Container"]
 texture = ExtResource("4_p1f4r")
+
+[node name="Container2" type="Container" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -200.0
+offset_right = 200.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="TextureRect" type="TextureRect" parent="Container2"]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_yfc2q")
 
 [connection signal="pressed" from="GridContainer/Button" to="." method="_on_button_1_pressed"]
 [connection signal="pressed" from="GridContainer/Button2" to="." method="_on_button_2_pressed"]

@@ -1,5 +1,6 @@
 extends Control
 @onready var GRID = $GridContainer
+var targetscale =Vector2(1.0,1.0)
 var hotbarlength = 3
 var active = 1
 var slotSize = Vector2(64,64)
@@ -10,6 +11,7 @@ var hotbarItems={
 	2:"Tower",
 	3:"Gun"
 }
+signal Hud
 func getActive():
 	return hotbarItems[active]
 # Called when the node enters the scene tree for the first time.
@@ -17,11 +19,15 @@ func _ready() -> void:
 	#$GridContainer.size = Vector2(slotSize.y+margin,(slotSize.x+seperator)*hotbarlength+2*margin)
 	for i in hotbarlength:
 		$GridContainer.get_child(i).size = slotSize
-
+func _on_castle_health(current:int,max:int):
+	current = current
+	max=max
+	targetscale = Vector2(current/(max*1.0),1.0)
+	print("attempting to set to ", current/(max*1.0)," ",current,max)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	$Container2/TextureRect.scale = lerp($Container2/TextureRect.scale,targetscale,delta*15)
 
 func _input(event):
 	if event.is_action_pressed("Action1"):
