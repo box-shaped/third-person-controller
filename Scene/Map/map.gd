@@ -212,7 +212,9 @@ func build():
 signal removalqueue(action:bool,object:Variant)
 func remove_building():
 	var building = ray.get_collider()
+	print(building)
 	if !building.player_destructible:
+		
 		return
 	if building.highlight:
 		building.highlight = false

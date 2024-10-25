@@ -10,8 +10,8 @@ var speed : float
 @export var run_speed : float = 6.0
 @export var jump_strength : float = 15.0
 @export var gravity : float = 30.0
-@export var hipfire_pos:Vector3 = Vector3(0.97,-0.66,-0.66)
-@export var ADS_pos:Vector3 = Vector3(0.,-0.265,-0.5)
+@export var hipfire_pos:Vector3 = Vector3(0.5,0,-0.7)
+@export var ADS_pos:Vector3 = Vector3(0,0,-0.5)
 @export var ADS_LERP = 20
 @export var fovs = {"Hipfire":70,"ADS":40}
 @export var MAX_STEP_UP = 5
@@ -27,7 +27,7 @@ const ANIMATION_BLEND : float = 7.0
 @onready var animator : AnimationTree = $AnimationTree
 @onready var marker = $"../Buildmarker"
 @onready var ray = find_child("Ray")
-@onready var gun = $Pivot/Camera3D/Gun
+@onready var gun = $Pivot/Camera3D/GunParent
 @onready var camera = $Pivot/Camera3D
 @onready var CAMERA_HEAD = $Pivot/Camera3D
 @onready var CAMERA_NECK = $Pivot
@@ -100,11 +100,13 @@ func animate(delta):
 				#shoot()
 func ADS(delta):
 	gun.transform.origin = gun.transform.origin.lerp(ADS_pos, ADS_LERP * delta)
+	print(gun.transform.origin)
 	camera.fov=lerpf(camera.fov,fovs["ADS"],ADS_LERP*delta*0.75)
 	$Pivot.sensitivity=$Pivot.defaultsensitivity*senseratio
 	crosshair.emit(0)
 func Hip(delta):
 	gun.transform.origin = gun.transform.origin.lerp(hipfire_pos, ADS_LERP * delta)
+	print(gun.transform.origin)
 	camera.fov=lerpf(camera.fov,fovs["Hipfire"],ADS_LERP*delta*0.75)
 	$Pivot.sensitivity=$Pivot.defaultsensitivity
 	crosshair.emit(1)
@@ -116,7 +118,7 @@ func shoot():
 		shot_at = ray.get_collider()
 		if shot_at.is_in_group("Enemy"):
 			shot_at.health -= 25
-	$Pivot/Camera3D/Gun/muzzleFlash.muzzleFlash()
+	$Pivot/Camera3D/GunParent/Gun/muzzleFlash.muzzleFlash()
 	$AnimationPlayer.play("assaultFire")
 	$Gunshot.play()
 	
