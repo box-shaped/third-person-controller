@@ -1,11 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://70jkdnbljbt3"]
+[gd_scene load_steps=9 format=3 uid="uid://70jkdnbljbt3"]
 
 [ext_resource type="Script" path="res://HUD/hud.gd" id="1_3gqfi"]
 [ext_resource type="Texture2D" uid="uid://25jay3hyrab6" path="res://Assets/House.png" id="2_u6m4s"]
+[ext_resource type="Texture2D" uid="uid://caen8l8kespcm" path="res://Assets/even more beatiful healthbar.png" id="4_22v52"]
 [ext_resource type="Texture2D" uid="uid://cqhu4sm5ijtrr" path="res://Assets/crosshair-removebg-preview.png" id="4_p1f4r"]
+[ext_resource type="Texture2D" uid="uid://dvtxc0bitm6eh" path="res://icon.svg" id="5_kdemo"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_yfc2q"]
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_f4xf8"]
 size = Vector2(400, 50)
+
+[sub_resource type="Theme" id="Theme_s76qd"]
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_jvt43"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -71,9 +77,37 @@ offset_right = 200.0
 offset_bottom = 40.0
 grow_horizontal = 2
 
-[node name="TextureRect" type="TextureRect" parent="Container2"]
+[node name="EvenMoreBeatifulHealthbar" type="Sprite2D" parent="Container2"]
+z_index = 1
+position = Vector2(200, 25)
+scale = Vector2(2.03, 2.8)
+texture = ExtResource("4_22v52")
+
+[node name="HealthMeasure" type="TextureProgressBar" parent="Container2"]
+custom_minimum_size = Vector2(400, 50)
 layout_mode = 2
-texture = SubResource("PlaceholderTexture2D_yfc2q")
+step = 0.1
+texture_under = ExtResource("5_kdemo")
+texture_progress = SubResource("PlaceholderTexture2D_f4xf8")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(70, 50)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 80.0
+offset_right = 20.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_s76qd")
+theme_override_font_sizes/normal_font_size = 40
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+custom_effects = [SubResource("RichTextEffect_jvt43")]
 
 [connection signal="pressed" from="GridContainer/Button" to="." method="_on_button_1_pressed"]
 [connection signal="pressed" from="GridContainer/Button2" to="." method="_on_button_2_pressed"]

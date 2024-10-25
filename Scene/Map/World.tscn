@@ -63,10 +63,8 @@ script = ExtResource("3_sinil")
 [node name="Map" type="Node3D" parent="NavigationRegion3D"]
 script = ExtResource("7_lnf4s")
 _cellSize = Vector2(1.13, 1.13)
-BUMP = 0.04
-mapHeight = 3
 centerHillRadius = 4
-centerHillHeight = 2
+centerHillHeight = 0.5
 
 [node name="Buildmarker" type="Node3D" parent="."]
 

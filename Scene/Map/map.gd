@@ -7,7 +7,7 @@ extends Node3D
 @export var BUMP: float = 0.02
 @export var mapHeight: int = 5
 @export var centerHillRadius: int = 6
-@export var centerHillHeight:int = 1
+@export var centerHillHeight:float = 1
 var centerPixel
 var centerTile
 var worldmap: Dictionary = {}
