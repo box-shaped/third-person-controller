@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://25jay3hyrab6" path="res://Assets/House.png" id="2_u6m4s"]
 [ext_resource type="Texture2D" uid="uid://caen8l8kespcm" path="res://Assets/even more beatiful healthbar.png" id="4_22v52"]
 [ext_resource type="Texture2D" uid="uid://cqhu4sm5ijtrr" path="res://Assets/crosshair-removebg-preview.png" id="4_p1f4r"]
-[ext_resource type="Texture2D" uid="uid://dvtxc0bitm6eh" path="res://icon.svg" id="5_kdemo"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_f4xf8"]
 size = Vector2(400, 50)
@@ -12,6 +11,8 @@ size = Vector2(400, 50)
 [sub_resource type="Theme" id="Theme_s76qd"]
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_jvt43"]
+
+[sub_resource type="Theme" id="Theme_ite3r"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -87,7 +88,6 @@ texture = ExtResource("4_22v52")
 custom_minimum_size = Vector2(400, 50)
 layout_mode = 2
 step = 0.1
-texture_under = ExtResource("5_kdemo")
 texture_progress = SubResource("PlaceholderTexture2D_f4xf8")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
@@ -108,6 +108,50 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 0
 custom_effects = [SubResource("RichTextEffect_jvt43")]
+
+[node name="Game Over" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -576.0
+offset_right = 581.0
+offset_bottom = 648.0
+grow_horizontal = 2
+
+[node name="Overlay" type="ColorRect" parent="Game Over"]
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 0, 0.47451)
+
+[node name="Text" type="RichTextLabel" parent="Game Over"]
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -50.0
+offset_right = 200.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource("Theme_ite3r")
+theme_override_font_sizes/normal_font_size = 72
+text = "Game Over
+"
 
 [connection signal="pressed" from="GridContainer/Button" to="." method="_on_button_1_pressed"]
 [connection signal="pressed" from="GridContainer/Button2" to="." method="_on_button_2_pressed"]

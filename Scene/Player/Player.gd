@@ -17,6 +17,7 @@ var speed : float
 @export var MAX_STEP_UP = 5
 @export var MAX_STEP_DOWN = 5
 @export var CAMERA_SMOOTHING = 0.00001
+@export var shotPower = 50
 var senseratio = 0.4
 #fovs["ADS"]/fovs["Hipfire"]
 
@@ -114,6 +115,7 @@ func shoot():
 	var shot_at
 	if $AnimationPlayer.is_playing() and $AnimationPlayer.current_animation == "assaultFire":
 		return
+	$Pivot/Camera3D/GunParent/Gun/ProjectileSpawner.shoot(-$Pivot/Camera3D.global_transform.basis.z*shotPower)
 	if ray.get_collider(): 
 		shot_at = ray.get_collider()
 		if shot_at.is_in_group("Enemy"):

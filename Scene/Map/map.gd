@@ -50,7 +50,8 @@ func placeCentralCastle():
 	var castle = placeBlock("Castle", coord)
 	castlePlaced.emit(castle.global_transform.origin)
 	print(castle.position, "centre", coord)
-	
+	castle.castleGone.connect(_on_castle_gone)
+	print("ball")
 
 	# Now adjust the neighbors
 	var neighbors = get_neighbors(centerTile)
@@ -170,7 +171,8 @@ func placeBlock(blockID: String, coordinates: Vector3, debug: bool = true, basem
 	# Optionally scale the tile if scalee is true
 	if basemap:
 		hexTile.scale = Vector3(1, 1 + tile_height, 1)
-
+	
+		
 	# Clean up and add the tile to the scene
 	hexTile.get_parent().remove_child(hexTile)
 	hexTile.set_owner(null)
@@ -180,7 +182,9 @@ func placeBlock(blockID: String, coordinates: Vector3, debug: bool = true, basem
 		rebake.emit()
 	return hexTile
 
-
+signal castleGone
+func _on_castle_gone():
+	castleGone.emit()
 	
 func get_neighbors(cell: Vector2i) -> Array:
 	# These are the six neighbors for a pointy-topped hexagonal grid

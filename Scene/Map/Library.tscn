@@ -333,7 +333,7 @@ polygon = PackedVector2Array(0.356646, -2.46765, 1.36242, -1.88982, 1.36131, -0.
 margin = 0.001
 
 [node name="Tower" type="StaticBody3D" parent="."]
-transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 1, 0, 2)
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 0, 0, 0)
 script = ExtResource("5_cmmoj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Tower"]
