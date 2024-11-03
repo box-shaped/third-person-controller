@@ -11,13 +11,13 @@ var speed : float
 @export var jump_strength : float = 15.0
 @export var gravity : float = 30.0
 @export var hipfire_pos:Vector3 = Vector3(0.5,0,-0.7)
-@export var ADS_pos:Vector3 = Vector3(0,0,-0.5)
+@export var ADS_pos:Vector3 = Vector3(0,-0.17,-0.4)
 @export var ADS_LERP = 20
 @export var fovs = {"Hipfire":70,"ADS":40}
 @export var MAX_STEP_UP = 5
 @export var MAX_STEP_DOWN = 5
-@export var CAMERA_SMOOTHING = 0.00001
-@export var shotPower = 50
+@export var CAMERA_SMOOTHING = 1
+@export var shotPower = 80
 var senseratio = 0.4
 #fovs["ADS"]/fovs["Hipfire"]
 
