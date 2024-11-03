@@ -10,13 +10,15 @@ var speed : float
 @export var run_speed : float = 6.0
 @export var jump_strength : float = 15.0
 @export var gravity : float = 30.0
-@export var hipfire_pos:Vector3 = Vector3(0.97,-0.66,-0.66)
-@export var ADS_pos:Vector3 = Vector3(0.,-0.265,-0.5)
+@export var hipfire_pos:Vector3 = Vector3(0.5,0,-0.7)
+@export var ADS_pos:Vector3 = Vector3(0,-0.17,-0.4)
 @export var ADS_LERP = 20
 @export var fovs = {"Hipfire":70,"ADS":40}
 @export var MAX_STEP_UP = 5
 @export var MAX_STEP_DOWN = 5
-var senseratio = 0.5
+@export var CAMERA_SMOOTHING = 1
+@export var shotPower = 80
+var senseratio = 0.4
 #fovs["ADS"]/fovs["Hipfire"]
 
 const ANIMATION_BLEND : float = 7.0
@@ -26,8 +28,11 @@ const ANIMATION_BLEND : float = 7.0
 @onready var animator : AnimationTree = $AnimationTree
 @onready var marker = $"../Buildmarker"
 @onready var ray = find_child("Ray")
-@onready var gun = $Pivot/Camera3D/Gun
+@onready var gun = $Pivot/Camera3D/GunParent
 @onready var camera = $Pivot/Camera3D
+@onready var CAMERA_HEAD = $Pivot/Camera3D
+@onready var CAMERA_NECK = $Pivot
+
 
 var is_grounded := true					# If player is grounded this frame
 var was_grounded := true		
@@ -69,8 +74,9 @@ func _physics_process(delta):
 		snap_vector = Vector3.DOWN
 	
 	apply_floor_snap()
-	stair_step_up()#
-	stair_step_down()
+	stair_step_up()#w
+	#stair_step_down()
+	smooth_camera_jitter(delta)
 	move_and_slide()
 	#animate(delta)
 signal crosshair(visible:bool)
@@ -95,11 +101,13 @@ func animate(delta):
 				#shoot()
 func ADS(delta):
 	gun.transform.origin = gun.transform.origin.lerp(ADS_pos, ADS_LERP * delta)
+	#print(gun.transform.origin)
 	camera.fov=lerpf(camera.fov,fovs["ADS"],ADS_LERP*delta*0.75)
 	$Pivot.sensitivity=$Pivot.defaultsensitivity*senseratio
 	crosshair.emit(0)
 func Hip(delta):
 	gun.transform.origin = gun.transform.origin.lerp(hipfire_pos, ADS_LERP * delta)
+	#print(gun.transform.origin)
 	camera.fov=lerpf(camera.fov,fovs["Hipfire"],ADS_LERP*delta*0.75)
 	$Pivot.sensitivity=$Pivot.defaultsensitivity
 	crosshair.emit(1)
@@ -107,11 +115,12 @@ func shoot():
 	var shot_at
 	if $AnimationPlayer.is_playing() and $AnimationPlayer.current_animation == "assaultFire":
 		return
-	if ray.get_collider(): 
-		shot_at = ray.get_collider()
-		if shot_at.is_in_group("Enemy"):
-			shot_at.health -= 25
-	$Pivot/Camera3D/Gun/muzzleFlash.muzzleFlash()
+	$Pivot/Camera3D/GunParent/Gun/ProjectileSpawner.shoot(-$Pivot/Camera3D.global_transform.basis.z*shotPower)
+	#if ray.get_collider(): 
+		#shot_at = ray.get_collider()
+		#if shot_at.is_in_group("Enemy"):
+			#shot_at.health -= 25
+	$Pivot/Camera3D/GunParent/Gun/muzzleFlash.muzzleFlash()
 	$AnimationPlayer.play("assaultFire")
 	$Gunshot.play()
 	
@@ -222,12 +231,12 @@ func stair_step_up():
 	global_position = global_pos
 
 # Function: Smooth camera jitter
-#func smooth_camera_jitter(delta):
-	#CAMERA_HEAD.global_position.x = CAMERA_NECK.global_position.x
-	#CAMERA_HEAD.global_position.y = lerpf(CAMERA_HEAD.global_position.y, CAMERA_NECK.global_position.y, CAMERA_SMOOTHING * delta)
-	#CAMERA_HEAD.global_position.z = CAMERA_NECK.global_position.z
+func smooth_camera_jitter(delta):
+	CAMERA_HEAD.global_position.x = CAMERA_NECK.global_position.x
+	CAMERA_HEAD.global_position.y = lerpf(CAMERA_HEAD.global_position.y, CAMERA_NECK.global_position.y, CAMERA_SMOOTHING * delta)
+	CAMERA_HEAD.global_position.z = CAMERA_NECK.global_position.z
 #
 	## Limit how far camera can lag behind its desired position
-	#CAMERA_HEAD.global_position.y = clampf(CAMERA_HEAD.global_position.y,
-										#-CAMERA_NECK.global_position.y - 1,
-										#CAMERA_NECK.global_position.y + 1)
+	CAMERA_HEAD.global_position.y = clampf(CAMERA_HEAD.global_position.y,
+										-CAMERA_NECK.global_position.y - 1,
+										CAMERA_NECK.global_position.y + 1)

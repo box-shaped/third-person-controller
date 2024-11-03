@@ -20,8 +20,7 @@ tonemap_mode = 3
 glow_enabled = true
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_vt7v6"]
-agent_max_climb = 0.3
-vertices_per_polygon = 3.0
+agent_max_slope = 35.0
 
 [sub_resource type="SphereMesh" id="SphereMesh_xjcjk"]
 
@@ -64,10 +63,8 @@ script = ExtResource("3_sinil")
 [node name="Map" type="Node3D" parent="NavigationRegion3D"]
 script = ExtResource("7_lnf4s")
 _cellSize = Vector2(1.13, 1.13)
-BUMP = 0.04
-mapHeight = 3
 centerHillRadius = 4
-centerHillHeight = 2
+centerHillHeight = 0.5
 
 [node name="Buildmarker" type="Node3D" parent="."]
 
@@ -99,5 +96,9 @@ transform = Transform3D(-0.98172, 0, 0.190334, 0, 1, 0, -0.190334, 0, -0.98172, 
 
 [node name="PauseMenu" parent="." instance=ExtResource("7_ek5ne")]
 
+[connection signal="crosshair" from="Player" to="CanvasLayer/HUD" method="_on_player_crosshair"]
+[connection signal="add_to_geometry" from="NavigationRegion3D/Map" to="NavigationRegion3D" method="_on_map_add_to_geometry"]
+[connection signal="castleGone" from="NavigationRegion3D/Map" to="." method="_on_map_castle_gone"]
 [connection signal="enemy" from="NavigationRegion3D/Map" to="MonsterSpawner" method="_on_map_enemy"]
 [connection signal="rebake" from="NavigationRegion3D/Map" to="NavigationRegion3D" method="_on_map_rebake"]
+[connection signal="removalqueue" from="NavigationRegion3D/Map" to="." method="_on_map_removalqueue"]
