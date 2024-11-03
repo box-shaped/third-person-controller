@@ -11,6 +11,7 @@ var speed : float
 @export var jump_strength : float = 15.0
 @export var gravity : float = 30.0
 @export var hipfire_pos:Vector3 = Vector3(0.5,0,-0.7)
+@export var hipfire_angle:Vector3 = Vector3(0.03,0.05,0)
 @export var ADS_pos:Vector3 = Vector3(0,-0.17,-0.4)
 @export var ADS_LERP = 20
 @export var fovs = {"Hipfire":70,"ADS":40}
@@ -72,13 +73,18 @@ func _physics_process(delta):
 		snap_vector = Vector3.ZERO
 	elif just_landed:
 		snap_vector = Vector3.DOWN
-	
+	move_laser()
 	apply_floor_snap()
 	stair_step_up()#w
 	#stair_step_down()
 	smooth_camera_jitter(delta)
 	move_and_slide()
 	#animate(delta)
+func move_laser():
+	if $Pivot/Camera3D/GunParent/Gun/RayCast3D.get_collider()!=null:
+		
+		$Pivot/Camera3D/GunParent/Gun/light.global_position = $Pivot/Camera3D/GunParent/Gun/RayCast3D.get_collision_point()
+		$Pivot/Camera3D/GunParent/Gun/light.position.z+=1
 signal crosshair(visible:bool)
 func animate(delta):
 	if is_on_floor():
@@ -101,12 +107,15 @@ func animate(delta):
 				#shoot()
 func ADS(delta):
 	gun.transform.origin = gun.transform.origin.lerp(ADS_pos, ADS_LERP * delta)
+	gun.rotation = gun.rotation.lerp(Vector3(0,0,0), ADS_LERP * delta)
+
 	#print(gun.transform.origin)
 	camera.fov=lerpf(camera.fov,fovs["ADS"],ADS_LERP*delta*0.75)
 	$Pivot.sensitivity=$Pivot.defaultsensitivity*senseratio
 	crosshair.emit(0)
 func Hip(delta):
 	gun.transform.origin = gun.transform.origin.lerp(hipfire_pos, ADS_LERP * delta)
+	gun.rotation =gun.rotation.lerp(hipfire_angle, ADS_LERP * delta)
 	#print(gun.transform.origin)
 	camera.fov=lerpf(camera.fov,fovs["Hipfire"],ADS_LERP*delta*0.75)
 	$Pivot.sensitivity=$Pivot.defaultsensitivity
