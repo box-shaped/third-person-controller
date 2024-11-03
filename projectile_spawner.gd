@@ -14,4 +14,4 @@ func shoot(direction:Vector3):
 	bullet = bullet.instantiate()
 	add_child(bullet)
 	bullet.velocity = direction
-	bullet.scale = Vector3(0.1,0.1,0.1)
+	bullet.scale = Vector3(0.2,0.2,0.2)

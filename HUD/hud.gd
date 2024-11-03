@@ -33,7 +33,7 @@ func _on_castle_health(current:int,max:int):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	$Container2/HealthMeasure.value = 100*lerp($Container2/HealthMeasure.value/100,targetscale.x,delta*15)
-	print($Container2/HealthMeasure.value)
+	#print($Container2/HealthMeasure.value)
 func _input(event):
 	if event.is_action_pressed("Action1"):
 		_on_button_1_pressed()

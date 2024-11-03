@@ -101,13 +101,13 @@ func animate(delta):
 				#shoot()
 func ADS(delta):
 	gun.transform.origin = gun.transform.origin.lerp(ADS_pos, ADS_LERP * delta)
-	print(gun.transform.origin)
+	#print(gun.transform.origin)
 	camera.fov=lerpf(camera.fov,fovs["ADS"],ADS_LERP*delta*0.75)
 	$Pivot.sensitivity=$Pivot.defaultsensitivity*senseratio
 	crosshair.emit(0)
 func Hip(delta):
 	gun.transform.origin = gun.transform.origin.lerp(hipfire_pos, ADS_LERP * delta)
-	print(gun.transform.origin)
+	#print(gun.transform.origin)
 	camera.fov=lerpf(camera.fov,fovs["Hipfire"],ADS_LERP*delta*0.75)
 	$Pivot.sensitivity=$Pivot.defaultsensitivity
 	crosshair.emit(1)
@@ -116,10 +116,10 @@ func shoot():
 	if $AnimationPlayer.is_playing() and $AnimationPlayer.current_animation == "assaultFire":
 		return
 	$Pivot/Camera3D/GunParent/Gun/ProjectileSpawner.shoot(-$Pivot/Camera3D.global_transform.basis.z*shotPower)
-	if ray.get_collider(): 
-		shot_at = ray.get_collider()
-		if shot_at.is_in_group("Enemy"):
-			shot_at.health -= 25
+	#if ray.get_collider(): 
+		#shot_at = ray.get_collider()
+		#if shot_at.is_in_group("Enemy"):
+			#shot_at.health -= 25
 	$Pivot/Camera3D/GunParent/Gun/muzzleFlash.muzzleFlash()
 	$AnimationPlayer.play("assaultFire")
 	$Gunshot.play()

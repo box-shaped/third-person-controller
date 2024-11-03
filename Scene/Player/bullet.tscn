@@ -1,6 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://w41o1s1panhq"]
+[gd_scene load_steps=5 format=3 uid="uid://w41o1s1panhq"]
 
 [ext_resource type="Script" path="res://bullet.gd" id="1_ewxps"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4utvs"]
+size = Vector3(1, 1, 5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_trmgr"]
 emission_enabled = true
@@ -9,15 +12,18 @@ emission_energy_multiplier = 30.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_gbo4f"]
 material = SubResource("StandardMaterial3D_trmgr")
-size = Vector3(1, 1, 5)
 
-[node name="Bullet" type="StaticBody3D"]
+[node name="Bullet" type="RigidBody3D"]
 script = ExtResource("1_ewxps")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_gbo4f")
-
 [node name="Area3D" type="Area3D" parent="."]
-transform = Transform3D(500, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+shape = SubResource("BoxShape3D_4utvs")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D/CollisionShape3D"]
+mesh = SubResource("BoxMesh_gbo4f")
+skeleton = NodePath("../../..")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

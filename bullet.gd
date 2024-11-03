@@ -13,4 +13,12 @@ func _physics_process(delta: float) -> void:
 	velocity.y-=gravity*delta
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	pass # Replace with function body.
+	if body.name =="Player":
+		return
+	print(body.get_groups())
+	if body.is_in_group("Enemy"):
+		body.health -=25
+		print("enemyht")
+	print("hit")
+	print(body)
+	queue_free()
