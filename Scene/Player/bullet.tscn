@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://bullet.gd" id="1_ewxps"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4utvs"]
-size = Vector3(1, 1, 5)
+size = Vector3(2, 2, 10)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_trmgr"]
 emission_enabled = true
@@ -14,6 +14,7 @@ emission_energy_multiplier = 30.0
 material = SubResource("StandardMaterial3D_trmgr")
 
 [node name="Bullet" type="RigidBody3D"]
+mass = 0.001
 script = ExtResource("1_ewxps")
 
 [node name="Area3D" type="Area3D" parent="."]

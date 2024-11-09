@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://coue2qehpn4fr"]
+[gd_scene load_steps=14 format=3 uid="uid://coue2qehpn4fr"]
 
 [ext_resource type="Script" path="res://main/handleInput.gd" id="1_fcw4y"]
 [ext_resource type="PackedScene" uid="uid://cr2ersq7g6q6f" path="res://Scene/Player/player.tscn" id="2_1g73n"]
@@ -24,14 +24,6 @@ agent_max_slope = 35.0
 
 [sub_resource type="SphereMesh" id="SphereMesh_xjcjk"]
 
-[sub_resource type="PlaceholderMaterial" id="PlaceholderMaterial_qijwl"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x4koj"]
-next_pass = SubResource("PlaceholderMaterial_qijwl")
-
-[sub_resource type="BoxMesh" id="BoxMesh_76oim"]
-material = SubResource("StandardMaterial3D_x4koj")
-
 [sub_resource type="Curve3D" id="Curve3D_ylc5q"]
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, 113.899, 0, 0.0163039, 0, 0, 0, 0, 0, 0, 97.1342, 0, 86.4873, 0, 0, 0, 0, 0, 0, -3.8957, 0, 91.1197, 0, 0, 0, 0, 0, 0, -66.3225, 0, 73.4725, 0, 0, 0, 0, 0, 0, -85.7344, 0, 14.134, 0, 0, 0, 0, 0, 0, -75.3667, 0, -24.9103, 0, 0, 0, 0, 0, 0, -45.1459, 0, -38.5868, 0, 0, 0, 0, 0, 0, -1.46922, 0, -39.4692, 0, 0, 0, 0, 0, 0, 31.6192, 0, -39.028, 0, 0, 0, 0, 0, 0, 45.7369, 0, -33.0721, 0, 0, 0, 0, 0, 0, 54.1193, 0, -13.8808, 0, 0, 0, 0, 0, 0, 52.7958, 0, 7.29575, 0, 0, 0, 0, 0, 0, 43.0898, 0, 26.0458, 0, 0, 0, 0, 0, 0, 19.9279, 0, 58.9137, 0, 0, 0, 0, 0, 0, 2.28079, 0, 55.6048, 0, 0, 0, 0, 0, 0, -10.734, 0, 46.5606, 0, 0, 0, 0, 0, 0, -16.4693, 0, 36.8547, 0, 0, 0, 0, 0, 0, 10.222, 0, 39.5018, 0, 0, 0, 0, 0, 0, 20.1485, 0, 17.884),
@@ -48,6 +40,7 @@ environment = SubResource("Environment_ctwiv")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866026, -0.433013, 0.249999, 0.5, -0.75, 0.433012, -1.3411e-07, 0.499999, 0.866026, 0, 0, 0)
+visible = false
 shadow_enabled = true
 directional_shadow_split_1 = 0.07
 directional_shadow_split_2 = 0.12
@@ -63,8 +56,6 @@ script = ExtResource("3_sinil")
 [node name="Map" type="Node3D" parent="NavigationRegion3D"]
 script = ExtResource("7_lnf4s")
 _cellSize = Vector2(1.13, 1.13)
-centerHillRadius = 4
-centerHillHeight = 0.5
 
 [node name="Buildmarker" type="Node3D" parent="."]
 visible = false
@@ -73,12 +64,6 @@ visible = false
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 visible = false
 mesh = SubResource("SphereMesh_xjcjk")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 1, 0, 41.9009, 0)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
-mesh = SubResource("BoxMesh_76oim")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 2

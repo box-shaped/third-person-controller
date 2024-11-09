@@ -7,7 +7,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 func shoot(direction:Vector3):
 	var bullet = preload("res://Scene/Player/bullet.tscn")

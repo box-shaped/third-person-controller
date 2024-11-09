@@ -15,8 +15,8 @@ var speed : float
 @export var ADS_pos:Vector3 = Vector3(0,-0.17,-0.4)
 @export var ADS_LERP = 20
 @export var fovs = {"Hipfire":70,"ADS":40}
-@export var MAX_STEP_UP = 5
-@export var MAX_STEP_DOWN = 5
+@export var MAX_STEP_UP = 1.5
+@export var MAX_STEP_DOWN = 1
 @export var CAMERA_SMOOTHING = 1
 @export var shotPower = 80
 var senseratio = 0.4
@@ -121,7 +121,7 @@ func Hip(delta):
 	$Pivot.sensitivity=$Pivot.defaultsensitivity
 	crosshair.emit(1)
 func shoot():
-	var shot_at
+	#var shot_at
 	if $AnimationPlayer.is_playing() and $AnimationPlayer.current_animation == "assaultFire":
 		return
 	$Pivot/Camera3D/GunParent/Gun/ProjectileSpawner.shoot(-$Pivot/Camera3D.global_transform.basis.z*shotPower)
@@ -233,7 +233,7 @@ func stair_step_up():
 
 	# 6. Move player up
 	var global_pos = global_position
-	var step_up_dist = test_transform.origin.y - global_pos.y
+	#var step_up_dist = test_transform.origin.y - global_pos.y
 
 	velocity.y = 0
 	global_pos.y = test_transform.origin.y
