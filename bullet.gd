@@ -1,6 +1,6 @@
 extends Node3D
 @export var velocity = Vector3(0,0,0)
-@export var gravity = 4
+@export var gravity = 0
 @export var damage= 100
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

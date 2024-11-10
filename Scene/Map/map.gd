@@ -6,7 +6,7 @@ extends Node3D
 @export var mapRadius = (mapDiameter-1)/2
 @export var BUMP: float = 0.02
 @export var mapHeight: int = 5
-@export var centerHillRadius: int = 6
+@export var centerHillRadius: int = 11
 @export var centerHillHeight:float = 1
 var centerPixel
 var centerTile
@@ -20,7 +20,7 @@ func _ready():
 	
 	noisegen = FastNoiseLite.new()
 	noisegen.frequency = BUMP
-	noisegen.seed = randi()
+	noisegen.seed = randi_range(0,255)*31
 	centerTile  = Vector2i(mapRadius,mapRadius)
 	centerPixel = _cellToPixel(centerTile)[0]
 	worldmap = initmap(mapDiameter)
@@ -46,7 +46,7 @@ signal done
 signal enemy
 signal castlePlaced
 func placeCentralCastle():
-	var coord = Vector3(centerPixel.x, get_tile_height(centerTile), centerPixel.y)
+	var coord = Vector3(centerPixel.x, get_tile_height(get_neighbors(centerTile)).max(), centerPixel.y)
 	var castle = placeBlock("Castle", coord)
 	castlePlaced.emit(castle.global_transform.origin)
 	print(castle.position, "centre", coord)
@@ -82,8 +82,25 @@ func _cellToPixel(cell: Vector2) -> Array:
 	# Return pixel coordinates and clamped offset
 	return [Vector2(x, y), clamp(offset, 0, INF)]
 
-func get_tile_height(cell: Vector2i) -> float:
+func get_tile_height(cell):
 	# Convert the cell coordinates to pixel coordinates
+	if cell is Array:
+		var offsets =[]
+		for tile in cell:
+			var pixel_position = _cellToPixel(tile)
+			var height_offset: float = pixel_position[1]
+
+			# Calculate the distance from the center of the map
+			var map_radius = (mapDiameter - 1) / 2
+			var center = Vector2(map_radius, map_radius)
+			var distance = tile.distance_to(center)
+
+			# Apply the falloff based on the distance from the center
+			var falloff_value = falloff(distance, centerHillRadius)
+			height_offset *= falloff_value
+			offsets.append(height_offset)
+			# Return the final height including any translation offset due to the map's center
+		return offsets
 	var pixel_position = _cellToPixel(cell)
 	var height_offset: float = pixel_position[1]
 
