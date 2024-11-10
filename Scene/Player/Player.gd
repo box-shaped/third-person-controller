@@ -124,7 +124,7 @@ func shoot():
 	var shot_at
 	if $AnimationPlayer.is_playing() and $AnimationPlayer.current_animation == "assaultFire":
 		return
-	$Pivot/Camera3D/GunParent/Gun/ProjectileSpawner.shoot(-$Pivot/Camera3D.global_transform.basis.z*shotPower)
+	$Pivot/Camera3D/GunParent/Gun/ProjectileSpawner.shoot(-$Pivot/Camera3D/GunParent.global_transform.basis.z*shotPower)
 	#if ray.get_collider(): 
 		#shot_at = ray.get_collider()
 		#if shot_at.is_in_group("Enemy"):
