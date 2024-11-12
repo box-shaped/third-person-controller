@@ -6,7 +6,7 @@ extends Node3D
 @export var mapRadius = (mapDiameter-1)/2
 @export var BUMP: float = 0.02
 @export var mapHeight: int = 5
-@export var centerHillRadius: int = 11
+@export var centerHillRadius: int = mapRadius*1.3
 @export var centerHillHeight:float = 1
 var centerPixel
 var centerTile
@@ -20,7 +20,7 @@ func _ready():
 	
 	noisegen = FastNoiseLite.new()
 	noisegen.frequency = BUMP
-	noisegen.seed = randi_range(0,255)*31
+	noisegen.seed = "hexadefence".hash()
 	centerTile  = Vector2i(mapRadius,mapRadius)
 	centerPixel = _cellToPixel(centerTile)[0]
 	worldmap = initmap(mapDiameter)
@@ -97,7 +97,7 @@ func get_tile_height(cell):
 
 			# Apply the falloff based on the distance from the center
 			var falloff_value = falloff(distance, centerHillRadius)
-			height_offset *= falloff_value
+			height_offset += falloff_value
 			offsets.append(height_offset)
 			# Return the final height including any translation offset due to the map's center
 		return offsets
@@ -108,7 +108,7 @@ func get_tile_height(cell):
 	var map_radius = (mapDiameter - 1) / 2
 	var center = Vector2(map_radius, map_radius)
 	var distance = cell.distance_to(center)
-
+	print(distance)
 	# Apply the falloff based on the distance from the center
 	var falloff_value = falloff(distance, centerHillRadius)
 	height_offset *= falloff_value
@@ -131,7 +131,10 @@ func initmap(diameter):
 
 func falloff(distance: float, radius: float) -> float:
 	if distance < radius:
-		return 1 + centerHillHeight * pow(1 - (distance / radius), 2)
+		print(distance)
+		var u  = -centerHillHeight
+		var z = (u * distance) / (distance - u) - u
+		return 1+z
 	else:
 		return 1  # No change to tiles outside the radius
 
@@ -218,18 +221,21 @@ func get_neighbors(cell: Vector2i) -> Array:
 	for dir in directions:
 		neighbors.append(cell + dir)
 	return neighbors
-
+signal newTower
 func build():
 	if ray.get_collision_normal().y == 1:
 			# Get the block type from UI
 			var blocktype = $"../../CanvasLayer/HUD".getActive()
+			
 			
 			# Get the collision point from the raycast
 			var collision_point = ray.get_collision_point()
 			collision_point.x +=centerPixel.x
 			collision_point.z +=centerPixel.y
 			# Place the block at the raycast hit location
-			placeBlock(blocktype, collision_point)
+			var block = placeBlock(blocktype, collision_point)
+			if blocktype == "Tower":
+				newTower.emit(block)
 signal removalqueue(action:bool,object:Variant)
 func remove_building():
 	var building = ray.get_collider()

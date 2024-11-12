@@ -56,6 +56,8 @@ script = ExtResource("3_sinil")
 [node name="Map" type="Node3D" parent="NavigationRegion3D"]
 script = ExtResource("7_lnf4s")
 _cellSize = Vector2(1.13, 1.13)
+mapHeight = 3
+centerHillHeight = 5.0
 
 [node name="Buildmarker" type="Node3D" parent="."]
 visible = false
@@ -81,11 +83,14 @@ curve = SubResource("Curve3D_ylc5q")
 [node name="PathFollow3D" type="PathFollow3D" parent="MonsterSpawner/defaultMonsterPath"]
 transform = Transform3D(-0.98172, 0, 0.190334, 0, 1, 0, -0.190334, 0, -0.98172, 113.899, 0, 0.0163039)
 
+[node name="EnemyParent" type="Node" parent="MonsterSpawner"]
+
 [node name="PauseMenu" parent="." instance=ExtResource("7_ek5ne")]
 
 [connection signal="crosshair" from="Player" to="CanvasLayer/HUD" method="_on_player_crosshair"]
 [connection signal="add_to_geometry" from="NavigationRegion3D/Map" to="NavigationRegion3D" method="_on_map_add_to_geometry"]
 [connection signal="castleGone" from="NavigationRegion3D/Map" to="." method="_on_map_castle_gone"]
 [connection signal="enemy" from="NavigationRegion3D/Map" to="MonsterSpawner" method="_on_map_enemy"]
+[connection signal="newTower" from="NavigationRegion3D/Map" to="." method="_on_map_new_tower"]
 [connection signal="rebake" from="NavigationRegion3D/Map" to="NavigationRegion3D" method="_on_map_rebake"]
 [connection signal="removalqueue" from="NavigationRegion3D/Map" to="." method="_on_map_removalqueue"]

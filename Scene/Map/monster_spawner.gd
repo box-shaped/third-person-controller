@@ -23,7 +23,7 @@ func _process(delta: float) -> void:
 			skeleton.selfDie.connect(on_enemy_death)
 			skeleton.position = spawnLoc.position
 			skeleton.position.y = $"../NavigationRegion3D/Map".get_tile_height($"../NavigationRegion3D/Map".pixel_to_pointy_hex(Vector2(spawnLoc.position.x,spawnLoc.position.z)))+2
-			add_child(skeleton)
+			$EnemyParent.add_child(skeleton)
 			print("spawned",skeleton.position.y)
 			timer=0
 			currentmobs+=1
