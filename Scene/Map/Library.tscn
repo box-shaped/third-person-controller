@@ -1,10 +1,11 @@
-[gd_scene load_steps=33 format=4 uid="uid://c42gko7o5vvar"]
+[gd_scene load_steps=35 format=4 uid="uid://c42gko7o5vvar"]
 
 [ext_resource type="Texture2D" uid="uid://d3bqd2almy7q1" path="res://Assets/Models/KayKit_Medieval_Hexagon_Pack_1.0_FREE/Assets/gltf/buildings/blue/hexagons_medieval.png" id="2_eiwo8"]
 [ext_resource type="Script" path="res://Scene/Map/castle.gd" id="2_g7w4o"]
 [ext_resource type="Texture2D" uid="uid://cutfya5r6mu5v" path="res://Assets/Models/KayKit_Medieval_Hexagon_Pack_1.0_FREE/Assets/gltf/tiles/base/hexagons_medieval.png" id="4_g6m8x"]
 [ext_resource type="Script" path="res://Scene/Map/BuildingScript.gd" id="5_cmmoj"]
 [ext_resource type="Script" path="res://Scene/Map/Tower.gd" id="5_cyneu"]
+[ext_resource type="PackedScene" uid="uid://7s5oxammvy1m" path="res://Assets/Models/Turret/Turret.gltf" id="6_ber2x"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i86ol"]
 resource_name = "hexagons_medieval"
@@ -319,6 +320,10 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_3uprg")
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_1k25s"]
+height = 2.7
+radius = 0.6
+
 [node name="LibNode" type="Node3D"]
 
 [node name="House2" type="StaticBody3D" parent="."]
@@ -406,5 +411,14 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, -1.19209e-07, 0, 1.19209e-07, 1, 0, 5.85463, 0.104252)
 
 [node name="RayCast3D" type="RayCast3D" parent="Tower/Base"]
+
+[node name="Turret" type="StaticBody3D" parent="."]
+script = ExtResource("5_cmmoj")
+
+[node name="blockbench_export" parent="Turret" instance=ExtResource("6_ber2x")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Turret"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.31012, 0)
+shape = SubResource("CylinderShape3D_1k25s")
 
 [connection signal="body_entered" from="Castle/Area3D" to="Castle" method="_on_area_3d_body_entered"]

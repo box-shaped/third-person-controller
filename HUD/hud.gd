@@ -9,7 +9,7 @@ var targetscale =Vector2(1.0,1.0)
 @export var seperator = 10
 @export var hotbarItems={
 	1:"House1",
-	2:"Tower",
+	2:"Turret",
 	3:"Gun"
 }
 var active = 1
