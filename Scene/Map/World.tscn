@@ -20,6 +20,7 @@ tonemap_mode = 3
 glow_enabled = true
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_vt7v6"]
+geometry_parsed_geometry_type = 1
 agent_max_slope = 35.0
 
 [sub_resource type="SphereMesh" id="SphereMesh_xjcjk"]
