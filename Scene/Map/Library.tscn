@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://c42gko7o5vvar"]
+[gd_scene load_steps=35 format=4 uid="uid://c42gko7o5vvar"]
 
 [ext_resource type="Texture2D" uid="uid://d3bqd2almy7q1" path="res://Assets/Models/KayKit_Medieval_Hexagon_Pack_1.0_FREE/Assets/gltf/buildings/blue/hexagons_medieval.png" id="2_eiwo8"]
 [ext_resource type="Script" path="res://Scene/Map/castle.gd" id="2_g7w4o"]
@@ -320,6 +320,10 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_3uprg")
 
+[sub_resource type="SphereMesh" id="SphereMesh_5pndj"]
+radius = 3.0
+height = 3.0
+
 [node name="LibNode" type="Node3D"]
 
 [node name="House2" type="StaticBody3D" parent="."]
@@ -409,5 +413,8 @@ transform = Transform3D(1, 0, 0, 0, 1, -1.19209e-07, 0, 1.19209e-07, 1, 0, 5.854
 [node name="ProjectileSpawner" parent="Tower/Base/Gun/Barrel" instance=ExtResource("6_a4uta")]
 
 [node name="RayCast3D" type="RayCast3D" parent="Tower/Base"]
+
+[node name="Targetingmarker" type="MeshInstance3D" parent="Tower"]
+mesh = SubResource("SphereMesh_5pndj")
 
 [connection signal="body_entered" from="Castle/Area3D" to="Castle" method="_on_area_3d_body_entered"]

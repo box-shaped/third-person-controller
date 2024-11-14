@@ -7,6 +7,7 @@ var timer = 0
 var maxtimer = 05
 var towers =[]
 var enemies = []
+@export var enemyheight = 1.7
 @onready var overlay = $"CanvasLayer/HUD/Game Over/Overlay"
 @onready var text = $"CanvasLayer/HUD/Game Over/Text"
 signal get_active_slot
@@ -64,9 +65,9 @@ func process_towers():
 	print("Towers:","Total: ",towers.size())
 	
 	for tower in towers:
-		var target = get_closest_enemy(tower.global_position).global_position
+		var target = get_closest_enemy(tower.global_position).global_position+Vector3(0,enemyheight,0)
 		tower._shoot(target)
-		print(target)
+		print("enemy position at: ",target)
 func get_closest_enemy(to: Vector3):
 	var lowest: float = 100
 	var current = null
@@ -83,8 +84,8 @@ func get_closest_enemy(to: Vector3):
 			continue  # Use 'continue' instead of 'break' to continue checking other enemies
 
 		var dist = to.distance_to(enemy.global_position)
-		print("Checking enemy at position:", enemy.global_position, "Distance to enemy:", dist)
-		print("Distance to enemy:", dist)
+		#print("Checking enemy at position:", enemy.global_position, "Distance to enemy:", dist)
+		#print("Distance to enemy:", dist)
 		
 		if dist < lowest:
 			lowest = dist
