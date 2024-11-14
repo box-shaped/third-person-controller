@@ -11,4 +11,5 @@ func _process(delta: float) -> void:
 	pass
 signal get_closest(origin:Vector3)
 func _shoot(target:Vector3):
-	pass
+	$Base/Gun/Barrel/ProjectileSpawner.shoot(target)
+	print("Tower sending ", target, "To proj spawner")

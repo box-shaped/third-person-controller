@@ -1,10 +1,11 @@
-[gd_scene load_steps=33 format=4 uid="uid://c42gko7o5vvar"]
+[gd_scene load_steps=34 format=4 uid="uid://c42gko7o5vvar"]
 
 [ext_resource type="Texture2D" uid="uid://d3bqd2almy7q1" path="res://Assets/Models/KayKit_Medieval_Hexagon_Pack_1.0_FREE/Assets/gltf/buildings/blue/hexagons_medieval.png" id="2_eiwo8"]
 [ext_resource type="Script" path="res://Scene/Map/castle.gd" id="2_g7w4o"]
 [ext_resource type="Texture2D" uid="uid://cutfya5r6mu5v" path="res://Assets/Models/KayKit_Medieval_Hexagon_Pack_1.0_FREE/Assets/gltf/tiles/base/hexagons_medieval.png" id="4_g6m8x"]
 [ext_resource type="Script" path="res://Scene/Map/BuildingScript.gd" id="5_cmmoj"]
 [ext_resource type="Script" path="res://Scene/Map/Tower.gd" id="5_cyneu"]
+[ext_resource type="PackedScene" uid="uid://c6pml5snbkkte" path="res://Scene/Player/projectile_spawner.tscn" id="6_a4uta"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i86ol"]
 resource_name = "hexagons_medieval"
@@ -404,6 +405,8 @@ skeleton = NodePath("")
 
 [node name="Barrel" type="Node3D" parent="Tower/Base/Gun"]
 transform = Transform3D(1, 0, 0, 0, 1, -1.19209e-07, 0, 1.19209e-07, 1, 0, 5.85463, 0.104252)
+
+[node name="ProjectileSpawner" parent="Tower/Base/Gun/Barrel" instance=ExtResource("6_a4uta")]
 
 [node name="RayCast3D" type="RayCast3D" parent="Tower/Base"]
 

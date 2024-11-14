@@ -10,7 +10,7 @@ var centre
 func _ready() -> void:
 	$defaultMonsterPath.position.y = $"../NavigationRegion3D/Map".mapHeight
 
-
+signal enemyspawn
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if active:
@@ -25,6 +25,7 @@ func _process(delta: float) -> void:
 			skeleton.position.y = $"../NavigationRegion3D/Map".get_tile_height($"../NavigationRegion3D/Map".pixel_to_pointy_hex(Vector2(spawnLoc.position.x,spawnLoc.position.z)))+2
 			$EnemyParent.add_child(skeleton)
 			print("spawned",skeleton.position.y)
+			enemyspawn.emit(skeleton)
 			timer=0
 			currentmobs+=1
 func setCentre(centrre):

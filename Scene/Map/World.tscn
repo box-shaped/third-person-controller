@@ -94,3 +94,4 @@ transform = Transform3D(-0.98172, 0, 0.190334, 0, 1, 0, -0.190334, 0, -0.98172, 
 [connection signal="newTower" from="NavigationRegion3D/Map" to="." method="_on_map_new_tower"]
 [connection signal="rebake" from="NavigationRegion3D/Map" to="NavigationRegion3D" method="_on_map_rebake"]
 [connection signal="removalqueue" from="NavigationRegion3D/Map" to="." method="_on_map_removalqueue"]
+[connection signal="enemyspawn" from="MonsterSpawner" to="." method="_on_monster_spawner_enemyspawn"]
