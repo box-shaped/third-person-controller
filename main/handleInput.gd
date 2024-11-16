@@ -4,10 +4,12 @@ var removalqueue = []
 var displaygameover = false
 var gameoveropacity = 0
 var timer = 0
-var maxtimer = 05
+var maxtimer = 0.2
 var towers =[]
 var enemies = []
-@export var enemyheight = 1.7
+var bulletTimer = 0
+@export var fireDelay = 1
+@export var enemyheight = 2
 @onready var overlay = $"CanvasLayer/HUD/Game Over/Overlay"
 @onready var text = $"CanvasLayer/HUD/Game Over/Text"
 signal get_active_slot
@@ -33,13 +35,16 @@ func _input(event):
 		delete_queued_objects()
 func _process(delta) -> void:
 	if displaygameover:
-		lerpf(gameoveropacity,1,delta) 
+		lerpf(gameoveropacity,1,delta/5) 
 		text.add_theme_color_override("theme_override_colors/default_color",Color(0,0,0,gameoveropacity))
 	timer+=delta
+	#print("shamameze",timer)
 	if timer<maxtimer:
 		return
 	get_tree().call_group("Enemy","update_target_location",coord)
-	process_towers()
+	#print("shazam")
+	process_towers(delta)
+	timer =0
 func _on_map_castle_placed(centre) -> void:
 	$MonsterSpawner.setCentre(centre)
 	coord = centre
@@ -60,22 +65,23 @@ func _on_map_castle_gone() -> void:
 	displaygameover = true
 	print("balls")
 
-func process_towers():
+func process_towers(delta):
 	print("Enemies:","Total: ",enemies.size())
 	print("Towers:","Total: ",towers.size())
 	
 	for tower in towers:
 		var target = get_closest_enemy(tower.global_position).global_position+Vector3(0,enemyheight,0)
-		tower._shoot(target)
-		print("enemy position at: ",target)
+		tower._track_target(target)
+	bulletTimer+=delta
+	if bulletTimer>fireDelay:
+		for tower in towers:
+			var target = get_closest_enemy(tower.global_position).global_position+Vector3(0,enemyheight,0)
+			tower._shoot(target)
+			print("enemy position at: ",target)
+			bulletTimer = 0
 func get_closest_enemy(to: Vector3):
 	var lowest: float = 100
 	var current = null
-	
-	# Debug: Initial state
-	print("Starting search for closest enemy")
-	print("Initial lowest distance:", lowest)
-	print("Position to check from:", to)
 	
 	for enemy in enemies:
 		if enemy == null: 

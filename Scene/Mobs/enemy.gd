@@ -56,7 +56,7 @@ func update_animation():
 		if cooldown>0:
 			$Skeleton_Warrior/AnimationPlayer.play("Unarmed_Idle")
 		else:
-			$Skeleton_Warrior/AnimationPlayer.play("Walking_A")
+			$Skeleton_Warrior/AnimationPlayer.play("Walking_B")
 
 func _ready():
 	#nav_agent.target_location = $"..".centre

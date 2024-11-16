@@ -2,12 +2,15 @@ extends Node3D
 
 # For 2D games this will be the height/width of your hexagon sprite
 @export var _cellSize: Vector2 = Vector2(1.17, 1.17)
-@export var mapDiameter: int = 31
+@export var mapDiameter: int = 51
 @export var mapRadius = (mapDiameter-1)/2
 @export var BUMP: float = 0.02
 @export var mapHeight: int = 5
-@export var centerHillRadius: int = mapRadius*1.3
-@export var centerHillHeight:float = 1
+@export var centerHillRadius: int = mapRadius
+@export var centerHillHeight:int = 1
+@export var falloffSlope:float = 0.5
+@export var falloffMultiplier:float = 1
+@export var falloffOffset:float = 1
 var centerPixel
 var centerTile
 var worldmap: Dictionary = {}
@@ -20,7 +23,8 @@ func _ready():
 	
 	noisegen = FastNoiseLite.new()
 	noisegen.frequency = BUMP
-	noisegen.seed = "hexadefence".hash()
+	#noisegen.seed = "Once upon a time there was a very col guy calledbbob".hash()
+	noisegen.seed = randi()
 	centerTile  = Vector2i(mapRadius,mapRadius)
 	centerPixel = _cellToPixel(centerTile)[0]
 	worldmap = initmap(mapDiameter)
@@ -108,10 +112,10 @@ func get_tile_height(cell):
 	var map_radius = (mapDiameter - 1) / 2
 	var center = Vector2(map_radius, map_radius)
 	var distance = cell.distance_to(center)
-	print(distance)
 	# Apply the falloff based on the distance from the center
 	var falloff_value = falloff(distance, centerHillRadius)
-	height_offset *= falloff_value
+	height_offset *= falloff_value*falloffMultiplier
+	height_offset += falloff_value*falloffOffset
 
 	# Return the final height including any translation offset due to the map's center
 	return height_offset
@@ -131,9 +135,8 @@ func initmap(diameter):
 
 func falloff(distance: float, radius: float) -> float:
 	if distance < radius:
-		print(distance)
 		var u  = -centerHillHeight
-		var z = (u * distance) / (distance - u) - u
+		var z = (u * distance) / (distance - (falloffSlope*u)) - u
 		return 1+z
 	else:
 		return 1  # No change to tiles outside the radius
