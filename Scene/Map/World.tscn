@@ -81,7 +81,7 @@ follow_viewport_enabled = true
 script = ExtResource("8_a4lq0")
 
 [node name="defaultMonsterPath" type="Path3D" parent="MonsterSpawner"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 300, 0)
 curve = SubResource("Curve3D_ylc5q")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="MonsterSpawner/defaultMonsterPath"]

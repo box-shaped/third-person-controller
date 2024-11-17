@@ -37,9 +37,10 @@ func _physics_process(delta: float) -> void:
 		velocity = direction.normalized() * speed
 	else:
 		velocity = Vector3()  # Stop moving if at destination
-
+	
 	# Move only if velocity is non-zero to avoid unnecessary calculations
 	if velocity != Vector3():
+		look_at(position+(velocity*Vector3(1,0,1)))
 		move_and_slide()
 signal selfDie
 func die():

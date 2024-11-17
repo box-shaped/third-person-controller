@@ -18,7 +18,7 @@ func _input(event):
 	if event is InputEventMouseMotion:
 		$"..".rotate_y(-event.relative.x * sensitivity)
 		pivot.rotate_x(-event.relative.y * sensitivity)
-		pivot.rotation.x = clamp(pivot.rotation.x, -PI/2.3, PI/2.3)
+		pivot.rotation.x = clamp(pivot.rotation.x, -PI/2.5, PI/2.5)
 		#print("work i pray")
 
 func _physics_process(_delta):

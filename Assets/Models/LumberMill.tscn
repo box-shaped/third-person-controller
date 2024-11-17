@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cykn10kmdvvgt"]
+
+[ext_resource type="PackedScene" uid="uid://cf8b1ufsyba7t" path="res://Assets/Models/KayKit_Medieval_Hexagon_Pack_1.0_FREE/Assets/gltf/buildings/blue/building_lumbermill_blue.gltf" id="1_bcm6e"]
+[ext_resource type="PackedScene" uid="uid://xdl84k60bq6p" path="res://Assets/Models/KayKit_Medieval_Hexagon_Pack_1.0_FREE/Assets/gltf/decoration/nature/tree_single_B.gltf" id="2_1y8yp"]
+[ext_resource type="PackedScene" uid="uid://ccrnnsx5850ls" path="res://Assets/Models/KayKit_Medieval_Hexagon_Pack_1.0_FREE/Assets/gltf/decoration/nature/tree_single_B_cut.gltf" id="3_de3b8"]
+
+[node name="building_lumbermill_blue2" instance=ExtResource("1_bcm6e")]
+
+[node name="tree_single_B2" parent="." index="1" instance=ExtResource("2_1y8yp")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.368896, 0, 0.704346)
+
+[node name="tree_single_B3" parent="." index="2" instance=ExtResource("2_1y8yp")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.593323, 0, 0.378784)
+
+[node name="tree_single_B_cut2" parent="." index="3" instance=ExtResource("3_de3b8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.140137, 0, -0.515579)
+
+[node name="tree_single_B_cut4" parent="." index="4" instance=ExtResource("3_de3b8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.382141, 0, -0.622574)
+
+[node name="tree_single_B_cut3" parent="." index="5" instance=ExtResource("3_de3b8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.110352, 0, -0.625687)

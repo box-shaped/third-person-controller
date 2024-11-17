@@ -22,7 +22,7 @@ func _process(delta: float) -> void:
 			spawnLoc.progress_ratio = randf()
 			skeleton.selfDie.connect(on_enemy_death)
 			skeleton.position = spawnLoc.position
-			skeleton.position.y = $"../NavigationRegion3D/Map".get_tile_height($"../NavigationRegion3D/Map".pixel_to_pointy_hex(Vector2(spawnLoc.position.x,spawnLoc.position.z)))+2
+			#skeleton.position.y = $"../NavigationRegion3D/Map".get_tile_height($"../NavigationRegion3D/Map".pixel_to_pointy_hex(Vector2(spawnLoc.position.x,spawnLoc.position.y)))+2
 			$EnemyParent.add_child(skeleton)
 			print("spawned",skeleton.position.y)
 			enemyspawn.emit(skeleton)

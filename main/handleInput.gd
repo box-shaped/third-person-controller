@@ -66,8 +66,8 @@ func _on_map_castle_gone() -> void:
 	print("balls")
 
 func process_towers(delta):
-	print("Enemies:","Total: ",enemies.size())
-	print("Towers:","Total: ",towers.size())
+	#print("Enemies:","Total: ",enemies.size())
+	#print("Towers:","Total: ",towers.size())
 	
 	for tower in towers:
 		var target = get_closest_enemy(tower.global_position).global_position+Vector3(0,enemyheight,0)

@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=3 uid="uid://bh3mn8mikpgnk"]
+
+[ext_resource type="PackedScene" uid="uid://b28kmg8smqah6" path="res://Assets/Models/KayKit_Medieval_Hexagon_Pack_1.0_FREE/Assets/gltf/buildings/blue/building_mine_blue.gltf" id="1_2fubd"]
+[ext_resource type="PackedScene" uid="uid://bkvi4v0h577lk" path="res://Assets/Models/KayKit_Medieval_Hexagon_Pack_1.0_FREE/Assets/gltf/decoration/props/wheelbarrow.gltf" id="2_s4hri"]
+[ext_resource type="PackedScene" uid="uid://4pcy7eroeyab" path="res://Assets/Models/KayKit_Medieval_Hexagon_Pack_1.0_FREE/Assets/gltf/decoration/props/resource_stone.gltf" id="3_k60pw"]
+[ext_resource type="PackedScene" uid="uid://cxocvstbwi466" path="res://Assets/Models/KayKit_Medieval_Hexagon_Pack_1.0_FREE/Assets/gltf/decoration/nature/rock_single_A.gltf" id="4_8pg81"]
+[ext_resource type="PackedScene" uid="uid://ce8bh1vntwcp5" path="res://Assets/Models/KayKit_Medieval_Hexagon_Pack_1.0_FREE/Assets/gltf/decoration/nature/rock_single_B.gltf" id="5_l76ly"]
+
+[node name="building_mine_blue2" instance=ExtResource("1_2fubd")]
+
+[node name="wheelbarrow2" parent="." index="1" instance=ExtResource("2_s4hri")]
+transform = Transform3D(0.955567, 0, -0.294774, 0, 1, 0, 0.294774, 0, 0.955567, -0.322327, 0, 0.779541)
+
+[node name="resource_stone2" parent="wheelbarrow2" index="1" instance=ExtResource("3_k60pw")]
+transform = Transform3D(0.299753, -0.00425987, -0.0205003, 0.00222546, 0.295461, -0.0934903, 0.0119543, 0.0518119, 0.53145, -0.000643894, 0.126526, -0.0260124)
+
+[node name="rock_single_A2" parent="." index="2" instance=ExtResource("4_8pg81")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.680415, 0, 0.772339)
+
+[node name="rock_single_B2" parent="." index="3" instance=ExtResource("5_l76ly")]
+transform = Transform3D(1.46668, 0, -0.314402, 0, 1.5, 0, 0.314402, 0, 1.46668, 0.60376, 0, 0.723328)

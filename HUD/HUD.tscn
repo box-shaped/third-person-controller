@@ -1,9 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://70jkdnbljbt3"]
+[gd_scene load_steps=13 format=3 uid="uid://70jkdnbljbt3"]
 
 [ext_resource type="Script" path="res://HUD/hud.gd" id="1_3gqfi"]
 [ext_resource type="Texture2D" uid="uid://25jay3hyrab6" path="res://Assets/House.png" id="2_u6m4s"]
+[ext_resource type="Texture2D" uid="uid://lgfmtpknuip3" path="res://Assets/StoneQuarryImage.png" id="3_w6xxu"]
 [ext_resource type="Texture2D" uid="uid://caen8l8kespcm" path="res://Assets/even more beatiful healthbar.png" id="4_22v52"]
+[ext_resource type="Texture2D" uid="uid://41f67e1v3c5s" path="res://Assets/LumberMillImage.png" id="4_68xec"]
 [ext_resource type="Texture2D" uid="uid://cqhu4sm5ijtrr" path="res://Assets/crosshair-removebg-preview.png" id="4_p1f4r"]
+[ext_resource type="Texture2D" uid="uid://c63plyx5nr375" path="res://Assets/Placeholder.png" id="5_50u6x"]
+[ext_resource type="Texture2D" uid="uid://bc7h30qjieoif" path="res://Assets/Blaster.png" id="5_82awk"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_f4xf8"]
 size = Vector2(400, 50)
@@ -52,7 +56,19 @@ expand_icon = true
 [node name="Button3" type="Button" parent="GridContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-icon = ExtResource("2_u6m4s")
+icon = ExtResource("3_w6xxu")
+expand_icon = true
+
+[node name="Button4" type="Button" parent="GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+icon = ExtResource("4_68xec")
+expand_icon = true
+
+[node name="Button5" type="Button" parent="GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+icon = ExtResource("5_82awk")
 expand_icon = true
 
 [node name="Container" type="Container" parent="."]
@@ -153,6 +169,65 @@ theme_override_font_sizes/normal_font_size = 72
 text = "Game Over
 "
 
+[node name="ResourcePanel" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ResourcePanel"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 1
+anchors_preset = -1
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 310.0
+offset_bottom = 60.0
+
+[node name="WoodContainer" type="VBoxContainer" parent="ResourcePanel/HBoxContainer"]
+layout_mode = 2
+
+[node name="WoodLogo" type="TextureRect" parent="ResourcePanel/HBoxContainer/WoodContainer"]
+layout_mode = 2
+texture = ExtResource("5_50u6x")
+
+[node name="Label" type="Label" parent="ResourcePanel/HBoxContainer/WoodContainer/WoodLogo"]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 32.0
+offset_right = 110.0
+offset_bottom = 55.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "WOOD"
+
+[node name="WoodAmount" type="Label" parent="ResourcePanel/HBoxContainer/WoodContainer"]
+layout_mode = 2
+text = "100"
+horizontal_alignment = 1
+
+[node name="StoneContainer" type="VBoxContainer" parent="ResourcePanel/HBoxContainer"]
+layout_mode = 2
+
+[node name="StoneLogo" type="TextureRect" parent="ResourcePanel/HBoxContainer/StoneContainer"]
+layout_mode = 2
+texture = ExtResource("5_50u6x")
+
+[node name="Label2" type="Label" parent="ResourcePanel/HBoxContainer/StoneContainer/StoneLogo"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 33.0
+offset_right = 117.0
+offset_bottom = 56.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Stone
+"
+
+[node name="StoneAmount" type="Label" parent="ResourcePanel/HBoxContainer/StoneContainer"]
+layout_mode = 2
+text = "100"
+horizontal_alignment = 1
+
 [connection signal="pressed" from="GridContainer/Button" to="." method="_on_button_1_pressed"]
 [connection signal="pressed" from="GridContainer/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="GridContainer/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="GridContainer/Button4" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="GridContainer/Button5" to="." method="_on_button_3_pressed"]
