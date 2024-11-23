@@ -226,6 +226,8 @@ func get_neighbors(cell: Vector2i) -> Array:
 	return neighbors
 signal newTower
 func build():
+	if !ray.is_colliding():
+		return
 	if ray.get_collision_normal().y == 1:
 			# Get the block type from UI
 			var blocktype = $"../../CanvasLayer/HUD".getActive()
@@ -241,6 +243,8 @@ func build():
 				newTower.emit(block)
 signal removalqueue(action:bool,object:Variant)
 func remove_building():
+	if !ray.is_colliding():
+		return
 	var building = ray.get_collider()
 	print(building)
 	if !building.player_destructible:

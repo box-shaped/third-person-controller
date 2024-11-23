@@ -19,6 +19,7 @@ shape = SubResource("CapsuleShape3D_n2kyu")
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 
 [node name="HeightGetterRay" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
 target_position = Vector3(0, -200, 0)
 
 [node name="Skeleton_Warrior" parent="." instance=ExtResource("2_n520h")]

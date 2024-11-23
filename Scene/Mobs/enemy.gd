@@ -39,7 +39,7 @@ func _physics_process(delta: float) -> void:
 		velocity = Vector3()  # Stop moving if at destination
 	
 	# Move only if velocity is non-zero to avoid unnecessary calculations
-	if velocity != Vector3():
+	if velocity != Vector3(0,0,0):
 		look_at(position+(velocity*Vector3(1,0,1)))
 		move_and_slide()
 signal selfDie
@@ -62,11 +62,14 @@ func update_animation():
 func _ready():
 	#nav_agent.target_location = $"..".centre
 	#selfDie.connect($".."._on_enemy_death())
-	var pos = $HeightGetterRay.get_collision_point().y
-	print(pos)
-	if pos>0: position.y = pos
+	$HeightGetterRay.add_exception($".")
+	$HeightGetterRay.force_raycast_update()
+	var pos = $HeightGetterRay.get_collision_point()
+	#print("enemyspawnat",pos)
+	if pos.y>0: position = pos
 	
 func update_target_location(target_location):
 	nav_agent.target_location = target_location
-	look_at(Vector3(nav_agent.target_location.x,position.y,nav_agent.target_location.z))
+	var dir = Vector3(nav_agent.target_location.x,position.y,nav_agent.target_location.z)
+	if !dir==position: look_at(dir)
 	pass

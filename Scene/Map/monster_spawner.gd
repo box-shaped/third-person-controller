@@ -62,9 +62,11 @@ func on_enemy_death():
 
 func _on_map_enemy(mapRadius:int,_cellSize:Vector2,centrepixel) -> void:
 	var curvee = Curve3D.new()
+	print("making monster spawn curve")
 	var pointArray = get_map_corners(mapRadius,_cellSize)
 	for d in range(6):
-		curvee.add_point(pointArray[d])
+		print("adding at height", pointArray[d].y)
+		curvee.add_point(pointArray[d]+Vector3(0,100,0))
 	$defaultMonsterPath.curve = curvee
 	centre = centrepixel
 	active = 1
