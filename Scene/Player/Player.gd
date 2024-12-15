@@ -18,9 +18,12 @@ var speed : float
 @export var MAX_STEP_UP = 1.5
 @export var MAX_STEP_DOWN = 1
 @export var CAMERA_SMOOTHING = 1
-@export var shotPower = 80
 var senseratio = 0.4
 #fovs["ADS"]/fovs["Hipfire"]
+
+@export var gunCharge = 10000
+@export var shotPower = 80
+@export var shotAmount = gunCharge / shotPower
 
 const ANIMATION_BLEND : float = 7.0
 
@@ -121,17 +124,19 @@ func Hip(delta):
 	$Pivot.sensitivity=$Pivot.defaultsensitivity
 	crosshair.emit(1)
 func shoot():
-	#var shot_at
-	if $AnimationPlayer.is_playing() and $AnimationPlayer.current_animation == "assaultFire":
-		return
-	$Pivot/Camera3D/GunParent/Gun/ProjectileSpawner.shoot(-$Pivot/Camera3D/GunParent.global_transform.basis.z*shotPower)
-	#if ray.get_collider(): 
-		#shot_at = ray.get_collider()
-		#if shot_at.is_in_group("Enemy"):
-			#shot_at.health -= 25
-	$Pivot/Camera3D/GunParent/Gun/muzzleFlash.muzzleFlash()
-	$AnimationPlayer.play("assaultFire")
-	$Gunshot.play()
+	if shotAmount > 0:
+		shotAmount = shotAmount - 1
+		#var shot_at
+		if $AnimationPlayer.is_playing() and $AnimationPlayer.current_animation == "assaultFire":
+			return
+		$Pivot/Camera3D/GunParent/Gun/ProjectileSpawner.shoot(-$Pivot/Camera3D/GunParent.global_transform.basis.z*shotPower)
+		#if ray.get_collider(): 
+			#shot_at = ray.get_collider()
+			#if shot_at.is_in_group("Enemy"):
+				#shot_at.health -= 25
+		$Pivot/Camera3D/GunParent/Gun/muzzleFlash.muzzleFlash()
+		$AnimationPlayer.play("assaultFire")
+		$Gunshot.play()
 	
 	##### CODE FROM: https://github.com/JheKWall/Godot-Stair-Step-Demo/blob/main/Scripts/player_character.gd by JKWall #####
 func stair_step_down():
