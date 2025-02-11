@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bufyxs08ygwxp"
+path="res://.godot/imported/WoodResourceIcon.obj-fc8a1d257c791e1f588771338e663c0d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/WoodResourceIcon.obj-fc8a1d257c791e1f588771338e663c0d.mesh"]
+
+source_file="res://Assets/ResourceIconTextures/WoodResourceIcon.obj"
+dest_files=["res://.godot/imported/WoodResourceIcon.obj-fc8a1d257c791e1f588771338e663c0d.mesh", "res://.godot/imported/WoodResourceIcon.obj-fc8a1d257c791e1f588771338e663c0d.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
