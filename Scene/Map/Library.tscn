@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://c42gko7o5vvar"]
+[gd_scene load_steps=42 format=4 uid="uid://c42gko7o5vvar"]
 
 [ext_resource type="Texture2D" uid="uid://d3bqd2almy7q1" path="res://Assets/Models/KayKit_Medieval_Hexagon_Pack_1.0_FREE/Assets/gltf/buildings/blue/hexagons_medieval.png" id="2_eiwo8"]
 [ext_resource type="Script" path="res://Scene/Map/castle.gd" id="2_g7w4o"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Scene/Map/BuildingScript.gd" id="5_cmmoj"]
 [ext_resource type="Script" path="res://Scene/Map/Tower.gd" id="5_cyneu"]
 [ext_resource type="PackedScene" uid="uid://c6pml5snbkkte" path="res://Scene/Player/projectile_spawner.tscn" id="6_a4uta"]
+[ext_resource type="Script" path="res://Assets/Models/resource_generator.gd" id="8_1tv30"]
 [ext_resource type="PackedScene" uid="uid://cykn10kmdvvgt" path="res://Assets/Models/LumberMill.tscn" id="8_gnhvq"]
 [ext_resource type="PackedScene" uid="uid://bh3mn8mikpgnk" path="res://Assets/Models/StoneMine.tscn" id="9_bkp3d"]
 
@@ -451,8 +452,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.80708, 0, 3.38437)
 
 [node name="LumberMill" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.30033, 0, 0)
+script = ExtResource("8_1tv30")
 
 [node name="LumberMesh" parent="LumberMill" instance=ExtResource("8_gnhvq")]
+script = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LumberMill"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.116028, 0.558044, 0.00726318)
@@ -460,6 +463,7 @@ shape = SubResource("BoxShape3D_wu8ji")
 
 [node name="StoneMine" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.19052)
+script = ExtResource("8_1tv30")
 
 [node name="StoneMesh" parent="StoneMine" instance=ExtResource("9_bkp3d")]
 

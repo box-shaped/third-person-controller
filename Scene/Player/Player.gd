@@ -125,10 +125,11 @@ func Hip(delta):
 	crosshair.emit(1)
 func shoot():
 	if shotAmount > 0:
-		shotAmount = shotAmount - 1
+		shotAmount -= 1
 		#var shot_at
 		if $AnimationPlayer.is_playing() and $AnimationPlayer.current_animation == "assaultFire":
 			return
+		$"../CanvasLayer/HUD".update_ammo(shotAmount)
 		$Pivot/Camera3D/GunParent/Gun/ProjectileSpawner.shoot(-$Pivot/Camera3D/GunParent.global_transform.basis.z*shotPower)
 		#if ray.get_collider(): 
 			#shot_at = ray.get_collider()

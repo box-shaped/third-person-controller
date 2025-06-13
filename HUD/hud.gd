@@ -7,6 +7,8 @@ var targetscale =Vector2(1.0,1.0)
 @export var slotSize = Vector2(64,64)
 @export var margin = 10
 @export var seperator = 10
+@export var wood =10
+@export var stone =10
 @export var hotbarItems={
 	1:"House1",
 	2:"Tower",
@@ -14,6 +16,7 @@ var targetscale =Vector2(1.0,1.0)
 	4:"LumberMill",
 	5:"Gun"
 }
+
 var active = 1
 signal Hud
 func getActive():
@@ -25,6 +28,8 @@ func _ready() -> void:
 	#$GridContainer.size = Vector2(slotSize.y+margin,(slotSize.x+seperator)*hotbarlength+2*margin)
 	for i in hotbarlength:
 		$GridContainer.get_child(i).size = slotSize
+	$ResourcePanel/HBoxContainer/StoneContainer/StoneAmount.text = str(stone)
+	$ResourcePanel/HBoxContainer/WoodContainer/WoodAmount.text = str(wood)
 func _on_castle_health(current:int,max:int):
 	current = current
 	max=max
@@ -76,12 +81,12 @@ func debug_variables():
 	get_stone()
 	get_wood()
 func change_wood(amount):
-	var wood = int($ResourcePanel/HBoxContainer/WoodContainer/WoodAmount.text)
+	wood = int($ResourcePanel/HBoxContainer/WoodContainer/WoodAmount.text)
 	wood+=amount
 	print("wood changed to: ", wood)
 	$ResourcePanel/HBoxContainer/WoodContainer/WoodAmount.text = str(wood)
 func change_stone(amount):
-	var stone = int($ResourcePanel/HBoxContainer/StoneContainer/StoneAmount.text)
+	stone = int($ResourcePanel/HBoxContainer/StoneContainer/StoneAmount.text)
 	stone+=amount
 	print("stone changed to: ", stone)
 	$ResourcePanel/HBoxContainer/StoneContainer/StoneAmount.text = str(stone)
