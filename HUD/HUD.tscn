@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://70jkdnbljbt3"]
+[gd_scene load_steps=16 format=3 uid="uid://70jkdnbljbt3"]
 
 [ext_resource type="Script" path="res://HUD/hud.gd" id="1_3gqfi"]
 [ext_resource type="Texture2D" uid="uid://25jay3hyrab6" path="res://Assets/House.png" id="2_u6m4s"]
@@ -8,7 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://cqhu4sm5ijtrr" path="res://Assets/crosshair-removebg-preview.png" id="4_p1f4r"]
 [ext_resource type="Texture2D" uid="uid://bc7h30qjieoif" path="res://Assets/Blaster.png" id="5_82awk"]
 [ext_resource type="ArrayMesh" uid="uid://bufyxs08ygwxp" path="res://Assets/ResourceIconTextures/WoodResourceIcon.obj" id="8_2nug6"]
+[ext_resource type="Texture2D" uid="uid://bpmy6k3oift16" path="res://Assets/ResourceIconTextures/Lumber_icon.png" id="8_pkioo"]
 [ext_resource type="ArrayMesh" uid="uid://d12oq4858t2ak" path="res://Assets/ResourceIconTextures/StoneResourceIcon.obj" id="9_qdxye"]
+[ext_resource type="Texture2D" uid="uid://c81u6g6tev0rx" path="res://Assets/ResourceIconTextures/Stone_icon.png" id="10_y0mvj"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_f4xf8"]
 size = Vector2(400, 50)
@@ -175,34 +177,42 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ResourcePanel"]
-custom_minimum_size = Vector2(10, 10)
+[node name="HBoxContainer" type="GridContainer" parent="ResourcePanel"]
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
 anchors_preset = -1
 offset_left = 10.0
 offset_top = 10.0
-offset_right = 310.0
-offset_bottom = 60.0
+offset_right = 189.0
+offset_bottom = 135.0
+columns = 2
 
 [node name="WoodContainer" type="VBoxContainer" parent="ResourcePanel/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="ResourcePanel/HBoxContainer/WoodContainer"]
+layout_mode = 2
+texture = ExtResource("8_pkioo")
+expand_mode = 5
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="ResourcePanel/HBoxContainer/WoodContainer"]
+visible = false
 layout_mode = 2
 
 [node name="SubViewport" type="SubViewport" parent="ResourcePanel/HBoxContainer/WoodContainer/SubViewportContainer"]
 transparent_bg = true
 handle_input_locally = false
 size = Vector2i(100, 100)
-render_target_update_mode = 4
+render_target_update_mode = 0
 
 [node name="Camera3D" type="Camera3D" parent="ResourcePanel/HBoxContainer/WoodContainer/SubViewportContainer/SubViewport"]
-transform = Transform3D(-0.99773, 0, 0.0673362, 0, 1, 0, -0.0673362, 0, -0.99773, 0.117081, 3.32445, 0.402578)
+transform = Transform3D(-3.71438e-08, 9.04089e-08, 1, -0.753563, 0.657375, -8.74228e-08, -0.657375, -0.753563, 4.37114e-08, 0, 0, 0)
 
-[node name="WoodResourceIcon" type="MeshInstance3D" parent="ResourcePanel/HBoxContainer/WoodContainer/SubViewportContainer/SubViewport"]
-transform = Transform3D(0.00391552, 0.0443173, 0.99901, -0.307757, 0.950583, -0.0409628, -0.951457, -0.307292, 0.017361, -0.0341116, 3.28286, 1.41065)
+[node name="WoodResourceIcon" type="MeshInstance3D" parent="ResourcePanel/HBoxContainer/WoodContainer/SubViewportContainer/SubViewport/Camera3D"]
+transform = Transform3D(-0.445948, -0.80895, -0.383054, -0.820413, 0.540533, -0.186403, 0.357844, 0.231136, -0.904724, -1.87359, 1.66523, -1.01596)
 mesh = ExtResource("8_2nug6")
-skeleton = NodePath("../../../../../..")
+skeleton = NodePath("../../../../../../..")
 
 [node name="WoodAmount" type="Label" parent="ResourcePanel/HBoxContainer/WoodContainer"]
 layout_mode = 2
@@ -211,22 +221,33 @@ horizontal_alignment = 1
 
 [node name="StoneContainer" type="VBoxContainer" parent="ResourcePanel/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="ResourcePanel/HBoxContainer/StoneContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+texture = ExtResource("10_y0mvj")
+expand_mode = 5
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="ResourcePanel/HBoxContainer/StoneContainer"]
+visible = false
 layout_mode = 2
 
 [node name="SubViewport" type="SubViewport" parent="ResourcePanel/HBoxContainer/StoneContainer/SubViewportContainer"]
 transparent_bg = true
 handle_input_locally = false
 size = Vector2i(100, 100)
-render_target_update_mode = 4
+render_target_update_mode = 0
 
 [node name="Camera3D" type="Camera3D" parent="ResourcePanel/HBoxContainer/StoneContainer/SubViewportContainer/SubViewport"]
-transform = Transform3D(-0.999028, 0, -0.0440902, 0, 1, 0, 0.0440902, 0, -0.999028, 2.20523, 3.30447, -0.016207)
+transform = Transform3D(-0.446198, 0, -0.894934, 0, 1, 0, 0.894934, 0, -0.446198, 2, 0, 0)
 
-[node name="StoneResourceIcon" type="MeshInstance3D" parent="ResourcePanel/HBoxContainer/StoneContainer/SubViewportContainer/SubViewport"]
-transform = Transform3D(0.258347, 0, 0.966052, 0, 1, 0, -0.966052, 0, 0.258347, 2.18679, 2.78332, 1.26151)
+[node name="StoneResourceIcon" type="MeshInstance3D" parent="ResourcePanel/HBoxContainer/StoneContainer/SubViewportContainer/SubViewport/Camera3D"]
+transform = Transform3D(-0.300689, 0, -0.953722, 0, 1, 0, 0.953722, 0, -0.300689, 1.67544, 1.14518, -2.10635)
+gi_lightmap_scale = 1
 mesh = ExtResource("9_qdxye")
+skeleton = NodePath("../..")
 
 [node name="StoneAmount" type="Label" parent="ResourcePanel/HBoxContainer/StoneContainer"]
 layout_mode = 2

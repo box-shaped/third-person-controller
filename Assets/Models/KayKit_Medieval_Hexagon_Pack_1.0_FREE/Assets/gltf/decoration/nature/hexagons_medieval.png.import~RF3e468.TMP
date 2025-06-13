@@ -2,27 +2,26 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dt4q1wj8rao3w"
-path.s3tc="res://.godot/imported/hexagons_medieval_albedo003.png-791ccf71dc44047e7c9fbbfa36b187c3.s3tc.ctex"
+uid="uid://d2smtydjnkj6q"
+path="res://.godot/imported/hexagons_medieval.png-0644b595485aa5b328fd3cc62bd2b67f.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/textures/hexagons_medieval_albedo003.png"
-dest_files=["res://.godot/imported/hexagons_medieval_albedo003.png-791ccf71dc44047e7c9fbbfa36b187c3.s3tc.ctex"]
+source_file="res://Assets/Models/KayKit_Medieval_Hexagon_Pack_1.0_FREE/Assets/gltf/decoration/nature/hexagons_medieval.png"
+dest_files=["res://.godot/imported/hexagons_medieval.png-0644b595485aa5b328fd3cc62bd2b67f.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -32,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1
