@@ -1,4 +1,5 @@
 extends Node
+
 var timer = 0
 var skel
 var mapRadius
@@ -6,11 +7,13 @@ var active = 0
 var maxmobs= 10
 var currentmobs = 0
 var centre 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$defaultMonsterPath.position.y = $"../NavigationRegion3D/Map".mapHeight
 
 signal enemyspawn
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if active:
@@ -28,10 +31,13 @@ func _process(delta: float) -> void:
 			enemyspawn.emit(skeleton)
 			timer=0
 			currentmobs+=1
+
+# Sets the centre tile as the destination for pathfinding
 func setCentre(centrre):
 	centre = centrre
 	print(centre,"pathdestination")
-	
+
+# Finds the corners of the map
 func get_map_corners(mapRadius: int, cellSize: Vector2) -> Array:
 	# Directions to the 6 hex corners in axial coordinates
 	var directions = [
@@ -57,9 +63,12 @@ func get_map_corners(mapRadius: int, cellSize: Vector2) -> Array:
 		corners.append(Vector3(corner_world_position.x, 0, corner_world_position.y))
 		
 	return corners
+
+# Decreases the mob count
 func on_enemy_death():
 	currentmobs-=1
 
+# Creates the monster spawn curve
 func _on_map_enemy(mapRadius:int,_cellSize:Vector2,centrepixel) -> void:
 	var curvee = Curve3D.new()
 	print("making monster spawn curve")

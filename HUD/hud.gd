@@ -19,9 +19,12 @@ var targetscale =Vector2(1.0,1.0)
 }
 
 var active = 1
+
 signal Hud
+
 func getActive():
 	return hotbarItems[active]
+	
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$RichTextLabel.add_theme_font_size_override("theme_override_font_sizes/normal_font_size",healthfontsize)
@@ -31,6 +34,8 @@ func _ready() -> void:
 		$GridContainer.get_child(i).size = slotSize
 	$ResourcePanel/HBoxContainer/StoneContainer/StoneAmount.text = str(stone)
 	$ResourcePanel/HBoxContainer/WoodContainer/WoodAmount.text = str(wood)
+
+# Castle health in health bar
 func _on_castle_health(current:int,max:int):
 	current = current
 	max=max
@@ -42,6 +47,8 @@ func _on_castle_health(current:int,max:int):
 func _process(delta: float) -> void:
 	$Container2/HealthMeasure.value = 100*lerp($Container2/HealthMeasure.value/100,targetscale.x,delta*15)
 	#print($Container2/HealthMeasure.value)
+
+# Identifies keypresses and calls the correct functions
 func _input(event):
 	if event.is_action_pressed("debug"):
 		debug_variables()
@@ -55,6 +62,8 @@ func _input(event):
 		_on_button_4_pressed()
 	elif event.is_action_pressed("Action5"):
 		_on_button_5_pressed()
+
+# Change hotbar slots depending on which key was pressed
 func _on_button_1_pressed() -> void:
 	active = 1
 	print(1)
@@ -73,29 +82,41 @@ func _on_button_4_pressed() -> void:
 func _on_button_5_pressed() -> void:
 	active = 5
 	print(5)
+
+# Controls crosshair visibility
 func _on_player_crosshair(visibility: bool) -> void:
 	$Container.visible = visibility
+
+# Changes ammo amount after shooting
 func update_ammo(count):
 	$AmmoContainer/Ammo.text = str("Ammo: ",count)
+
+# Debugging
 func debug_variables():
 	change_wood(+30)
 	get_stone()
 	change_stone(-30)
 	get_stone()
 	get_wood()
+
+# Change amount of resources. Currently for debugging
 func change_wood(amount):
 	wood = int($ResourcePanel/HBoxContainer/WoodContainer/WoodAmount.text)
 	wood+=amount
 	print("wood changed to: ", wood)
 	$ResourcePanel/HBoxContainer/WoodContainer/WoodAmount.text = str(wood)
+
 func change_stone(amount):
 	stone = int($ResourcePanel/HBoxContainer/StoneContainer/StoneAmount.text)
 	stone+=amount
 	print("stone changed to: ", stone)
 	$ResourcePanel/HBoxContainer/StoneContainer/StoneAmount.text = str(stone)
+
+# Finds the amount of a resource the player has
 func get_wood():
 	var wood = int($ResourcePanel/HBoxContainer/WoodContainer/WoodAmount.text)
 	return wood
+
 func get_stone():
 	var stone = int($ResourcePanel/HBoxContainer/StoneContainer/StoneAmount.text)
 	return stone

@@ -11,9 +11,11 @@ const CAMERA_BLEND : float = 0.05
 @onready var pivot : Node3D = $"."
 @onready var camera : Camera3D = $Camera3D
 
+# Called when the node enters the scene tree
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
+# Detects moving the mouse?
 func _input(event):
 	if event is InputEventMouseMotion:
 		$"..".rotate_y(-event.relative.x * sensitivity)
@@ -21,6 +23,7 @@ func _input(event):
 		pivot.rotation.x = clamp(pivot.rotation.x, -PI/2.5, PI/2.5)
 		#print("work i pray")
 
+# FOV change while running and on the floor
 func _physics_process(_delta):
 	if change_fov_on_run:
 		if owner.is_on_floor():

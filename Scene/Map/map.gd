@@ -11,13 +11,18 @@ extends Node3D
 @export var falloffSlope:float = 0.5
 @export var falloffMultiplier:float = 1
 @export var falloffOffset:float = 1
+
 var centerPixel
 var centerTile
 var worldmap: Dictionary = {}
 var noisegen
+
+# Honestly no clue
 func toggle(input:bool):
 	if input:return false
 	else: return true
+
+# Called when node enters the scene tree
 func _ready():
 	await get_tree().create_timer(0.4).timeout
 	
@@ -47,8 +52,12 @@ func _ready():
 	
 
 signal done
+
 signal enemy
+
 signal castlePlaced
+
+# Locates and places the central castle
 func placeCentralCastle():
 	var coord = Vector3(centerPixel.x, get_tile_height(get_neighbors(centerTile)).max(), centerPixel.y)
 	var castle = placeBlock("Castle", coord)
@@ -72,7 +81,7 @@ func placeCentralCastle():
 	worldmap[str("built",Vector2i(centerTile.x,centerTile.y))]=true
 	castle.updateHealth.connect($"../../CanvasLayer/HUD"._on_castle_health)
 
-
+# Converts cell coordinates to pixel coordinates and clamped offset
 func _cellToPixel(cell: Vector2) -> Array:
 	# Hex grid to pixel conversion
 	var x = (sqrt(3.0) * cell.x + sqrt(3.0) / 2.0 * cell.y) * _cellSize.x
@@ -141,6 +150,7 @@ func falloff(distance: float, radius: float) -> float:
 	else:
 		return 1  # No change to tiles outside the radius
 
+# Generates the world map
 func generateMap():
 	var TileLibrary = preload("res://Scene/Map/Library.tscn")
 	for x in range(mapDiameter):
@@ -154,7 +164,7 @@ func generateMap():
 				var tileCoords = Vector3(coord.x, offset, coord.y)
 				placeBlock("defaultGrass",tileCoords, 0,1)
 
-
+# Converts pixel coordinates to cell coordinates
 func pixel_to_pointy_hex(point: Vector2) -> Vector2i:
 	# Reverse the calculation done in _cellToPixel
 	var x = (point.x * sqrt(3) / 3 - point.y / 3) / _cellSize.x
@@ -162,8 +172,12 @@ func pixel_to_pointy_hex(point: Vector2) -> Vector2i:
 	return Vector2i(round(x), round(y))
 
 @onready var ray = $"../../Player/Pivot/Camera3D/Ray"
+
 signal rebake
+
 signal add_to_geometry(Tile, coordinates)
+
+# Controls placing buildings
 func placeBlock(blockID: String, coordinates: Vector3, debug: bool = true, basemap: bool = false,centergrass:bool=false):
 	# Convert world coordinates (ray collision) to grid coordinates
 	
@@ -206,9 +220,12 @@ func placeBlock(blockID: String, coordinates: Vector3, debug: bool = true, basem
 	return hexTile
 
 signal castleGone
+
+# Emits a signal on the castle death
 func _on_castle_gone():
 	castleGone.emit()
-	
+
+# Gets a tile's neighbouring tiles
 func get_neighbors(cell: Vector2i) -> Array:
 	# These are the six neighbors for a pointy-topped hexagonal grid
 	var directions = [
@@ -224,7 +241,10 @@ func get_neighbors(cell: Vector2i) -> Array:
 	for dir in directions:
 		neighbors.append(cell + dir)
 	return neighbors
+	
 signal newTower
+
+# Places buildings
 func build():
 	if !ray.is_colliding():
 		return
@@ -241,15 +261,19 @@ func build():
 			var block = placeBlock(blocktype, collision_point)
 			if blocktype == "Tower":
 				newTower.emit(block)
+
 signal removalqueue(action:bool,object:Variant)
+
+# Removes buildings
 func remove_building():
 	if !ray.is_colliding():
 		return
+	
 	var building = ray.get_collider()
 	print(building)
 	if !building.player_destructible:
-		
 		return
+	
 	if building.highlight:
 		building.highlight = false
 		removalqueue.emit(false,building)

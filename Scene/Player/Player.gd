@@ -44,9 +44,13 @@ var wish_dir := Vector3.ZERO
 var vertical = Vector3(0,1,0)
 var horizontal = Vector3(1,0,1)
 
+# Called when the node enters the scene tree
 func _ready():
 	ray.add_exception($".")
+
 #input_event(find_node("Camera3D"), event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int)
+
+# Controls player movement
 func _physics_process(delta):
 	if ray.is_colliding():
 		marker.position = ray.get_collision_point()
@@ -83,12 +87,17 @@ func _physics_process(delta):
 	smooth_camera_jitter(delta)
 	move_and_slide()
 	#animate(delta)
+
+# Moves the targeting laser
 func move_laser():
 	if $Pivot/Camera3D/GunParent/Gun/RayCast3D.get_collider()!=null:
 		
 		$Pivot/Camera3D/GunParent/Gun/light.global_position = $Pivot/Camera3D/GunParent/Gun/RayCast3D.get_collision_point()
 		$Pivot/Camera3D/GunParent/Gun/light.position.z+=1
+
 signal crosshair(visible:bool)
+
+# Controls player animations
 func animate(delta):
 	if is_on_floor():
 		animator.set("parameters/ground_air_transition/transition_request", "grounded")
@@ -108,6 +117,8 @@ func animate(delta):
 		#if ray.is_colliding():
 			#if ray.get_collider().is_in_group("Enemy"):
 				#shoot()
+
+# Aiming down sights
 func ADS(delta):
 	gun.transform.origin = gun.transform.origin.lerp(ADS_pos, ADS_LERP * delta)
 	gun.rotation = gun.rotation.lerp(Vector3(0,0,0), ADS_LERP * delta)
@@ -116,6 +127,8 @@ func ADS(delta):
 	camera.fov=lerpf(camera.fov,fovs["ADS"],ADS_LERP*delta*0.75)
 	$Pivot.sensitivity=$Pivot.defaultsensitivity*senseratio
 	crosshair.emit(0)
+
+# Gun lowered
 func Hip(delta):
 	gun.transform.origin = gun.transform.origin.lerp(hipfire_pos, ADS_LERP * delta)
 	gun.rotation =gun.rotation.lerp(hipfire_angle, ADS_LERP * delta)
@@ -123,6 +136,8 @@ func Hip(delta):
 	camera.fov=lerpf(camera.fov,fovs["Hipfire"],ADS_LERP*delta*0.75)
 	$Pivot.sensitivity=$Pivot.defaultsensitivity
 	crosshair.emit(1)
+
+# Shooting animation
 func shoot():
 	if shotAmount > 0:
 		shotAmount -= 1
@@ -140,6 +155,8 @@ func shoot():
 		$Gunshot.play()
 	
 	##### CODE FROM: https://github.com/JheKWall/Godot-Stair-Step-Demo/blob/main/Scripts/player_character.gd by JKWall #####
+
+# Falling and snap to floor
 func stair_step_down():
 	if is_grounded:
 		return
@@ -161,7 +178,7 @@ func stair_step_down():
 			apply_floor_snap()
 			is_grounded = true
 
-# Function: Handle walking up stairs
+# Walking up stairs
 func stair_step_up():
 	if wish_dir == Vector3.ZERO:
 		return
@@ -245,7 +262,7 @@ func stair_step_up():
 	global_pos.y = test_transform.origin.y
 	global_position = global_pos
 
-# Function: Smooth camera jitter
+# Smooth camera jitter
 func smooth_camera_jitter(delta):
 	CAMERA_HEAD.global_position.x = CAMERA_NECK.global_position.x
 	CAMERA_HEAD.global_position.y = lerpf(CAMERA_HEAD.global_position.y, CAMERA_NECK.global_position.y, CAMERA_SMOOTHING * delta)
