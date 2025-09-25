@@ -7,7 +7,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	pass
 
 
@@ -16,9 +16,8 @@ func _on_map_rebake() -> void:
 	#NavigationServer3D.bake_from_source_geometry_data(self.navigation_mesh,geometry)
 	bake_navigation_mesh(0)
 
-# Adds navmesh geometry
-func _on_map_add_to_geometry(_Tile: Variant, _coordinates: Variant) -> void:
-	# Commenting this out, gonna have to fix it at some point but right now i really cba
+func _on_map_add_to_geometry(Tile: Variant, coordinates: Variant) -> void:
+	## Commenting this out, gonna have to fix it at some point but right now i really cba
 	#geometry.add_mesh(Tile.get_child(0),Transform3D(Basis(),coordinates))
 	#print("added to geometry",Tile.get_child(0).mesh,Transform3D(Basis(),coordinates))
 	pass

@@ -6,15 +6,13 @@ var active = 0
 var maxmobs= 10
 var currentmobs = 0
 var centre 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$defaultMonsterPath.position.y = $"../NavigationRegion3D/Map".mapHeight
 
 signal enemyspawn
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	if active:
 		timer+=1
 		if timer>20 and active and currentmobs<maxmobs:
@@ -30,14 +28,12 @@ func _process(_delta: float) -> void:
 			enemyspawn.emit(skeleton)
 			timer=0
 			currentmobs+=1
-
-# Sets the centre of the map for monster pathfinding
 func setCentre(centrre):
 	centre = centrre
 	print(centre,"pathdestination")
-
-# Directions to the 6 hex corners in axial coordinates
-func get_map_corners(mapRadius: int, _cellSize: Vector2) -> Array:
+	
+func get_map_corners(mapRadius: int, cellSize: Vector2) -> Array:
+	# Directions to the 6 hex corners in axial coordinates
 	var directions = [
 		Vector2i(1, 0),   # 0° (right)
 		Vector2i(0, 1),   # 60° (top-right)
@@ -51,7 +47,6 @@ func get_map_corners(mapRadius: int, _cellSize: Vector2) -> Array:
 	
 	# Iterate through the 6 directions and calculate the corner positions
 	for direction in directions:
-		
 		# Scale the direction by map radius to get the outermost cell
 		var corner_cell = direction * (mapRadius-5)
 		
@@ -62,12 +57,9 @@ func get_map_corners(mapRadius: int, _cellSize: Vector2) -> Array:
 		corners.append(Vector3(corner_world_position.x, 0, corner_world_position.y))
 		
 	return corners
-
-# Removes monsters from the monster count on their death
 func on_enemy_death():
 	currentmobs-=1
 
-# Creates the monster spawn curve around the edge of the map
 func _on_map_enemy(mapRadius:int,_cellSize:Vector2,centrepixel) -> void:
 	var curvee = Curve3D.new()
 	print("making monster spawn curve")

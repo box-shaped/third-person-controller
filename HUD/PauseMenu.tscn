@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dui7uwlsjjhva"]
 
-[ext_resource type="Script" uid="uid://dg5dbmjudmbkj" path="res://HUD/resume.gd" id="1_hxex3"]
+[ext_resource type="Script" path="res://HUD/resume.gd" id="1_hxex3"]
 
 [node name="Control" type="Control"]
 process_mode = 3

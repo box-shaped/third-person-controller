@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bvbwtqhean2yf"]
 
-[ext_resource type="Script" uid="uid://gjt0k52goi80" path="res://addons/fastnoiselite_tool/vector3_input.gd" id="1_legfd"]
+[ext_resource type="Script" path="res://addons/fastnoiselite_tool/vector3_input.gd" id="1_legfd"]
 
 [node name="Vector3Input" type="MarginContainer"]
 script = ExtResource("1_legfd")

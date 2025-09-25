@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://0icqv8tiax72"]
 
-[ext_resource type="Script" uid="uid://dnxbved6qinjf" path="res://Scene/Mobs/enemy.gd" id="1_j1xpa"]
+[ext_resource type="Script" path="res://Scene/Mobs/enemy.gd" id="1_j1xpa"]
 [ext_resource type="PackedScene" uid="uid://bf0l1jvbxrei4" path="res://Scene/Mobs/skeleton_warrior.tscn" id="2_n520h"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_n2kyu"]

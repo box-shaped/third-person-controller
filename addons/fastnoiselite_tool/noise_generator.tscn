@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://clis755lpsjin"]
 
-[ext_resource type="Script" uid="uid://dfpe3eihtpfr5" path="res://addons/fastnoiselite_tool/noise_generator.gd" id="1_ea8kf"]
+[ext_resource type="Script" path="res://addons/fastnoiselite_tool/noise_generator.gd" id="1_ea8kf"]
 [ext_resource type="Theme" uid="uid://l2h0pvttlllc" path="res://addons/fastnoiselite_tool/noise_generator_theme.tres" id="1_t24wn"]
 [ext_resource type="PackedScene" uid="uid://bvbwtqhean2yf" path="res://addons/fastnoiselite_tool/vector3_input.tscn" id="3_w7vva"]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://70jkdnbljbt3"]
 
-[ext_resource type="Script" uid="uid://gn87nv54beuv" path="res://HUD/hud.gd" id="1_3gqfi"]
+[ext_resource type="Script" path="res://HUD/hud.gd" id="1_3gqfi"]
 [ext_resource type="Texture2D" uid="uid://25jay3hyrab6" path="res://Assets/House.png" id="2_u6m4s"]
 [ext_resource type="Texture2D" uid="uid://lgfmtpknuip3" path="res://Assets/StoneQuarryImage.png" id="3_w6xxu"]
 [ext_resource type="Texture2D" uid="uid://caen8l8kespcm" path="res://Assets/even more beatiful healthbar.png" id="4_22v52"]
@@ -245,7 +245,7 @@ transform = Transform3D(-0.446198, 0, -0.894934, 0, 1, 0, 0.894934, 0, -0.446198
 
 [node name="StoneResourceIcon" type="MeshInstance3D" parent="ResourcePanel/HBoxContainer/StoneContainer/SubViewportContainer/SubViewport/Camera3D"]
 transform = Transform3D(-0.300689, 0, -0.953722, 0, 1, 0, 0.953722, 0, -0.300689, 1.67544, 1.14518, -2.10635)
-gi_lightmap_texel_scale = 2.0
+gi_lightmap_scale = 1
 mesh = ExtResource("9_qdxye")
 skeleton = NodePath("../..")
 

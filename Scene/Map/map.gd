@@ -15,12 +15,9 @@ var centerPixel
 var centerTile
 var worldmap: Dictionary = {}
 var noisegen
-
 func toggle(input:bool):
 	if input:return false
 	else: return true
-
-# Called when the node enters the scene tree for the first time
 func _ready():
 	await get_tree().create_timer(0.4).timeout
 	
@@ -48,13 +45,10 @@ func _ready():
 	$"..".bake_navigation_mesh(0)
 	enemy.emit(mapRadius,_cellSize,Vector3(centerPixel.x-mapRadius*_cellSize.x,get_tile_height(centerTile),centerPixel.y-mapRadius*_cellSize.y))
 	
+
 signal done
-
 signal enemy
-
 signal castlePlaced
-
-# Locates and places the central castle
 func placeCentralCastle():
 	var coord = Vector3(centerPixel.x, get_tile_height(get_neighbors(centerTile)).max(), centerPixel.y)
 	var castle = placeBlock("Castle", coord)
@@ -66,11 +60,10 @@ func placeCentralCastle():
 	# Now adjust the neighbors
 	var neighbors = get_neighbors(centerTile)
 	for neighbor in neighbors:
-		
 		# Make sure the neighbor is valid in the world map
 		if worldmap.has(str(neighbor)):
-			
 			# Set the neighbor's height to match the castle's height
+			
 			var neighbor_pixel = _cellToPixel(neighbor)[0]
 			var tileCoords = Vector3(neighbor_pixel.x, get_tile_height(centerTile), neighbor_pixel.y)
 			var grass = placeBlock("defaultGrass", tileCoords,true,true,true)
@@ -79,23 +72,22 @@ func placeCentralCastle():
 	worldmap[str("built",Vector2i(centerTile.x,centerTile.y))]=true
 	castle.updateHealth.connect($"../../CanvasLayer/HUD"._on_castle_health)
 
-# Hex grid to pixel conversion
+
 func _cellToPixel(cell: Vector2) -> Array:
+	# Hex grid to pixel conversion
 	var x = (sqrt(3.0) * cell.x + sqrt(3.0) / 2.0 * cell.y) * _cellSize.x
 	var y = (3.0 / 2.0 * cell.y) * _cellSize.y
 	
 	# Get noise-based offset and apply falloff
 	var offset = noisegen.get_noise_2dv(cell) * mapHeight
-	
-	# Ensure positive offset
 	if offset < 0:
-		offset = -offset
+		offset = -offset  # Ensure positive offset
 	
 	# Return pixel coordinates and clamped offset
 	return [Vector2(x, y), clamp(offset, 0, INF)]
 
-# Convert the cell coordinates to pixel coordinates
 func get_tile_height(cell):
+	# Convert the cell coordinates to pixel coordinates
 	if cell is Array:
 		var offsets =[]
 		for tile in cell:
@@ -111,10 +103,8 @@ func get_tile_height(cell):
 			var falloff_value = falloff(distance, centerHillRadius)
 			height_offset += falloff_value
 			offsets.append(height_offset)
-		
-		# Return the final height including any translation offset due to the map's center
+			# Return the final height including any translation offset due to the map's center
 		return offsets
-	
 	var pixel_position = _cellToPixel(cell)
 	var height_offset: float = pixel_position[1]
 
@@ -122,7 +112,6 @@ func get_tile_height(cell):
 	var map_radius = (mapDiameter - 1) / 2
 	var center = Vector2(map_radius, map_radius)
 	var distance = cell.distance_to(center)
-	
 	# Apply the falloff based on the distance from the center
 	var falloff_value = falloff(distance, centerHillRadius)
 	height_offset *= falloff_value*falloffMultiplier
@@ -152,40 +141,35 @@ func falloff(distance: float, radius: float) -> float:
 	else:
 		return 1  # No change to tiles outside the radius
 
-# Generates the world map
 func generateMap():
-	var _TileLibrary = preload("res://Scene/Map/Library.tscn")
+	var TileLibrary = preload("res://Scene/Map/Library.tscn")
 	for x in range(mapDiameter):
 		for y in range(mapDiameter):
 			var cell = Vector2i(x, y)
 			if worldmap[str(cell)]:
 				var tilePosition = _cellToPixel(cell)
 				var coord: Vector2 = tilePosition[0]
-				
 				# Set the height of the tile using the new get_tile_height function
 				var offset: float = get_tile_height(cell)
 				var tileCoords = Vector3(coord.x, offset, coord.y)
 				placeBlock("defaultGrass",tileCoords, 0,1)
 
-# Converts pixel to hex coordinates
+
 func pixel_to_pointy_hex(point: Vector2) -> Vector2i:
+	# Reverse the calculation done in _cellToPixel
 	var x = (point.x * sqrt(3) / 3 - point.y / 3) / _cellSize.x
 	var y = (2 * point.y / 3) / _cellSize.y
 	return Vector2i(round(x), round(y))
 
 @onready var ray = $"../../Player/Pivot/Camera3D/Ray"
-
 signal rebake
-
 signal add_to_geometry(Tile, coordinates)
-
-# Convert world coordinates (ray collision) to grid coordinates
 func placeBlock(blockID: String, coordinates: Vector3, debug: bool = true, basemap: bool = false,centergrass:bool=false):
+	# Convert world coordinates (ray collision) to grid coordinates
 	
 	var cellCoords = pixel_to_pointy_hex(Vector2(coordinates.x, coordinates.z))
 	if worldmap[str("built",Vector2i(cellCoords.x,cellCoords.y))]==true:
 		return
-	
 	# Get the tile's correct height based on grid coordinates
 	var tile_height = get_tile_height(cellCoords)
 	
@@ -196,10 +180,9 @@ func placeBlock(blockID: String, coordinates: Vector3, debug: bool = true, basem
 
 	# Calculate the pixel position of the grid cell
 	var pixel_position = _cellToPixel(cellCoords)[0]
-	var _center_offset = _cellToPixel(Vector2((mapDiameter - 1) / 2, (mapDiameter - 1) / 2))[0]
+	var center_offset = _cellToPixel(Vector2((mapDiameter - 1) / 2, (mapDiameter - 1) / 2))[0]
 	if centergrass:
 		tile_height = coordinates.y
-	
 	# Adjust the final position by taking the center offset into account
 	var tileCoords = Vector3(pixel_position.x , tile_height, pixel_position.y )
 	
@@ -208,7 +191,6 @@ func placeBlock(blockID: String, coordinates: Vector3, debug: bool = true, basem
 	var hexTile = TileLibrary.instantiate().find_child(blockID)
 	hexTile.position = tileCoords
 	add_to_geometry.emit(hexTile, tileCoords)
-	
 	# Optionally scale the tile if scalee is true
 	if basemap:
 		hexTile.scale = Vector3(1, 1 + tile_height, 1)
@@ -224,12 +206,11 @@ func placeBlock(blockID: String, coordinates: Vector3, debug: bool = true, basem
 	return hexTile
 
 signal castleGone
-
 func _on_castle_gone():
 	castleGone.emit()
-
-# These are the six neighbors for a pointy-topped hexagonal grid
+	
 func get_neighbors(cell: Vector2i) -> Array:
+	# These are the six neighbors for a pointy-topped hexagonal grid
 	var directions = [
 		Vector2i(1, 0),  # Right
 		Vector2i(1, -1), # Top-right
@@ -243,41 +224,32 @@ func get_neighbors(cell: Vector2i) -> Array:
 	for dir in directions:
 		neighbors.append(cell + dir)
 	return neighbors
-
 signal newTower
-
-# Controls placing buildings
 func build():
 	if !ray.is_colliding():
 		return
 	if ray.get_collision_normal().y == 1:
-			
 			# Get the block type from UI
 			var blocktype = $"../../CanvasLayer/HUD".getActive()
+			
 			
 			# Get the collision point from the raycast
 			var collision_point = ray.get_collision_point()
 			collision_point.x +=centerPixel.x
 			collision_point.z +=centerPixel.y
-			
 			# Place the block at the raycast hit location
 			var block = placeBlock(blocktype, collision_point)
 			if blocktype == "Tower":
 				newTower.emit(block)
-
 signal removalqueue(action:bool,object:Variant)
-
-# Controls removing buildings
 func remove_building():
 	if !ray.is_colliding():
 		return
-
 	var building = ray.get_collider()
 	print(building)
-
 	if !building.player_destructible:
+		
 		return
-
 	if building.highlight:
 		building.highlight = false
 		removalqueue.emit(false,building)
