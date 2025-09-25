@@ -9,6 +9,7 @@ var targetscale =Vector2(1.0,1.0)
 @export var seperator = 10
 @export var wood =10
 @export var stone =10
+
 @export var hotbarItems={
 	1:"House1",
 	2:"Tower",
@@ -74,6 +75,8 @@ func _on_button_5_pressed() -> void:
 	print(5)
 func _on_player_crosshair(visibility: bool) -> void:
 	$Container.visible = visibility
+func update_ammo(count):
+	$AmmoContainer/Ammo.text = str("Ammo: ",count)
 func debug_variables():
 	change_wood(+30)
 	get_stone()
