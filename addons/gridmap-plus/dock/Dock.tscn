@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dlcingyoys2kd"]
 
-[ext_resource type="Script" path="res://addons/gridmap-plus/dock/Dock.gd" id="1_bn7c7"]
+[ext_resource type="Script" uid="uid://bvm4npcwlbugo" path="res://addons/gridmap-plus/dock/Dock.gd" id="1_bn7c7"]
 [ext_resource type="Texture2D" uid="uid://c7o451hql58hh" path="res://addons/gridmap-plus/assets/icons/Build.svg" id="2_ldijc"]
 
 [node name="Dock" type="VBoxContainer"]

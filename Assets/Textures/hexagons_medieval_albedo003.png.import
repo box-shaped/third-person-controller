@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dt4q1wj8rao3w"
-path.s3tc="res://.godot/imported/hexagons_medieval_albedo003.png-791ccf71dc44047e7c9fbbfa36b187c3.s3tc.ctex"
+path.s3tc="res://.godot/imported/hexagons_medieval_albedo003.png-6e98d2d3178f94dd977dbbbd5868ed05.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/textures/hexagons_medieval_albedo003.png"
-dest_files=["res://.godot/imported/hexagons_medieval_albedo003.png-791ccf71dc44047e7c9fbbfa36b187c3.s3tc.ctex"]
+source_file="res://Assets/Textures/hexagons_medieval_albedo003.png"
+dest_files=["res://.godot/imported/hexagons_medieval_albedo003.png-6e98d2d3178f94dd977dbbbd5868ed05.s3tc.ctex"]
 
 [params]
 

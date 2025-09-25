@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://0scd31ucka55"]
 
-[ext_resource type="Script" path="res://addons/gridmap-plus/dock/Toolbar.gd" id="1_o1d2f"]
+[ext_resource type="Script" uid="uid://chpdihf4x1eru" path="res://addons/gridmap-plus/dock/Toolbar.gd" id="1_o1d2f"]
 [ext_resource type="Texture2D" uid="uid://dhbtl6pbql7uf" path="res://addons/gridmap-plus/assets/digits.png" id="2_16og5"]
 [ext_resource type="Texture2D" uid="uid://wwef06t7bh5e" path="res://addons/gridmap-plus/assets/selection.png" id="2_pj4tr"]
 

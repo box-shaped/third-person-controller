@@ -26,6 +26,7 @@ func _physics_process(delta: float) -> void:
 	
 	# Update path only at intervals or when agent is close to the next location
 	next_path_update_time -= delta
+	
 	if next_path_update_time <= 0 or current_location.distance_to(next_location) < threshold:
 		next_location = nav_agent.get_next_path_position()
 		next_path_update_time = PATH_UPDATE_INTERVAL
@@ -33,8 +34,10 @@ func _physics_process(delta: float) -> void:
 		
 	# Calculate velocity if there's a valid path to follow
 	var direction = next_location - current_location
+	
 	if direction.length() > threshold:  # Only move if there's meaningful distance
 		velocity = direction.normalized() * speed
+	
 	else:
 		velocity = Vector3()  # Stop moving if at destination
 	
@@ -42,20 +45,27 @@ func _physics_process(delta: float) -> void:
 	if velocity != Vector3(0,0,0):
 		look_at(position+(velocity*Vector3(1,0,1)))
 		move_and_slide()
+
 signal selfDie
+
 func die():
 	self.queue_free()
 	selfDie.emit()
+
 signal attackSignal
+
 func attack():
 	cooldown = attackcooldown
 	$Skeleton_Warrior/AnimationPlayer.play("Unarmed_Melee_Attack_Punch_A")
 	print("he atacceth")
 	attackSignal.emit(damage)
+
 func update_animation():
 	if !$Skeleton_Warrior/AnimationPlayer.is_playing():
+		
 		if cooldown>0:
 			$Skeleton_Warrior/AnimationPlayer.play("Unarmed_Idle")
+			
 		else:
 			$Skeleton_Warrior/AnimationPlayer.play("Walking_B")
 
@@ -71,5 +81,6 @@ func _ready():
 func update_target_location(target_location):
 	nav_agent.target_location = target_location
 	var dir = Vector3(nav_agent.target_location.x,position.y,nav_agent.target_location.z)
-	if !dir==position: look_at(dir)
+	if !dir==position:
+		look_at(dir)
 	pass
