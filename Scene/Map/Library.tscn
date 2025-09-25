@@ -455,11 +455,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.30033, 0, 0)
 script = ExtResource("8_1tv30")
 
 [node name="LumberMesh" parent="LumberMill" instance=ExtResource("8_gnhvq")]
-script = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LumberMill"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.116028, 0.558044, 0.00726318)
 shape = SubResource("BoxShape3D_wu8ji")
+
+[node name="Wood" type="Node" parent="LumberMill"]
 
 [node name="StoneMine" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.19052)
@@ -470,5 +471,7 @@ script = ExtResource("8_1tv30")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StoneMine"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00888062, 0.532639, -0.252441)
 shape = SubResource("BoxShape3D_wrj38")
+
+[node name="Stone" type="Node" parent="StoneMine"]
 
 [connection signal="body_entered" from="Castle/Area3D" to="Castle" method="_on_area_3d_body_entered"]

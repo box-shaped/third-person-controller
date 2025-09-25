@@ -6,14 +6,14 @@ extends Building
 var timer = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
+	resourcetype=get_child(3).name
+signal resource_update(resource:String,change:int)
 func give_resource():
 	if resourcetype == "unassigned":
 		print("No resourcetype assigned")
 		return
 	else:
-		pass
+		resource_update.emit(resourcetype,generation_amount)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
