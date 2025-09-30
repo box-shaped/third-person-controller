@@ -3400,93 +3400,43 @@ bones/0/name = "Hips"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, -5.00981e-07, 6.47142e-09, -2.84217e-14, 0.0129163, 0.999917, -5.01023e-07, -0.999917, 0.0129163, -7.72729e-06, 1.55432, -104.275)
 bones/0/enabled = true
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-bones/0/position = Vector3(-0.00797367, 1.56012, -104.204)
-bones/0/rotation = Quaternion(-0.680168, -0.268775, 0.249611, 0.634686)
-=======
-bones/0/position = Vector3(-0.00822877, 1.55573, -104.201)
-bones/0/rotation = Quaternion(-0.678769, -0.268678, 0.251103, 0.635635)
->>>>>>> Stashed changes
-=======
-bones/0/position = Vector3(-0.00822877, 1.55573, -104.201)
-bones/0/rotation = Quaternion(-0.678769, -0.268678, 0.251103, 0.635635)
->>>>>>> Stashed changes
+bones/0/position = Vector3(-0.00828648, 1.55801, -104.203)
+bones/0/rotation = Quaternion(-0.679523, -0.26891, 0.250484, 0.634975)
 bones/0/scale = Vector3(1, 1, 1)
 bones/1/name = "Spine"
 bones/1/parent = 0
 bones/1/rest = Transform3D(1, 4.9454e-07, 3.97682e-08, -4.9454e-07, 0.98715, 0.159796, 3.97681e-08, -0.159796, 0.98715, -4.16547e-10, 10.1825, -8.30447e-14)
 bones/1/enabled = true
 bones/1/position = Vector3(-4.16547e-10, 10.1825, -8.30447e-14)
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-bones/1/rotation = Quaternion(-0.0315786, 0.0408594, -0.00371908, 0.998659)
-=======
-bones/1/rotation = Quaternion(-0.0301717, 0.0412006, -0.00427205, 0.998686)
->>>>>>> Stashed changes
-=======
-bones/1/rotation = Quaternion(-0.0301717, 0.0412006, -0.00427205, 0.998686)
->>>>>>> Stashed changes
+bones/1/rotation = Quaternion(-0.0308995, 0.0410781, -0.00402644, 0.99867)
 bones/1/scale = Vector3(1, 1, 1)
 bones/2/name = "Spine1"
 bones/2/parent = 1
 bones/2/rest = Transform3D(1, 4.09117e-14, 1.11022e-15, -4.09117e-14, 1, 5.96046e-08, -1.11022e-15, -5.96046e-08, 1, -6.4464e-12, 10.0027, -2.08616e-07)
 bones/2/enabled = true
 bones/2/position = Vector3(-6.4464e-12, 10.0027, -2.08616e-07)
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-bones/2/rotation = Quaternion(0.0970879, 0.0822573, -0.00550809, 0.991856)
-=======
-bones/2/rotation = Quaternion(0.100242, 0.0828654, -0.0062137, 0.991487)
->>>>>>> Stashed changes
-=======
-bones/2/rotation = Quaternion(0.100242, 0.0828654, -0.0062137, 0.991487)
->>>>>>> Stashed changes
+bones/2/rotation = Quaternion(0.0984441, 0.0826518, -0.00589277, 0.991687)
 bones/2/scale = Vector3(1, 1, 1)
 bones/3/name = "Spine2"
 bones/3/parent = 2
 bones/3/rest = Transform3D(1, 7.40298e-08, -1.9083e-09, -7.40544e-08, 0.999668, -0.0257692, -1.9984e-14, 0.0257692, 0.999668, -1.59162e-12, 9.32207, -2.38418e-07)
 bones/3/enabled = true
 bones/3/position = Vector3(-1.59162e-12, 9.32207, -2.38418e-07)
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-bones/3/rotation = Quaternion(0.10991, 0.0821957, -0.00656491, 0.990515)
-=======
-bones/3/rotation = Quaternion(0.112908, 0.082726, -0.0072978, 0.990129)
->>>>>>> Stashed changes
-=======
-bones/3/rotation = Quaternion(0.112908, 0.082726, -0.0072978, 0.990129)
->>>>>>> Stashed changes
+bones/3/rotation = Quaternion(0.111227, 0.0825609, -0.00696164, 0.990335)
 bones/3/scale = Vector3(1, 1, 1)
 bones/4/name = "Neck"
 bones/4/parent = 3
 bones/4/rest = Transform3D(1, -1.52989e-13, -9.32587e-15, 1.52989e-13, 1, -2.23517e-08, 9.32588e-15, 2.23517e-08, 1, 4.14786e-10, 16.8654, -7.15255e-07)
 bones/4/enabled = true
 bones/4/position = Vector3(4.14786e-10, 16.8654, -7.15255e-07)
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-bones/4/rotation = Quaternion(-0.0264851, -0.0108274, 0.000847036, 0.99959)
-=======
-bones/4/rotation = Quaternion(-0.0360233, -0.010993, 0.000350685, 0.99929)
->>>>>>> Stashed changes
-=======
-bones/4/rotation = Quaternion(-0.0360233, -0.010993, 0.000350685, 0.99929)
->>>>>>> Stashed changes
+bones/4/rotation = Quaternion(-0.0305367, -0.0109053, 0.000449824, 0.999474)
 bones/4/scale = Vector3(1, 1, 1)
 bones/5/name = "Head"
 bones/5/parent = 4
 bones/5/rest = Transform3D(1, 7.74936e-14, 9.76996e-15, -7.74936e-14, 1, 3.72529e-08, -9.76996e-15, -3.72529e-08, 1, -1.07564e-07, 9.34192, 2.84104)
 bones/5/enabled = true
 bones/5/position = Vector3(-1.07564e-07, 9.34192, 2.84104)
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-bones/5/rotation = Quaternion(-0.0669723, 0.177354, 0.0155811, 0.981742)
-=======
-bones/5/rotation = Quaternion(-0.0566232, 0.176958, 0.00971635, 0.98254)
->>>>>>> Stashed changes
-=======
-bones/5/rotation = Quaternion(-0.0566232, 0.176958, 0.00971635, 0.98254)
->>>>>>> Stashed changes
+bones/5/rotation = Quaternion(-0.0628218, 0.176885, 0.0129719, 0.982139)
 bones/5/scale = Vector3(1, 1, 1)
 bones/6/name = "HeadTop_End"
 bones/6/parent = 5
@@ -3500,90 +3450,42 @@ bones/7/parent = 3
 bones/7/rest = Transform3D(-0.205696, -0.977364, 0.0494835, -0.129005, -0.0230426, -0.991376, 0.970076, -0.210305, -0.121345, -4.56997, 11.1959, -0.806634)
 bones/7/enabled = true
 bones/7/position = Vector3(-4.56997, 11.1959, -0.806634)
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-bones/7/rotation = Quaternion(-0.568447, 0.513895, -0.514113, -0.385316)
-=======
-bones/7/rotation = Quaternion(-0.578454, 0.504128, -0.515394, -0.381596)
->>>>>>> Stashed changes
-=======
-bones/7/rotation = Quaternion(-0.578454, 0.504128, -0.515394, -0.381596)
->>>>>>> Stashed changes
+bones/7/rotation = Quaternion(-0.572723, 0.509772, -0.5145, -0.383942)
 bones/7/scale = Vector3(1, 1, 1)
 bones/8/name = "RightArm"
 bones/8/parent = 7
 bones/8/rest = Transform3D(0.978563, 0.205696, 0.0101911, -0.205948, 0.977364, 0.0484224, -1.23866e-07, -0.0494832, 0.998775, 1.19209e-07, 10.8382, -3.08102e-07)
 bones/8/enabled = true
 bones/8/position = Vector3(1.96774e-07, 10.8382, -3.20984e-07)
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-bones/8/rotation = Quaternion(0.492019, 0.0373653, 0.0947722, 0.864604)
-=======
-bones/8/rotation = Quaternion(0.478878, 0.0503658, 0.0947776, 0.871296)
->>>>>>> Stashed changes
-=======
-bones/8/rotation = Quaternion(0.478878, 0.0503658, 0.0947776, 0.871296)
->>>>>>> Stashed changes
+bones/8/rotation = Quaternion(0.487503, 0.0423728, 0.094567, 0.86695)
 bones/8/scale = Vector3(1, 1, 1)
 bones/9/name = "RightForeArm"
 bones/9/parent = 8
 bones/9/rest = Transform3D(1, -8.21571e-08, -1.68211e-07, 8.21571e-08, 1, 3.72525e-09, 1.68211e-07, -3.72526e-09, 1, -1.00228e-05, 27.8415, -3.06485e-05)
 bones/9/enabled = true
 bones/9/position = Vector3(-1.00907e-05, 27.8415, -3.06037e-05)
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-bones/9/rotation = Quaternion(0.0549765, 0.0107328, -0.362796, 0.930184)
-=======
-bones/9/rotation = Quaternion(0.0460003, 0.025688, -0.35991, 0.931498)
->>>>>>> Stashed changes
-=======
-bones/9/rotation = Quaternion(0.0460003, 0.025688, -0.35991, 0.931498)
->>>>>>> Stashed changes
+bones/9/rotation = Quaternion(0.0508215, 0.0169345, -0.362431, 0.93047)
 bones/9/scale = Vector3(1, 1, 1)
 bones/10/name = "RightHand"
 bones/10/parent = 9
 bones/10/rest = Transform3D(1, -1.90228e-09, 1.90224e-09, 1.90228e-09, 1, -1.16585e-16, -1.90224e-09, 1.20203e-16, 1, 1.5054e-05, 28.3288, 9.62584e-07)
 bones/10/enabled = true
 bones/10/position = Vector3(1.5054e-05, 28.3288, 8.42971e-07)
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-bones/10/rotation = Quaternion(0.11427, -0.055901, -0.0999521, 0.986827)
-=======
-bones/10/rotation = Quaternion(0.109149, -0.0643022, -0.104242, 0.986451)
->>>>>>> Stashed changes
-=======
-bones/10/rotation = Quaternion(0.109149, -0.0643022, -0.104242, 0.986451)
->>>>>>> Stashed changes
+bones/10/rotation = Quaternion(0.112747, -0.0595714, -0.103068, 0.986467)
 bones/10/scale = Vector3(1, 1, 1)
 bones/11/name = "RightHandThumb1"
 bones/11/parent = 10
 bones/11/rest = Transform3D(0.888246, 0.459367, 6.482e-07, -0.396939, 0.767534, -0.503319, -0.231209, 0.447071, 0.864101, 2.68185, 2.46481, 1.57398)
 bones/11/enabled = true
 bones/11/position = Vector3(2.68185, 2.46481, 1.57397)
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-bones/11/rotation = Quaternion(0.235888, 0.142906, -0.209946, 0.938007)
-=======
-bones/11/rotation = Quaternion(0.231881, 0.146546, -0.206534, 0.939201)
->>>>>>> Stashed changes
-=======
-bones/11/rotation = Quaternion(0.231881, 0.146546, -0.206534, 0.939201)
->>>>>>> Stashed changes
+bones/11/rotation = Quaternion(0.234845, 0.143859, -0.2096, 0.9382)
 bones/11/scale = Vector3(1, 1, 1)
 bones/12/name = "RightHandThumb2"
 bones/12/parent = 11
 bones/12/rest = Transform3D(0.999824, -0.0185942, -0.00238411, 0.018605, 0.999816, 0.00460882, 0.00229797, -0.00465237, 0.999987, 2.5034e-06, 4.18899, -8.09279e-06)
 bones/12/enabled = true
 bones/12/position = Vector3(-4.17233e-06, 4.18898, -1.18934e-05)
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-bones/12/rotation = Quaternion(-0.0454944, 0.00107543, 0.185606, 0.98157)
-=======
-bones/12/rotation = Quaternion(-0.042907, 0.000363923, 0.186825, 0.981456)
->>>>>>> Stashed changes
-=======
-bones/12/rotation = Quaternion(-0.042907, 0.000363923, 0.186825, 0.981456)
->>>>>>> Stashed changes
+bones/12/rotation = Quaternion(-0.0448522, 0.000948171, 0.185837, 0.981556)
 bones/12/scale = Vector3(1, 1, 1)
 bones/13/name = "RightHandThumb3"
 bones/13/parent = 12
@@ -3604,30 +3506,14 @@ bones/15/parent = 10
 bones/15/rest = Transform3D(1, 0.000328245, -7.43845e-08, -0.000328245, 1, 2.4416e-11, 7.43845e-08, 2.97505e-16, 1, 2.25983, 9.10828, 0.517853)
 bones/15/enabled = true
 bones/15/position = Vector3(2.25983, 9.10828, 0.517853)
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-bones/15/rotation = Quaternion(0.0409237, 0.0101973, 0.00827538, 0.999076)
-=======
-bones/15/rotation = Quaternion(0.0435334, 0.00992483, 0.00940194, 0.998958)
->>>>>>> Stashed changes
-=======
-bones/15/rotation = Quaternion(0.0435334, 0.00992483, 0.00940194, 0.998958)
->>>>>>> Stashed changes
+bones/15/rotation = Quaternion(0.0516238, 0.0101408, 0.00792791, 0.998584)
 bones/15/scale = Vector3(1, 1, 1)
 bones/16/name = "RightHandIndex2"
 bones/16/parent = 15
 bones/16/rest = Transform3D(1, -0.000511482, 3.19893e-07, 0.000511482, 1, 1.0708e-05, -3.2537e-07, -1.07078e-05, 1, -5.94009e-08, 3.7, 8.1066e-07)
 bones/16/enabled = true
 bones/16/position = Vector3(1.82747e-07, 3.7, 7.39788e-07)
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-bones/16/rotation = Quaternion(0.146688, 0.000265814, 0.0101314, 0.989131)
-=======
-bones/16/rotation = Quaternion(0.158108, 0.000543401, 0.00897602, 0.987381)
->>>>>>> Stashed changes
-=======
-bones/16/rotation = Quaternion(0.158108, 0.000543401, 0.00897602, 0.987381)
->>>>>>> Stashed changes
+bones/16/rotation = Quaternion(0.179529, 0.00105188, 0.00679683, 0.983729)
 bones/16/scale = Vector3(1, 1, 1)
 bones/17/name = "RightHandIndex3"
 bones/17/parent = 16
@@ -3648,30 +3534,14 @@ bones/19/parent = 10
 bones/19/rest = Transform3D(1, 0.0010033, 8.39797e-08, -0.0010033, 0.999999, 8.78088e-11, -8.39796e-08, -1.72066e-10, 1, -2.61725e-05, 9.5325, 3.14696e-05)
 bones/19/enabled = true
 bones/19/position = Vector3(-2.61725e-05, 9.5325, 3.135e-05)
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-bones/19/rotation = Quaternion(0.110954, 0.00853561, 0.0243659, 0.99349)
-=======
-bones/19/rotation = Quaternion(0.110983, 0.00855725, 0.0241819, 0.993491)
->>>>>>> Stashed changes
-=======
-bones/19/rotation = Quaternion(0.110983, 0.00855725, 0.0241819, 0.993491)
->>>>>>> Stashed changes
+bones/19/rotation = Quaternion(0.110965, 0.00854366, 0.0242975, 0.993491)
 bones/19/scale = Vector3(1, 1, 1)
 bones/20/name = "RightHandMiddle2"
 bones/20/parent = 19
 bones/20/rest = Transform3D(0.999999, -0.00169976, 6.79516e-08, 0.00169976, 0.999999, 5.17246e-06, -7.67435e-08, -5.17234e-06, 1, 5.86961e-08, 3.70001, -3.00244e-05)
 bones/20/enabled = true
 bones/20/position = Vector3(5.8697e-08, 3.70001, -3.01458e-05)
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-bones/20/rotation = Quaternion(0.293386, 0.00183865, -0.018702, 0.955809)
-=======
-bones/20/rotation = Quaternion(0.267957, 0.00166613, -0.016367, 0.96329)
->>>>>>> Stashed changes
-=======
-bones/20/rotation = Quaternion(0.267957, 0.00166613, -0.016367, 0.96329)
->>>>>>> Stashed changes
+bones/20/rotation = Quaternion(0.283069, 0.00175983, -0.0177532, 0.958934)
 bones/20/scale = Vector3(1, 1, 1)
 bones/21/name = "RightHandMiddle3"
 bones/21/parent = 20
@@ -3692,30 +3562,14 @@ bones/23/parent = 10
 bones/23/rest = Transform3D(1, -0.000311951, 2.28839e-07, 0.000311951, 1, 7.13865e-11, -2.28839e-07, 8.67362e-17, 1, -1.86514, 9.10359, 0.0430616)
 bones/23/enabled = true
 bones/23/position = Vector3(-1.86514, 9.1036, 0.0430626)
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-bones/23/rotation = Quaternion(0.201996, -0.00726873, 0.0664934, 0.9771)
-=======
-bones/23/rotation = Quaternion(0.189221, -0.00839322, 0.0675089, 0.979575)
->>>>>>> Stashed changes
-=======
-bones/23/rotation = Quaternion(0.189221, -0.00839322, 0.0675089, 0.979575)
->>>>>>> Stashed changes
+bones/23/rotation = Quaternion(0.196446, -0.00774628, 0.0668188, 0.978205)
 bones/23/scale = Vector3(1, 1, 1)
 bones/24/name = "RightHandRing2"
 bones/24/parent = 23
 bones/24/rest = Transform3D(1, 0.000442856, 1.1852e-07, -0.000442856, 1, 5.28029e-06, -1.16181e-07, -5.28034e-06, 1, -1.24477e-07, 3.37927, -4.18549e-07)
 bones/24/enabled = true
 bones/24/position = Vector3(-1.24477e-07, 3.37927, -4.18549e-07)
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-bones/24/rotation = Quaternion(0.335022, -0.00253846, -0.0353175, 0.941545)
-=======
-bones/24/rotation = Quaternion(0.322709, -0.00249614, -0.0342504, 0.945875)
->>>>>>> Stashed changes
-=======
-bones/24/rotation = Quaternion(0.322709, -0.00249614, -0.0342504, 0.945875)
->>>>>>> Stashed changes
+bones/24/rotation = Quaternion(0.329882, -0.00250244, -0.0348819, 0.943374)
 bones/24/scale = Vector3(1, 1, 1)
 bones/25/name = "RightHandRing3"
 bones/25/parent = 24
@@ -3743,15 +3597,7 @@ bones/28/parent = 27
 bones/28/rest = Transform3D(0.999999, -0.00169266, 2.07639e-07, 0.00169266, 0.999999, 1.21103e-06, -2.09689e-07, -1.21067e-06, 1, -1.3404e-06, 3.60002, -1.43082e-06)
 bones/28/enabled = true
 bones/28/position = Vector3(1.02501e-06, 3.6, -1.07715e-07)
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-bones/28/rotation = Quaternion(0.363973, -0.0125526, -0.0688714, 0.928775)
-=======
-bones/28/rotation = Quaternion(0.37639, -0.0131084, -0.0696579, 0.923746)
->>>>>>> Stashed changes
-=======
-bones/28/rotation = Quaternion(0.37639, -0.0131084, -0.0696579, 0.923746)
->>>>>>> Stashed changes
+bones/28/rotation = Quaternion(0.357986, -0.0122913, -0.0684894, 0.931131)
 bones/28/scale = Vector3(1, 1, 1)
 bones/29/name = "RightHandPinky3"
 bones/29/parent = 28
@@ -3772,90 +3618,42 @@ bones/31/parent = 3
 bones/31/rest = Transform3D(-0.205707, 0.977362, -0.0494651, 0.129002, -0.0230232, -0.991377, -0.970074, -0.210314, -0.121345, 4.57045, 11.1957, -0.806628)
 bones/31/enabled = true
 bones/31/position = Vector3(4.57045, 11.1957, -0.806628)
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-bones/31/rotation = Quaternion(0.515401, 0.55424, -0.544722, 0.36119)
-=======
-bones/31/rotation = Quaternion(0.524438, 0.545478, -0.546853, 0.358287)
->>>>>>> Stashed changes
-=======
-bones/31/rotation = Quaternion(0.524438, 0.545478, -0.546853, 0.358287)
->>>>>>> Stashed changes
+bones/31/rotation = Quaternion(0.519558, 0.550258, -0.545432, 0.36025)
 bones/31/scale = Vector3(1, 1, 1)
 bones/32/name = "LeftArm"
 bones/32/parent = 31
 bones/32/rest = Transform3D(0.978561, -0.205708, -0.0101878, 0.20596, 0.977363, 0.0484042, 1.72295e-08, -0.0494647, 0.998776, 2.38419e-07, 10.8377, -1.4829e-06)
 bones/32/enabled = true
 bones/32/position = Vector3(1.19209e-07, 10.8377, -7.69096e-07)
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-bones/32/rotation = Quaternion(0.518779, -0.0554382, 0.138792, 0.841743)
-=======
-bones/32/rotation = Quaternion(0.512117, -0.0616687, 0.138487, 0.845432)
->>>>>>> Stashed changes
-=======
-bones/32/rotation = Quaternion(0.512117, -0.0616687, 0.138487, 0.845432)
->>>>>>> Stashed changes
+bones/32/rotation = Quaternion(0.515082, -0.0579791, 0.138475, 0.843892)
 bones/32/scale = Vector3(1, 1, 1)
 bones/33/name = "LeftForeArm"
 bones/33/parent = 32
 bones/33/rest = Transform3D(1, -7.91976e-10, 1.53857e-09, 7.91978e-10, 1, -1.06455e-06, -1.53857e-09, 1.06455e-06, 1, 6.06901e-08, 27.8415, 6.64478e-06)
 bones/33/enabled = true
 bones/33/position = Vector3(6.06901e-08, 27.8415, 6.64478e-06)
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-bones/33/rotation = Quaternion(-0.00855999, 0.0621964, 0.414289, 0.907977)
-=======
-bones/33/rotation = Quaternion(-0.0121484, 0.058453, 0.406899, 0.91152)
->>>>>>> Stashed changes
-=======
-bones/33/rotation = Quaternion(-0.0121484, 0.058453, 0.406899, 0.91152)
->>>>>>> Stashed changes
+bones/33/rotation = Quaternion(-0.00988785, 0.0609478, 0.411006, 0.909539)
 bones/33/scale = Vector3(1, 1, 1)
 bones/34/name = "LeftHand"
 bones/34/parent = 33
 bones/34/rest = Transform3D(1, 1.34243e-08, -1.34245e-08, -1.34243e-08, 1, -2.38631e-07, 1.34244e-08, 2.38631e-07, 1, 6.51527e-06, 28.3288, 6.64948e-06)
 bones/34/enabled = true
 bones/34/position = Vector3(5.95562e-06, 28.3288, -7.51943e-06)
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-bones/34/rotation = Quaternion(-0.122279, 0.137119, 0.012708, 0.982896)
-=======
-bones/34/rotation = Quaternion(-0.153491, 0.139655, 0.0147076, 0.978121)
->>>>>>> Stashed changes
-=======
-bones/34/rotation = Quaternion(-0.153491, 0.139655, 0.0147076, 0.978121)
->>>>>>> Stashed changes
+bones/34/rotation = Quaternion(-0.13341, 0.138228, 0.0131886, 0.981285)
 bones/34/scale = Vector3(1, 1, 1)
 bones/35/name = "LeftHandThumb1"
 bones/35/parent = 34
 bones/35/rest = Transform3D(0.8891, -0.457712, -1.28895e-06, 0.395629, 0.768507, -0.502867, 0.230169, 0.447099, 0.864364, -2.68173, 2.46615, 1.57619)
 bones/35/enabled = true
 bones/35/position = Vector3(-2.68173, 2.46615, 1.57617)
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-bones/35/rotation = Quaternion(0.305998, -0.00718043, 0.155624, 0.939199)
-=======
-bones/35/rotation = Quaternion(0.307194, -0.00905391, 0.161751, 0.937756)
->>>>>>> Stashed changes
-=======
-bones/35/rotation = Quaternion(0.307194, -0.00905391, 0.161751, 0.937756)
->>>>>>> Stashed changes
+bones/35/rotation = Quaternion(0.306032, -0.00839629, 0.159519, 0.938524)
 bones/35/scale = Vector3(1, 1, 1)
 bones/36/name = "LeftHandThumb2"
 bones/36/parent = 35
 bones/36/rest = Transform3D(0.999863, 0.0164218, 0.00212005, -0.0164304, 0.999856, 0.00411478, -0.00205217, -0.00414905, 0.999989, 6.55651e-07, 4.18709, 1.43951e-05)
 bones/36/enabled = true
 bones/36/position = Vector3(2.98023e-07, 4.18709, 1.43951e-05)
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-bones/36/rotation = Quaternion(-0.00958815, 0.00150276, -0.00734942, 0.999926)
-=======
-bones/36/rotation = Quaternion(-0.00943593, 0.00166338, -0.00708663, 0.999929)
->>>>>>> Stashed changes
-=======
-bones/36/rotation = Quaternion(-0.00943593, 0.00166338, -0.00708663, 0.999929)
->>>>>>> Stashed changes
+bones/36/rotation = Quaternion(-0.00953153, 0.0015625, -0.00725167, 0.999927)
 bones/36/scale = Vector3(1, 1, 1)
 bones/37/name = "LeftHandThumb3"
 bones/37/parent = 36
@@ -3876,30 +3674,14 @@ bones/39/parent = 34
 bones/39/rest = Transform3D(1, 8.81505e-05, -2.88796e-08, -8.81505e-05, 1, -2.25531e-06, 2.86808e-08, 2.25531e-06, 1, -2.25986, 9.10932, 0.518024)
 bones/39/enabled = true
 bones/39/position = Vector3(-2.25986, 9.10932, 0.518024)
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-bones/39/rotation = Quaternion(0.0472954, -0.00561185, 0.0624452, 0.996911)
-=======
-bones/39/rotation = Quaternion(0.0324847, -0.00564505, 0.0609735, 0.997595)
->>>>>>> Stashed changes
-=======
-bones/39/rotation = Quaternion(0.0324847, -0.00564505, 0.0609735, 0.997595)
->>>>>>> Stashed changes
+bones/39/rotation = Quaternion(0.0371666, -0.00588319, 0.0615798, 0.997393)
 bones/39/scale = Vector3(1, 1, 1)
 bones/40/name = "LeftHandIndex2"
 bones/40/parent = 39
 bones/40/rest = Transform3D(1, -0.000210313, 1.21517e-07, 0.000210313, 1, -1.2441e-06, -1.21255e-07, 1.24412e-06, 1, -1.00166e-07, 3.69999, 4.91004e-06)
 bones/40/enabled = true
 bones/40/position = Vector3(-1.00166e-07, 3.69999, 4.91004e-06)
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-bones/40/rotation = Quaternion(0.159824, -0.00115095, -0.0048095, 0.987133)
-=======
-bones/40/rotation = Quaternion(0.143625, -0.000771931, -0.00678177, 0.989609)
->>>>>>> Stashed changes
-=======
-bones/40/rotation = Quaternion(0.143625, -0.000771931, -0.00678177, 0.989609)
->>>>>>> Stashed changes
+bones/40/rotation = Quaternion(0.146178, -0.000835483, -0.00647976, 0.989237)
 bones/40/scale = Vector3(1, 1, 1)
 bones/41/name = "LeftHandIndex3"
 bones/41/parent = 40
@@ -3920,30 +3702,14 @@ bones/43/parent = 34
 bones/43/rest = Transform3D(1, 6.33157e-05, -1.5605e-08, -6.33157e-05, 1, 1.85453e-06, 1.57224e-08, -1.85453e-06, 1, -3.58482e-05, 9.53341, -4.3386e-05)
 bones/43/enabled = true
 bones/43/position = Vector3(-3.58482e-05, 9.53341, -4.3386e-05)
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-bones/43/rotation = Quaternion(0.132174, 0.0042435, -0.0761342, 0.988289)
-=======
-bones/43/rotation = Quaternion(0.125123, 0.00589041, -0.0846696, 0.988504)
->>>>>>> Stashed changes
-=======
-bones/43/rotation = Quaternion(0.125123, 0.00589041, -0.0846696, 0.988504)
->>>>>>> Stashed changes
+bones/43/rotation = Quaternion(0.129424, 0.00495822, -0.0798189, 0.988359)
 bones/43/scale = Vector3(1, 1, 1)
 bones/44/name = "LeftHandMiddle2"
 bones/44/parent = 43
 bones/44/rest = Transform3D(1, -4.26227e-05, 1.84394e-07, 4.26227e-05, 1, -5.17247e-06, -1.84174e-07, 5.17248e-06, 1, -2.74084e-07, 3.70001, -3.14927e-07)
 bones/44/enabled = true
 bones/44/position = Vector3(7.8513e-07, 3.70001, 5.89059e-07)
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-bones/44/rotation = Quaternion(0.197434, -0.00139912, 0.0150417, 0.9802)
-=======
-bones/44/rotation = Quaternion(0.190786, -0.00139114, 0.0143481, 0.981526)
->>>>>>> Stashed changes
-=======
-bones/44/rotation = Quaternion(0.190786, -0.00139114, 0.0143481, 0.981526)
->>>>>>> Stashed changes
+bones/44/rotation = Quaternion(0.194574, -0.00139591, 0.014725, 0.980776)
 bones/44/scale = Vector3(1, 1, 1)
 bones/45/name = "LeftHandMiddle3"
 bones/45/parent = 44
@@ -3964,30 +3730,14 @@ bones/47/parent = 34
 bones/47/rest = Transform3D(1, -1.26778e-05, 1.44174e-07, 1.26778e-05, 1, 1.85554e-06, -1.44198e-07, -1.85554e-06, 1, 1.86508, 9.10454, 0.0430176)
 bones/47/enabled = true
 bones/47/position = Vector3(1.86508, 9.10454, 0.0430176)
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-bones/47/rotation = Quaternion(0.272107, -0.0168097, -0.121555, 0.954411)
-=======
-bones/47/rotation = Quaternion(0.265281, -0.0138483, -0.129805, 0.955293)
->>>>>>> Stashed changes
-=======
-bones/47/rotation = Quaternion(0.265281, -0.0138483, -0.129805, 0.955293)
->>>>>>> Stashed changes
+bones/47/rotation = Quaternion(0.269526, -0.0155066, -0.124929, 0.954729)
 bones/47/scale = Vector3(1, 1, 1)
 bones/48/name = "LeftHandRing2"
 bones/48/parent = 47
 bones/48/rest = Transform3D(1, 7.29832e-08, -5.63593e-08, -7.29835e-08, 1, -5.17351e-06, 5.63589e-08, 5.17351e-06, 1, 1.70916e-07, 3.15001, 8.4881e-07)
 bones/48/enabled = true
 bones/48/position = Vector3(-8.23925e-07, 3.15001, -1.31674e-05)
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-bones/48/rotation = Quaternion(0.283149, 0.00175834, 0.024585, 0.958759)
-=======
-bones/48/rotation = Quaternion(0.276599, 0.00175942, 0.0241572, 0.96068)
->>>>>>> Stashed changes
-=======
-bones/48/rotation = Quaternion(0.276599, 0.00175942, 0.0241572, 0.96068)
->>>>>>> Stashed changes
+bones/48/rotation = Quaternion(0.280348, 0.00175957, 0.0244196, 0.959586)
 bones/48/scale = Vector3(1, 1, 1)
 bones/49/name = "LeftHandRing3"
 bones/49/parent = 48
@@ -4008,30 +3758,14 @@ bones/51/parent = 34
 bones/51/rest = Transform3D(0.999992, -0.00408962, 4.99197e-08, 0.00408962, 0.999992, 1.03318e-05, -9.21724e-08, -1.03315e-05, 1, 3.80626, 8.07779, 0.486867)
 bones/51/enabled = true
 bones/51/position = Vector3(3.80626, 8.07779, 0.486867)
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-bones/51/rotation = Quaternion(0.298323, -0.0174337, -0.153373, 0.9419)
-=======
-bones/51/rotation = Quaternion(0.291695, -0.0140192, -0.161032, 0.942754)
->>>>>>> Stashed changes
-=======
-bones/51/rotation = Quaternion(0.291695, -0.0140192, -0.161032, 0.942754)
->>>>>>> Stashed changes
+bones/51/rotation = Quaternion(0.295469, -0.0159878, -0.156696, 0.942278)
 bones/51/scale = Vector3(1, 1, 1)
 bones/52/name = "LeftHandPinky2"
 bones/52/parent = 51
 bones/52/rest = Transform3D(1, 0.000421533, -2.89811e-07, -0.000421533, 1, 6.05504e-06, 2.92363e-07, -6.05491e-06, 1, 2.37505e-08, 3.59999, -1.33763e-05)
 bones/52/enabled = true
 bones/52/position = Vector3(-9.29924e-07, 3.59999, -1.33763e-05)
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-bones/52/rotation = Quaternion(0.34364, 0.0114724, 0.049488, 0.937726)
-=======
-bones/52/rotation = Quaternion(0.337223, 0.0112216, 0.0494309, 0.940059)
->>>>>>> Stashed changes
-=======
-bones/52/rotation = Quaternion(0.337223, 0.0112216, 0.0494309, 0.940059)
->>>>>>> Stashed changes
+bones/52/rotation = Quaternion(0.340974, 0.0113524, 0.049464, 0.938702)
 bones/52/scale = Vector3(1, 1, 1)
 bones/53/name = "LeftHandPinky3"
 bones/53/parent = 52
@@ -4052,45 +3786,21 @@ bones/55/parent = 0
 bones/55/rest = Transform3D(-1, -5.15831e-07, -6.28369e-08, 5.14419e-07, -0.999786, 0.0207118, -7.35073e-08, 0.0207118, 0.999785, -8.20779, -6.77175, -1.51222)
 bones/55/enabled = true
 bones/55/position = Vector3(-8.20779, -6.77175, -1.51222)
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-bones/55/rotation = Quaternion(-0.125567, 0.0303255, 0.983925, 0.123306)
-=======
-bones/55/rotation = Quaternion(-0.125295, 0.0398242, 0.983713, 0.122573)
->>>>>>> Stashed changes
-=======
-bones/55/rotation = Quaternion(-0.125295, 0.0398242, 0.983713, 0.122573)
->>>>>>> Stashed changes
+bones/55/rotation = Quaternion(-0.125273, 0.0345443, 0.983882, 0.12284)
 bones/55/scale = Vector3(1, 1, 1)
 bones/56/name = "RightLeg"
 bones/56/parent = 55
 bones/56/rest = Transform3D(1, -3.11164e-08, -6.95594e-08, 3.63214e-08, 0.997098, 0.0761275, 6.69888e-08, -0.0761275, 0.997098, 7.40101e-07, 44.3715, 4.11587e-08)
 bones/56/enabled = true
 bones/56/position = Vector3(7.40101e-07, 44.3715, 4.11587e-08)
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-bones/56/rotation = Quaternion(-0.309131, 0.07759, -0.0230328, 0.947569)
-=======
-bones/56/rotation = Quaternion(-0.320263, 0.0758549, -0.0237108, 0.943989)
->>>>>>> Stashed changes
-=======
-bones/56/rotation = Quaternion(-0.320263, 0.0758549, -0.0237108, 0.943989)
->>>>>>> Stashed changes
+bones/56/rotation = Quaternion(-0.314043, 0.0766647, -0.0234148, 0.946019)
 bones/56/scale = Vector3(1, 1, 1)
 bones/57/name = "RightFoot"
 bones/57/parent = 56
 bones/57/rest = Transform3D(1, 2.89989e-07, -6.30721e-08, -2.18905e-07, 0.577278, -0.816547, -2.00379e-07, 0.816547, 0.577278, -1.88774e-07, 44.5278, -7.50635e-08)
 bones/57/enabled = true
 bones/57/position = Vector3(-1.88774e-07, 44.5278, -7.50635e-08)
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-bones/57/rotation = Quaternion(0.601304, 0.0648998, 0.130775, 0.78557)
-=======
-bones/57/rotation = Quaternion(0.605415, 0.0642862, 0.129429, 0.78268)
->>>>>>> Stashed changes
-=======
-bones/57/rotation = Quaternion(0.605415, 0.0642862, 0.129429, 0.78268)
->>>>>>> Stashed changes
+bones/57/rotation = Quaternion(0.603179, 0.0645579, 0.130079, 0.784275)
 bones/57/scale = Vector3(1, 1, 1)
 bones/58/name = "RightToeBase"
 bones/58/parent = 57
@@ -4111,60 +3821,28 @@ bones/60/parent = 0
 bones/60/rest = Transform3D(-1, -5.37325e-07, -1.73337e-07, 5.33615e-07, -0.999785, 0.0207348, -1.84441e-07, 0.0207348, 0.999785, 8.20779, -6.77179, -1.51221)
 bones/60/enabled = true
 bones/60/position = Vector3(8.20779, -6.77179, -1.51221)
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-bones/60/rotation = Quaternion(0.0794534, 0.218621, 0.967382, -0.100319)
-=======
-bones/60/rotation = Quaternion(0.0788513, 0.223725, 0.966116, -0.101737)
->>>>>>> Stashed changes
-=======
-bones/60/rotation = Quaternion(0.0788513, 0.223725, 0.966116, -0.101737)
->>>>>>> Stashed changes
+bones/60/rotation = Quaternion(0.0791673, 0.220534, 0.966896, -0.101037)
 bones/60/scale = Vector3(1, 1, 1)
 bones/61/name = "LeftLeg"
 bones/61/parent = 60
 bones/61/rest = Transform3D(1, -2.27105e-08, -2.66928e-07, 4.29763e-08, 0.997095, 0.0761695, 2.64423e-07, -0.0761695, 0.997095, -1.04267e-07, 44.3714, -2.43633e-08)
 bones/61/enabled = true
 bones/61/position = Vector3(-1.04267e-07, 44.3714, -2.43633e-08)
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-bones/61/rotation = Quaternion(-0.321599, 0.119079, -0.0335806, 0.938758)
-=======
-bones/61/rotation = Quaternion(-0.324254, 0.118231, -0.0337106, 0.937947)
->>>>>>> Stashed changes
-=======
-bones/61/rotation = Quaternion(-0.324254, 0.118231, -0.0337106, 0.937947)
->>>>>>> Stashed changes
+bones/61/rotation = Quaternion(-0.322788, 0.118458, -0.0333949, 0.938435)
 bones/61/scale = Vector3(1, 1, 1)
 bones/62/name = "LeftFoot"
 bones/62/parent = 61
 bones/62/rest = Transform3D(1, 2.78454e-07, -1.41493e-07, -2.76279e-07, 0.577263, -0.816558, -1.45696e-07, 0.816558, 0.577263, -2.91393e-07, 44.5279, -1.76532e-07)
 bones/62/enabled = true
 bones/62/position = Vector3(-2.91393e-07, 44.5279, -1.76532e-07)
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-bones/62/rotation = Quaternion(0.501368, -0.0273079, -0.0553131, 0.863032)
-=======
-bones/62/rotation = Quaternion(0.501049, -0.0280553, -0.056966, 0.863086)
->>>>>>> Stashed changes
-=======
-bones/62/rotation = Quaternion(0.501049, -0.0280553, -0.056966, 0.863086)
->>>>>>> Stashed changes
+bones/62/rotation = Quaternion(0.501272, -0.0277754, -0.0563257, 0.863007)
 bones/62/scale = Vector3(1, 1, 1)
 bones/63/name = "LeftToeBase"
 bones/63/parent = 62
 bones/63/rest = Transform3D(1, 2.69095e-07, -3.98351e-08, -2.33773e-07, 0.775226, -0.631684, -1.39102e-07, 0.631684, 0.775226, 6.41194e-07, 13.8169, 8.40151e-07)
 bones/63/enabled = true
 bones/63/position = Vector3(6.41194e-07, 13.8169, 8.40151e-07)
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-bones/63/rotation = Quaternion(0.354248, 0.0166553, -0.0238752, 0.934698)
-=======
-bones/63/rotation = Quaternion(0.354292, 0.0165307, -0.0237693, 0.934686)
->>>>>>> Stashed changes
-=======
-bones/63/rotation = Quaternion(0.354292, 0.0165307, -0.0237693, 0.934686)
->>>>>>> Stashed changes
+bones/63/rotation = Quaternion(0.354264, 0.016609, -0.0238358, 0.934694)
 bones/63/scale = Vector3(1, 1, 1)
 bones/64/name = "LeftToe_End"
 bones/64/parent = 63

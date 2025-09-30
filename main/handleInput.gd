@@ -1,4 +1,5 @@
 extends Node3D
+
 var coord = Vector3()
 var removalqueue = []
 var displaygameover = false
@@ -8,11 +9,14 @@ var maxtimer = 0.2
 var towers =[]
 var enemies = []
 var bulletTimer = 0
+
 @export var fireDelay = 1
 @export var enemyheight = 2
 @onready var overlay = $"CanvasLayer/HUD/Game Over/Overlay"
 @onready var text = $"CanvasLayer/HUD/Game Over/Text"
+
 signal get_active_slot
+
 func _physics_process(delta: float) -> void:
 	get_active_slot.emit()
 	if $CanvasLayer/HUD.getActive()=="Gun":
@@ -33,6 +37,7 @@ func _input(event):
 		print("testett")
 	if event.is_action_pressed("NUKE THE QUEUE"):
 		delete_queued_objects()
+
 func _process(delta) -> void:
 	if displaygameover:
 		lerpf(gameoveropacity,1,delta/5) 
@@ -45,6 +50,7 @@ func _process(delta) -> void:
 	#print("shazam")
 	process_towers(delta)
 	timer =0
+
 func _on_map_castle_placed(centre) -> void:
 	$MonsterSpawner.setCentre(centre)
 	coord = centre
@@ -54,6 +60,7 @@ func _on_map_removalqueue(action: bool, object: Variant) -> void:
 		removalqueue.append(object)
 	else:
 		removalqueue.erase(object)
+
 func delete_queued_objects():
 	for object in removalqueue:
 		object.queue_free()
@@ -79,6 +86,7 @@ func process_towers(delta):
 			tower._shoot(target)
 			print("enemy position at: ",target)
 			bulletTimer = 0
+
 func get_closest_enemy(to: Vector3):
 	var lowest: float = 100
 	var current = null
@@ -102,7 +110,5 @@ func get_closest_enemy(to: Vector3):
 func _on_map_new_tower(tower) -> void:
 	towers.append(tower)
 
-
 func _on_monster_spawner_enemyspawn(enemy) -> void:
 	enemies.append(enemy)
-	
