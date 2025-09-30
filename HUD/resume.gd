@@ -29,8 +29,8 @@ func unpause():
 	get_tree().paused = false
 
 # Detects when resume is pressed
-func _on_resume_pressed():
-	unpause()
+#func _on_resume_pressed():
+#	unpause()
 
 # Exits the game
 func _on_quit_pressed() -> void:

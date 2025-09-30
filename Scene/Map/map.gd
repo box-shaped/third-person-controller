@@ -104,8 +104,8 @@ func get_tile_height(cell):
 			var height_offset: float = pixel_position[1]
 
 			# Calculate the distance from the center of the map
-			var map_radius = (mapDiameter - 1) / 2
-			var center = Vector2(map_radius, map_radius)
+			#var map_radius = (mapDiameter - 1) / 2
+			var center = Vector2(mapRadius, mapRadius)
 			var distance = tile.distance_to(center)
 
 			# Apply the falloff based on the distance from the center
@@ -118,8 +118,7 @@ func get_tile_height(cell):
 	var height_offset: float = pixel_position[1]
 
 	# Calculate the distance from the center of the map
-	var map_radius = (mapDiameter - 1) / 2
-	var center = Vector2(map_radius, map_radius)
+	var center = Vector2(mapRadius, mapRadius)
 	var distance = cell.distance_to(center)
 	# Apply the falloff based on the distance from the center
 	var falloff_value = falloff(distance, centerHillRadius)
@@ -142,17 +141,22 @@ func initmap(diameter):
 				world_map[str("built",Vector2i(x,y))] = false
 	return world_map
 
-func falloff(distance: float, radius: float) -> float:
-	if distance < radius:
-		var u  = -centerHillHeight
-		var z = (u * distance) / (distance - (falloffSlope*u)) - u
-		return 1+z
-	else:
-		return 1  # No change to tiles outside the radius
+func falloff(distance: float, _radius: float) -> float:
+	var u  = -centerHillHeight
+	var z = (u * distance) / (distance - (falloffSlope*u)) - u
+	return 1+z
+
+#func falloff(distance: float, radius: float) -> float:
+#	if distance < radius:
+#		var u  = -centerHillHeight
+#		var z = (u * distance) / (distance - (falloffSlope*u)) - u
+#		return 1+z
+#	else:
+#		return 1  # No change to tiles outside the radius
 
 # Generates the world map
 func generateMap():
-	var TileLibrary = preload("res://Scene/Map/Library.tscn")
+	var _TileLibrary = preload("res://Scene/Map/Library.tscn")
 	for x in range(mapDiameter):
 		for y in range(mapDiameter):
 			var cell = Vector2i(x, y)
@@ -194,7 +198,7 @@ func placeBlock(blockID: String, coordinates: Vector3, debug: bool = true, basem
 
 	# Calculate the pixel position of the grid cell
 	var pixel_position = _cellToPixel(cellCoords)[0]
-	var center_offset = _cellToPixel(Vector2((mapDiameter - 1) / 2, (mapDiameter - 1) / 2))[0]
+	var _center_offset = _cellToPixel(Vector2((mapDiameter - 1) / 2, (mapDiameter - 1) / 2))[0]
 	if centergrass:
 		tile_height = coordinates.y
 	# Adjust the final position by taking the center offset into account
@@ -252,11 +256,11 @@ func build():
 			# Get the block type from UI
 			var blocktype = $"../../CanvasLayer/HUD".getActive()
 			
-			
 			# Get the collision point from the raycast
 			var collision_point = ray.get_collision_point()
 			collision_point.x +=centerPixel.x
 			collision_point.z +=centerPixel.y
+			
 			# Place the block at the raycast hit location
 			var block = placeBlock(blocktype, collision_point)
 			if blocktype == "Tower":

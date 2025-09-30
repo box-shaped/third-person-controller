@@ -16,7 +16,7 @@ func Hud_ready():
 	updateHealth.connect(get_node("res://HUD/HUD.tscn")._on_castle_health)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 signal castleGone

@@ -114,9 +114,9 @@ func change_stone(amount):
 
 # Finds the amount of a resource the player has
 func get_wood():
-	var wood = int($ResourcePanel/HBoxContainer/WoodContainer/WoodAmount.text)
+	wood = int($ResourcePanel/HBoxContainer/WoodContainer/WoodAmount.text)
 	return wood
 
 func get_stone():
-	var stone = int($ResourcePanel/HBoxContainer/StoneContainer/StoneAmount.text)
+	stone = int($ResourcePanel/HBoxContainer/StoneContainer/StoneAmount.text)
 	return stone

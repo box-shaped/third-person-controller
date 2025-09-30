@@ -183,7 +183,6 @@ func stair_step_up():
 	if wish_dir == Vector3.ZERO:
 		return
 
-
 	# 0. Initialize testing variables
 	var body_test_params = PhysicsTestMotionParameters3D.new()
 	var body_test_result = PhysicsTestMotionResult3D.new()
@@ -192,7 +191,6 @@ func stair_step_up():
 	var distance = wish_dir * 0.1						## Distance forward we want to check
 	body_test_params.from = self.global_transform		## Self as origin point
 	body_test_params.motion = distance					## Go forward by current distance
-
 
 	# Pre-check: Are we colliding?
 	if !PhysicsServer3D.body_test_motion(self.get_rid(), body_test_params, body_test_result):
